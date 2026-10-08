@@ -2,6 +2,7 @@ import { TypingContext, TypingStateActionType } from '../../store'
 import Tooltip from '@/components/Tooltip'
 import { currentDictInfoAtom, isTransVisibleAtom, wordDictationConfigAtom } from '@/store'
 import { CTRL } from '@/utils'
+import { getWordPartOfSpeech } from '@/utils/wordPartOfSpeech'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useMemo } from 'react'
 import IconPrev from '~icons/tabler/arrow-narrow-left'
@@ -17,6 +18,7 @@ export default function PrevAndNextWord({ type }: LastAndNextWordProps) {
   const word = state.chapterData.words[newIndex]
   const shortCutKey = useMemo(() => (type === 'prev' ? `${CTRL} + Shift + ArrowLeft` : `${CTRL} + Shift + ArrowRight`), [type])
   const currentLanguage = useAtomValue(currentDictInfoAtom).language
+  const partOfSpeech = word && getWordPartOfSpeech(word, currentLanguage)
 
   const onClickWord = useCallback(() => {
     if (!word) return
@@ -56,7 +58,10 @@ export default function PrevAndNextWord({ type }: LastAndNextWordProps) {
                 {headWord}
               </p>
               {(isTransVisible || type === 'prev') && (
-                <p className="line-clamp-1 max-w-full text-sm font-normal text-gray-600 dark:text-gray-500">{word.trans.join('；')}</p>
+                <p className="line-clamp-1 max-w-full text-sm font-normal text-gray-600 dark:text-gray-500">
+                  {partOfSpeech && <span className="mr-2">{partOfSpeech}</span>}
+                  <span>{word.trans.join('；')}</span>
+                </p>
               )}
             </div>
             {type === 'next' && <IconNext className="ml-4 shrink-0 grow-0 text-2xl" />}

@@ -7,6 +7,7 @@ import Translation from './components/Translation'
 import WordComponent from './components/Word'
 import { usePrefetchPronunciationSound } from '@/hooks/usePronunciation'
 import {
+  currentDictInfoAtom,
   isReviewModeAtom,
   isShowPrevAndNextWordAtom,
   isTransVisibleAtom,
@@ -15,6 +16,7 @@ import {
   reviewModeInfoAtom,
 } from '@/store'
 import type { Word } from '@/typings'
+import { getWordPartOfSpeech } from '@/utils/wordPartOfSpeech'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -25,6 +27,7 @@ export default function WordPanel() {
   const phoneticConfig = useAtomValue(phoneticConfigAtom)
   const isShowPrevAndNextWord = useAtomValue(isShowPrevAndNextWordAtom)
   const isTransVisible = useAtomValue(isTransVisibleAtom)
+  const currentLanguage = useAtomValue(currentDictInfoAtom).language
   const [wordComponentKey, setWordComponentKey] = useState(0)
   const [currentWordExerciseCount, setCurrentWordExerciseCount] = useState(0)
   const [completedWord, setCompletedWord] = useState<Word>()
@@ -231,6 +234,7 @@ export default function WordPanel() {
               {phoneticConfig.isOpen && <Phonetic word={currentWord} />}
               <Translation
                 trans={currentWord.trans.join('；')}
+                partOfSpeech={getWordPartOfSpeech(currentWord, currentLanguage)}
                 showTrans={shouldShowTranslation}
                 onMouseEnter={() => handleShowTranslation(true)}
                 onMouseLeave={() => handleShowTranslation(false)}

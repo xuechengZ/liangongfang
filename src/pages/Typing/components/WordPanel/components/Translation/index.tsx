@@ -7,12 +7,13 @@ import { useCallback, useMemo } from 'react'
 
 export type TranslationProps = {
   trans: string
+  partOfSpeech?: string
   showTrans?: boolean
   onMouseEnter?: () => void
   onMouseLeave?: () => void
 }
 
-export default function Translation({ trans, showTrans = true, onMouseEnter, onMouseLeave }: TranslationProps) {
+export default function Translation({ trans, partOfSpeech, showTrans = true, onMouseEnter, onMouseLeave }: TranslationProps) {
   const pronunciationConfig = useAtomValue(pronunciationConfigAtom)
   const fontSizeConfig = useAtomValue(fontSizeConfigAtom)
   const isShowTransRead = window.speechSynthesis && pronunciationConfig.isTransRead
@@ -32,7 +33,8 @@ export default function Translation({ trans, showTrans = true, onMouseEnter, onM
         } ${isTextSelectable && 'select-text'}`}
         style={{ fontSize: fontSizeConfig.translateFont.toString() + 'px' }}
       >
-        {showTrans ? trans : '\u00A0'}
+        {showTrans && partOfSpeech && <span className="mr-2 text-sm text-gray-500 dark:text-gray-400">{partOfSpeech}</span>}
+        <span>{showTrans ? trans : '\u00A0'}</span>
       </span>
       {isShowTransRead && showTrans && (
         <Tooltip content="朗读释义" className="ml-3 h-5 w-5 cursor-pointer leading-7">
