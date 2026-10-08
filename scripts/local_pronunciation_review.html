@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本地音频待确认</title>
+<style>
+  body { margin: 0; background: #f6f7f9; color: #263041; font: 16px/1.6 system-ui, sans-serif; }
+  main { max-width: 960px; margin: 32px auto; padding: 0 20px 60px; }
+  h1 { margin-bottom: 6px; font-size: 28px; } h2 { margin: 0; font-size: 22px; }
+  .muted { color: #657186; font-size: 14px; } .notice { padding: 16px; background: #eaf1ff; border-radius: 10px; }
+  .toolbar, .pagination, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0; }
+  button, select, input { font: inherit; border: 1px solid #cbd2df; border-radius: 7px; padding: 8px 12px; background: white; }
+  button { cursor: pointer; } button:disabled { cursor: default; opacity: .45; } button.primary { background: #295cc5; color: white; border-color: #295cc5; }
+  input { width: 190px; } article { background: white; border: 1px solid #e0e4ec; padding: 22px; border-radius: 12px; margin: 18px 0; }
+  .candidate { border-top: 1px solid #e9edf3; padding-top: 14px; margin-top: 14px; }
+  audio { display: block; width: 100%; max-width: 440px; margin: 12px 0; }
+  .status { color: #246647; font-weight: 600; } summary { cursor: pointer; } #message { color: #a34e11; }
+</style>
+<main>
+  <h1>本地音频待确认</h1>
+  <p class="muted">只复核未可靠匹配项 · 每批10项 · 不改变现有听写功能</p>
+  <div class="notice">请听候选片段，确认它读的是<strong>完整目标词／词组，且没有夹带其他词</strong>。识别文本可能有误，不要只凭文字确认。<br>已标记“候选一已暂用”的词正在听写中使用，并提示“发音可能有误”，仍待确认；已可靠自动处理的词已移出清单。“前后词对照”不能直接当作单词发音。</div>
+  <p id="auto" class="muted"></p>
+  <p id="reuse" class="muted"></p>
+  <div class="toolbar">
+    <label>词书 <select id="book"><option value="">全部</option><option>C3</option><option>C4</option><option>C5</option><option>C11</option></select></label>
+    <label>分类 <select id="category"><option value="">全部</option></select></label>
+    <label>状态 <select id="status"><option value="">全部</option><option value="pending">未核对</option><option value="confirmed">已确认</option><option value="needs-cut">需重新切分</option><option value="rejected">不匹配</option><option value="uncertain">不确定</option></select></label>
+    <input id="search" aria-label="搜索目标词" placeholder="搜索目标词">
+  </div>
+  <div class="toolbar"><strong id="progress"></strong><button id="export" class="primary">导出确认结果</button></div>
+  <p class="muted">进度保存在当前浏览器。确认后请导出结果文件，再交给我合并；不会立即改变听写网站发音。</p>
+  <p id="message" role="status"></p>
+  <div class="pagination"><button id="previous">上一批</button><span id="range"></span><button id="next">下一批</button></div>
+  <section id="cards"></section>
+</main>
+<script id="data" type="application/json">__REVIEW_DATA__</script>
+<script>
+  const data = JSON.parse(document.getElementById('data').textContent);
+  const storageKey = 'pronunciationReview:' + data.reportId;
+  const $ = id => document.getElementById(id);
+  let decisions = {}, pageIndex = 0;
+  try { decisions = JSON.parse(localStorage.getItem(storageKey) || '{}'); }
+  catch { $('message').textContent = '无法读取已保存进度，请以之前导出的结果为准。'; }
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const statuses = {confirmed: '已确认候选', 'needs-cut': '对照中有目标词，需重新切分', rejected: '候选不匹配', uncertain: '暂不确定'};
+  const evidence = {'spacing-or-punctuation': '忽略空格／标点后文本吻合，仍需听感确认', 'possible-extra-content': '重试吻合，首次识别含额外词：请重点检查完整性', 'text-similarity': '仅文字接近，不是匹配概率', 'position-only': '只有顺序位置支持，内容尚不确定'};
+  $('auto').textContent = data.autoResolvedCount ? `已按顺序及识别复核自动处理 ${data.autoResolvedCount} 项，剩余 ${data.total} 项待确认；原人工标记保留。` : '';
+  if (data.provisionalCount) $('auto').textContent += ` 其中 ${data.provisionalCount} 项已暂用候选一，听写显示“发音可能有误”。`;
+  $('reuse').innerHTML = `另有 ${data.reuseSuggestions.filter(item => item.scope === 'same-book').length} 项可复用同书已验收同词音频，${data.reuseSuggestions.filter(item => item.scope === 'other-book').length} 项有跨书复用建议（均要求英音音标一致，尚未发布）。<a href="review-reuse-suggestions.csv" download>查看复用清单</a>`;
+  for (const [value, label] of Object.entries(data.labels)) $('category').add(new Option(label, value));
+  $('category').value = 'representation-candidate';
+  function audio(span) { return `<audio controls preload="none" src="${esc(span.audio)}"></audio>`; }
+  function render() {
+    const rows = data.rows.filter(row => (!$('book').value || row.book === $('book').value)
+      && (!$('category').value || row.category === $('category').value)
+      && (!$('status').value || (decisions[row.id]?.status || 'pending') === $('status').value)
+      && row.word.toLowerCase().includes($('search').value.toLowerCase()));
+    pageIndex = Math.max(0, Math.min(pageIndex, Math.ceil(rows.length / 10) - 1));
+    $('range').textContent = `找到 ${rows.length} 项 · 当前 ${rows.length ? pageIndex * 10 + 1 : 0}–${Math.min(rows.length, pageIndex * 10 + 10)}`;
+    $('previous').disabled = pageIndex === 0; $('next').disabled = (pageIndex + 1) * 10 >= rows.length;
+    const activeDecisions = data.rows.map(row => decisions[row.id]).filter(Boolean);
+    $('progress').textContent = `已核对 ${activeDecisions.length}/${data.total} 项 · 已确认 ${activeDecisions.filter(d => d.status === 'confirmed').length} 项`;
+    $('cards').innerHTML = rows.slice(pageIndex * 10, pageIndex * 10 + 10).map(row => {
+      const decision = decisions[row.id];
+      const reuse = data.reuseSuggestions.find(item => item.id === row.id);
+      const crosscheck = data.crosschecks?.[row.id];
+      return `<article data-review-id="${row.id}"><span class="muted">${row.book} · 第${row.index + 1}词 · ${row.id}</span>
+        <h2>${esc(row.word)}</h2><div class="muted">${esc(data.labels[row.category])} · 前：${esc(row.previousWord || '录音开头')} → 后：${esc(row.nextWord || '录音结尾')}</div>
+        ${row.provisionalClipId ? '<p class="muted">候选一已暂用 · 听写显示“发音可能有误” · 尚未确认正确</p>' : ''}
+        <div class="status">${decision ? statuses[decision.status] : '待确认'}</div>
+        ${crosscheck ? `<p class="muted">补充单段识别 A：${esc(crosscheck.texts['tiny.en'] || '未识别')}；B：${esc(crosscheck.texts['base.en'] || '未识别')}<br>
+        上下文识别：${esc(crosscheck.context?.previous || '未识别')} → ${esc(crosscheck.context?.word || '未识别')} → ${esc(crosscheck.context?.next || '未识别')}<br>自动证据仍不足，需听辨；识别文本不等于实际发音结论。</p>` : ''}
+        ${reuse ? `<p class="notice">已有同词、同英音音标的验收音频：${reuse.sourceBook} 第${reuse.sourceIndex + 1}词（${reuse.scope === 'same-book' ? '同书复用，无需重新找录音' : '跨书复用，需先接受使用其他书的录音'}）。此项也已列入独立复用建议清单。</p>` : ''}
+        ${row.gapWords.length > 1 ? `<p class="muted">同一待定位区间包含：${row.gapWords.map(esc).join(' / ')}；请勿仅按下标分配。</p>` : ''}
+        ${row.candidates.map((span, index) => `<div class="candidate"><strong>候选${index + 1}</strong> ${decision?.clipId === span.clipId ? '✓ 已选' : ''}
+          <div class="muted">${esc(evidence[span.evidence])}</div><div>首次识别：${esc(span.recognized || '未识别')}<br>单段重试：${esc(span.retryRecognized || '无')}</div>
+          <div class="muted">原录音 ${span.start.toFixed(2)}–${span.end.toFixed(2)} 秒</div>${audio(span)}
+          <button class="primary" data-status="confirmed" data-id="${row.id}" data-clip="${span.clipId}">确认此片段</button></div>`).join('')}
+        ${row.candidates.length ? '' : '<p>未定位到独立候选。请听前后词对照；这不代表已证实原文件缺少该词。</p>'}
+        <details><summary>播放前后词对照（不可直接确认）</summary>${row.contexts.map(audio).join('')}
+        <button data-status="needs-cut" data-id="${row.id}">对照里听到目标词，需重新切分</button></details>
+        <div class="actions"><button data-status="rejected" data-id="${row.id}">候选不匹配</button><button data-status="uncertain" data-id="${row.id}">暂不确定</button>
+        ${decision ? `<button data-status="pending" data-id="${row.id}">撤销标记</button>` : ''}</div></article>`;
+    }).join('');
+  }
+  $('cards').addEventListener('click', event => {
+    const button = event.target.closest('button[data-status]');
+    if (!button) return;
+    const {id, status, clip} = button.dataset;
+    if (status === 'confirmed' && Object.entries(decisions).some(([other, d]) => other !== id && d.status === 'confirmed' && d.clipId === clip)) {
+      $('message').textContent = '这个片段已确认给另一个词，请先核实并撤销错误标记。'; return;
+    }
+    if (status === 'pending') delete decisions[id];
+    else decisions[id] = {id, status, ...(clip ? {clipId: clip} : {})};
+    try { localStorage.setItem(storageKey, JSON.stringify(decisions)); $('message').textContent = ''; }
+    catch { $('message').textContent = '浏览器保存失败，请及时导出当前结果。'; }
+    render();
+  });
+  for (const id of ['book', 'category', 'status', 'search']) $(id).addEventListener('input', () => { pageIndex = 0; render(); });
+  $('previous').onclick = () => { pageIndex--; render(); };
+  $('next').onclick = () => { pageIndex++; render(); window.scrollTo(0, 0); };
+  $('export').onclick = () => {
+    const blob = new Blob([JSON.stringify({schemaVersion: 1, reportId: data.reportId, decisions: Object.values(decisions)}, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob), link = document.createElement('a');
+    link.href = url; link.download = 'pronunciation-review-results.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+  document.addEventListener('play', event => { for (const other of document.querySelectorAll('audio')) if (other !== event.target) other.pause(); }, true);
+  render();
+</script>
+</html>
