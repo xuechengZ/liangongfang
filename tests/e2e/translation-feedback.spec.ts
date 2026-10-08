@@ -79,18 +79,29 @@ test('skipping during feedback cancels its timer and revisiting does not reveal 
   await expect(current).toContainText(words[0].name)
 })
 
-test('repeated practice clears feedback before each new attempt', async ({ page }) => {
+test('repeated practice keeps the revealed definition until the word ends, then hides the next definition', async ({ page }) => {
   await page.evaluate(() => localStorage.setItem('loopWordConfig', JSON.stringify({ times: 3 })))
   await page.reload()
   await page.getByRole('button', { name: '开始' }).click()
   const current = page.locator('div[lang="en"]')
+  const definition = current.locator('..').getByText('听写释义0', { exact: true })
+  await expect(definition).toHaveCount(0)
   for (let attempt = 0; attempt < 3; attempt += 1) {
-    await expect(page.getByText('听写释义0', { exact: true })).toHaveCount(0)
     await page.keyboard.type(words[0].name, { delay: 15 })
-    await expect(current.locator('..').getByText('听写释义0', { exact: true })).toBeVisible()
-    await expect(current.locator('..').getByText('听写释义0', { exact: true })).toHaveCount(0)
-    await expect(current).toContainText(words[attempt === 2 ? 1 : 0].name)
+    await expect(definition).toBeVisible()
+    if (attempt < 2) {
+      await expect(current.locator('.tooltip-info > div').first()).toHaveText(words[0].name)
+      await expect(current.locator('.tooltip-info > div').first()).not.toHaveClass(/text-green/)
+      await page.waitForTimeout(1200)
+      await expect(definition).toBeVisible()
+    } else {
+      await expect(current).toContainText(words[1].name)
+      await expect(definition).toHaveCount(0)
+      await expect(page.getByText('听写释义1', { exact: true })).toHaveCount(0)
+    }
   }
+  await page.keyboard.press('Control+Shift+ArrowLeft')
+  await expect(page.getByText('听写释义0', { exact: true })).toHaveCount(0)
 })
 
 test('last word shows feedback before finishing and next chapter starts without old definitions', async ({ page }) => {

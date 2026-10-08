@@ -105,7 +105,7 @@ const App: React.FC = () => {
 
       dispatch({
         type: TypingStateActionType.SETUP_CHAPTER,
-        payload: { words, shouldShuffle: randomConfig.isOpen, initialIndex },
+        payload: { words, shouldShuffle: randomConfig.isOpen && currentDictId !== DYNAMIC_DICT_ID, initialIndex },
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

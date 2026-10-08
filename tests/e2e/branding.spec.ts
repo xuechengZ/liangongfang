@@ -21,7 +21,7 @@ test('desktop personal branding keeps the dynamic book but removes promotional f
   await expect(logo).toHaveAttribute('src', '/acheng-logo.png')
   await expect.poll(() => logo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(1254)
   await expect(page.locator('header a').first()).toHaveAttribute('href', '/')
-  await expect(page.getByRole('link', { name: '动态词本', exact: true })).toBeVisible()
+  await expect(page.getByRole('link', { name: '错词排行', exact: true })).toBeVisible()
   await expect(page.locator('footer button')).toHaveCount(0)
   await expect(page.locator('a[href*="xiaohongshu"],a[href*="twitter.com"],a[href*="gitee.io"],a[href^="mailto:me@kaiyi"]')).toHaveCount(0)
   await expect(page.locator('footer')).not.toContainText('鲁ICP备')

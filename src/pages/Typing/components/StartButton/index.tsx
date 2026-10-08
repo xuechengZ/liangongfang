@@ -1,6 +1,7 @@
 import { TypingContext, TypingStateActionType } from '../../store'
 import Tooltip from '@/components/Tooltip'
-import { randomConfigAtom } from '@/store'
+import { DYNAMIC_DICT_ID } from '@/constants'
+import { currentDictIdAtom, randomConfigAtom } from '@/store'
 import { autoUpdate, offset, useFloating, useHover, useInteractions } from '@floating-ui/react'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useState } from 'react'
@@ -10,14 +11,15 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
   const { state, dispatch } = useContext(TypingContext)!
   const randomConfig = useAtomValue(randomConfigAtom)
+  const currentDictId = useAtomValue(currentDictIdAtom)
 
   const onToggleIsTyping = useCallback(() => {
     !isLoading && dispatch({ type: TypingStateActionType.TOGGLE_IS_TYPING })
   }, [isLoading, dispatch])
 
   const onClickRestart = useCallback(() => {
-    dispatch({ type: TypingStateActionType.REPEAT_CHAPTER, shouldShuffle: randomConfig.isOpen })
-  }, [dispatch, randomConfig.isOpen])
+    dispatch({ type: TypingStateActionType.REPEAT_CHAPTER, shouldShuffle: randomConfig.isOpen && currentDictId !== DYNAMIC_DICT_ID })
+  }, [currentDictId, dispatch, randomConfig.isOpen])
 
   useHotkeys('enter', onToggleIsTyping, { enableOnFormTags: true, preventDefault: true }, [onToggleIsTyping])
 

@@ -6,6 +6,7 @@ export interface IDynamicWord {
   word: Word
   dict: string
   timeStamp: number
+  wrongCount?: number
 }
 
 export interface IWordRecord {

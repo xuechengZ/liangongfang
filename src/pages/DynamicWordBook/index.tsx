@@ -2,14 +2,15 @@ import Layout from '@/components/Layout'
 import { DYNAMIC_DICT_ID } from '@/constants'
 import { idDictionaryMap } from '@/resources/dictionary'
 import { currentChapterAtom, currentDictIdAtom, reviewModeInfoAtom, wordDictationConfigAtom } from '@/store'
-import { db } from '@/utils/db'
+import { getRankedDynamicWords } from '@/utils/db/dynamic-words'
 import { ReviewRecord } from '@/utils/db/record'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useSetAtom } from 'jotai'
 import { Link, useNavigate } from 'react-router-dom'
+import IconX from '~icons/tabler/x'
 
 export default function DynamicWordBook() {
-  const entries = useLiveQuery(() => db.dynamicWords.orderBy('timeStamp').toArray())
+  const entries = useLiveQuery(getRankedDynamicWords)
   const setCurrentDict = useSetAtom(currentDictIdAtom)
   const setCurrentChapter = useSetAtom(currentChapterAtom)
   const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
@@ -18,7 +19,7 @@ export default function DynamicWordBook() {
 
   const startPractice = async () => {
     // Freeze this round's list: deleting mastered words must not shift the active word index.
-    const pending = await db.dynamicWords.orderBy('timeStamp').toArray()
+    const pending = await getRankedDynamicWords()
     if (!pending.length) return
     setCurrentDict(DYNAMIC_DICT_ID)
     setCurrentChapter(0)
@@ -35,15 +36,24 @@ export default function DynamicWordBook() {
 
   return (
     <Layout>
-      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col overflow-y-auto px-8 pt-16 dark:text-gray-300">
+      <div className="relative mx-auto flex w-full max-w-4xl flex-1 flex-col overflow-y-auto px-8 pt-16 dark:text-gray-300">
+        <button
+          type="button"
+          aria-label="关闭错词排行"
+          title="关闭错词排行"
+          className="absolute right-8 top-6 text-gray-400 hover:text-indigo-500"
+          onClick={() => (window.history.state?.idx > 0 ? navigate(-1) : navigate('/'))}
+        >
+          <IconX className="h-7 w-7" />
+        </button>
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold">动态词本</h1>
+          <h1 className="text-2xl font-semibold">错词排行</h1>
           <Link to="/gallery" className="text-indigo-500 hover:underline">
             选择其它词书
           </Link>
         </div>
         <p className="mt-4 text-sm text-gray-500">
-          从现在起，其它英语词书中拼错的词自动收录，同一拼写只保留一次。在这里开启默写并全程拼对后自动移除；先错后改对、跳过或关闭默写后拼写不会移除。历史记录不删除。
+          其它英语词书中拼错的词自动收录，同一拼写只保留一次，按累计拼写错误次数从高到低默写。在这里开启默写并全程拼对后自动移除；先错后改对、跳过或关闭默写后拼写不会移除。历史记录不删除。
         </p>
         <div className="my-6 flex items-center justify-between">
           <span role="status">{entries ? `待复习 ${entries.length} 词` : '加载中…'}</span>
@@ -57,7 +67,7 @@ export default function DynamicWordBook() {
             <li key={entry.name} className="py-4">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-lg font-medium">{entry.word.name}</span>
-                <span className="text-xs text-gray-500">{idDictionaryMap[entry.dict]?.name ?? entry.dict}</span>
+                <span className="text-xs text-gray-500">错 {entry.wrongCount} 次 · {idDictionaryMap[entry.dict]?.name ?? entry.dict}</span>
               </div>
               <p className="mt-1 text-sm text-gray-500">{entry.word.trans.join('；')}</p>
             </li>

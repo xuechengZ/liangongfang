@@ -28,6 +28,7 @@ export default function WordPanel() {
   const [wordComponentKey, setWordComponentKey] = useState(0)
   const [currentWordExerciseCount, setCurrentWordExerciseCount] = useState(0)
   const [completedWord, setCompletedWord] = useState<Word>()
+  const [revealedWord, setRevealedWord] = useState<Word>()
   const { times: loopWordTimes } = useAtomValue(loopWordConfigAtom)
   const currentWord = state.chapterData.words[state.chapterData.index]
   const nextWord = state.chapterData.words[state.chapterData.index + 1] as Word | undefined
@@ -108,6 +109,7 @@ export default function WordPanel() {
       advanceWord()
     } else {
       setCompletedWord(currentWord)
+      setRevealedWord(currentWord)
     }
   }, [advanceWord, currentWord, isTransVisible])
 
@@ -116,12 +118,17 @@ export default function WordPanel() {
   }, [currentWord, wordComponentKey])
 
   useEffect(() => {
+    setRevealedWord(undefined)
+  }, [currentWord])
+
+  useEffect(() => {
     // Restarting the first word can keep the same word/index, but resets the chapter's input count.
-    if (isShowingCompletion && state.chapterData.correctCount === 0) {
+    if ((isShowingCompletion || (!!revealedWord && revealedWord === currentWord)) && state.chapterData.correctCount === 0) {
       setCompletedWord(undefined)
+      setRevealedWord(undefined)
       reloadCurrentWordComponent()
     }
-  }, [isShowingCompletion, reloadCurrentWordComponent, state.chapterData.correctCount])
+  }, [currentWord, isShowingCompletion, revealedWord, reloadCurrentWordComponent, state.chapterData.correctCount])
 
   useEffect(() => {
     if (!isShowingCompletion || !state.isTyping) return
@@ -187,8 +194,8 @@ export default function WordPanel() {
   )
 
   const shouldShowTranslation = useMemo(() => {
-    return isShowTranslation || isTransVisible || isShowingCompletion
-  }, [isShowTranslation, isTransVisible, isShowingCompletion])
+    return isShowTranslation || isTransVisible || isShowingCompletion || (!!revealedWord && revealedWord === currentWord)
+  }, [currentWord, isShowTranslation, isTransVisible, isShowingCompletion, revealedWord])
 
   return (
     <div className="container flex h-full w-full flex-col items-center justify-center">

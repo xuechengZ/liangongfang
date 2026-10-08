@@ -4202,7 +4202,7 @@ export const idDictionaryMap: Record<string, Dictionary> = Object.fromEntries(di
 
 idDictionaryMap[DYNAMIC_DICT_ID] = {
   id: DYNAMIC_DICT_ID,
-  name: '动态词本',
+  name: '错词排行',
   description: '其它英语词书的拼写错词，默写无错后自动移除',
   category: '我的词本',
   tags: [],

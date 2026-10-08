@@ -36,8 +36,8 @@ async function mistake(page: Page) {
   await page.waitForTimeout(400)
 }
 async function openBook(page: Page) {
-  await page.getByRole('link', { name: '动态词本', exact: true }).click()
-  await expect(page.getByRole('heading', { name: '动态词本' })).toBeVisible()
+  await page.getByRole('link', { name: '错词排行', exact: true }).click()
+  await expect(page.getByRole('heading', { name: '错词排行' })).toBeVisible()
 }
 async function practice(page: Page) {
   await openBook(page)
@@ -92,7 +92,7 @@ test('mastering removes only membership, retains history, and does not skip the 
   await expect.poll(async () => (await entries(page)).map((row) => row.word.name)).toEqual(['abstract'])
   await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('________')
   await page.keyboard.type('abstract', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
   const history = (await tableRows(page, 'wordRecords')).filter((row) => row.word === 'ability' && row.dict === 'ieltsWang3')
   expect(history).toHaveLength(2)
@@ -104,12 +104,12 @@ test('wrong then corrected dictation stays in the book; a new clean attempt remo
   await practice(page)
   await mistake(page)
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByRole('listitem')).toHaveCount(1)
   await page.getByRole('button', { name: '开始默写' }).click()
   await page.getByRole('button', { name: '开始', exact: true }).click()
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
 })
 
@@ -118,7 +118,7 @@ test('visible spelling practice inside the dynamic book does not remove membersh
   await practice(page)
   await page.keyboard.press('Control+v')
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByRole('listitem')).toHaveCount(1)
 })
 
@@ -129,7 +129,7 @@ test('turning dictation on after visible input does not count as a clean dictati
   await page.keyboard.type('a')
   await page.keyboard.press('Control+v')
   await page.keyboard.type('bility', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByRole('listitem')).toHaveCount(1)
 })
 
@@ -142,7 +142,7 @@ test('correct spelling elsewhere does not remove it, and later mistakes recollec
   await expect(page.locator('div[lang="en"]')).toContainText('abstract')
   await practice(page)
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
   await page.evaluate(() => {
     localStorage.setItem('currentDict', JSON.stringify('ieltsWang3'))
@@ -188,7 +188,7 @@ test('reload keeps the remaining word in a frozen session after removing the fir
   await page.getByRole('button', { name: '开始', exact: true }).click()
   await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('________')
   await page.keyboard.type('abstract', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
 })
 
@@ -270,11 +270,11 @@ test('dynamic practice mistakes remain readable in the original historical error
   await practice(page)
   await mistake(page)
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await page.getByRole('button', { name: '开始默写' }).click()
   await page.getByRole('button', { name: '开始', exact: true }).click()
   await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回动态词本' }).click()
+  await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
   await page.goto(url + 'error-book', { waitUntil: 'domcontentloaded' })
   const row = page.getByRole('listitem').filter({ hasText: 'ability' })

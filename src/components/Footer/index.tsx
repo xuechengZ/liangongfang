@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="mb-1 mt-4 flex w-full flex-wrap items-center justify-center gap-2.5 text-sm ease-in" onClick={(e) => e.currentTarget.blur()}>
       <Link to="/dynamic-wordbook" className="text-indigo-500 hover:underline">
-        动态词本
+        错词排行
       </Link>
       <span className="text-gray-500 dark:text-gray-400">阿成的练功房</span>
       <a href="https://github.com/RealKai42/qwerty-learner" target="_blank" rel="noreferrer" className="text-xs text-gray-400 hover:underline">

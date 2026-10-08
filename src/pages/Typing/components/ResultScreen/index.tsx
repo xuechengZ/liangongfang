@@ -279,10 +279,10 @@ const ResultScreen = () => {
                   className="my-btn-primary h-12 text-base font-bold"
                   type="button"
                   onClick={onNavigateToGallery}
-                  title={isDynamicBook ? '返回动态词本' : '练习其他章节'}
+                  title={isDynamicBook ? '返回错词排行' : '练习其他章节'}
                   disabled={isDynamicBook && state.isSavingRecord}
                 >
-                  {isDynamicBook ? '返回动态词本' : '练习其他章节'}
+                  {isDynamicBook ? '返回错词排行' : '练习其他章节'}
                 </button>
               )}
             </div>
