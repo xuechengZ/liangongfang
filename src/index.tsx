@@ -2,7 +2,6 @@ import Loading from './components/Loading'
 import './index.css'
 import DynamicWordBook from './pages/DynamicWordBook'
 import { ErrorBook } from './pages/ErrorBook'
-import { FriendLinks } from './pages/FriendLinks'
 import MobilePage from './pages/Mobile'
 import TypingPage from './pages/Typing'
 import { isOpenDarkModeAtom } from '@/store'
@@ -62,7 +61,6 @@ function Root() {
                 <Route path="/analysis" element={<AnalysisPage />} />
                 <Route path="/error-book" element={<ErrorBook />} />
                 <Route path="/dynamic-wordbook" element={<DynamicWordBook />} />
-                <Route path="/friend-links" element={<FriendLinks />} />
                 <Route path="/*" element={<Navigate to="/" />} />
               </>
             )}

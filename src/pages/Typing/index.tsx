@@ -10,7 +10,6 @@ import WordPanel from './components/WordPanel'
 import { useConfetti } from './hooks/useConfetti'
 import { useWordList } from './hooks/useWordList'
 import { TypingContext, TypingStateActionType, initialState, typingReducer } from './store'
-import { DonateCard } from '@/components/DonateCard'
 import Header from '@/components/Header'
 import Tooltip from '@/components/Tooltip'
 import { DYNAMIC_DICT_ID } from '@/constants'
@@ -51,7 +50,7 @@ const App: React.FC = () => {
     if (!IsDesktop()) {
       setTimeout(() => {
         alert(
-          ' Qwerty Learner 目的为提高键盘工作者的英语输入效率，目前暂未适配移动端，希望您使用桌面端浏览器访问。如您使用的是 Ipad 等平板电脑设备，可以使用外接键盘使用本软件。',
+          ' 阿成的练功房 目的为提高键盘工作者的英语输入效率，目前暂未适配移动端，希望您使用桌面端浏览器访问。如您使用的是 Ipad 等平板电脑设备，可以使用外接键盘使用本软件。',
         )
       }, 500)
     }
@@ -137,7 +136,6 @@ const App: React.FC = () => {
 
   return (
     <TypingContext.Provider value={{ state: state, dispatch }}>
-      {state.isFinished && <DonateCard />}
       {state.isFinished && <ResultScreen />}
       <Layout>
         <Header>
