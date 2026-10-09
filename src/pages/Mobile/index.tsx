@@ -67,7 +67,7 @@ const MobilePage: React.FC = () => {
     <div className="flex w-screen flex-col bg-white lg:mx-auto lg:max-w-7xl">
       <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b border-gray-100/50 bg-white/80 px-6 py-6 backdrop-blur-xl lg:px-12">
         <div className="flex items-center">
-          <img src="/acheng-logo.png" className="mr-4 h-10 w-10 lg:h-12 lg:w-12" alt="阿成的练功房 Logo" />
+          <img src="/acheng-logo.png" className="mr-4 h-10 w-10 object-contain lg:h-12 lg:w-12" alt="阿成的练功房 Logo" />
           <div className="flex flex-col">
             <h1 className="text-lg font-semibold tracking-tight text-indigo-500 lg:text-xl">阿成的练功房</h1>
             <span className="text-xs font-normal text-gray-500">个人听写练习</span>
