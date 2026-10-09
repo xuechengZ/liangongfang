@@ -57,7 +57,15 @@ export default function WordList() {
           <ScrollArea.Viewport className="h-full w-full px-3">
             <div className="flex h-full w-full flex-col gap-1">
               {state.chapterData.words?.map((word, index) => {
-                return <WordCard word={word} key={`${word.name}_${index}`} isActive={state.chapterData.index === index} />
+                return (
+                  <WordCard
+                    word={word}
+                    key={`${word.name}_${index}`}
+                    isActive={state.chapterData.index === index}
+                    index={index}
+                    isOpen={isOpen}
+                  />
+                )
               })}
             </div>
           </ScrollArea.Viewport>

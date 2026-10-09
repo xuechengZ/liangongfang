@@ -4,7 +4,7 @@ import { currentDictInfoAtom, isTransVisibleAtom, wordDictationConfigAtom } from
 import { CTRL } from '@/utils'
 import { getWordPartOfSpeech } from '@/utils/wordPartOfSpeech'
 import { useAtomValue } from 'jotai'
-import { useCallback, useContext, useMemo } from 'react'
+import { useCallback, useContext, useEffect, useMemo } from 'react'
 import IconPrev from '~icons/tabler/arrow-narrow-left'
 import IconNext from '~icons/tabler/arrow-narrow-right'
 
@@ -38,6 +38,20 @@ export default function PrevAndNextWord({ type }: LastAndNextWordProps) {
       return !wordDictationConfig.isOpen ? showWord : (showWord || '').replace(/./g, '_')
     }
   }, [word, currentLanguage, type, wordDictationConfig.isOpen, isTransVisible])
+
+  useEffect(() => {
+    if (state.isTyping && headWord && (type === 'prev' || !wordDictationConfig.isOpen)) {
+      dispatch({ type: TypingStateActionType.MARK_WORD_ANSWER_SEEN, index: newIndex })
+    }
+  }, [
+    dispatch,
+    headWord,
+    newIndex,
+    state.isTyping,
+    state.chapterData.userInputLogs[newIndex]?.answerSeen,
+    type,
+    wordDictationConfig.isOpen,
+  ])
 
   return (
     <>

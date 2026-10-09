@@ -10,6 +10,8 @@ export type ChapterData = {
   wordCount: number
   // 输入正确的单词数
   correctCount: number
+  // 本次听写中，未看答案就完整拼对的单词数（循环不重复计数）
+  correctWordCount: number
   // 输入错误的单词数
   wrongCount: number
   // 每个单词的输入记录
@@ -23,6 +25,8 @@ export type UserInputLog = {
   index: number
   correctCount: number
   wrongCount: number
+  answerSeen: boolean
+  dictationCorrect: boolean
   LetterMistakes: LetterMistakes
 }
 

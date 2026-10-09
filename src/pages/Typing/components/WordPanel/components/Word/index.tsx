@@ -104,9 +104,29 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
     [wordState.hasWrong, wordState.isFinished, setWordState, wordDictationConfig.isOpen],
   )
 
-  const handleHoverWord = useCallback((checked: boolean) => {
-    setIsHoveringWord(checked)
-  }, [])
+  const handleHoverWord = useCallback(
+    (checked: boolean) => {
+      if (checked && isShowAnswerOnHover) {
+        dispatch({ type: TypingStateActionType.MARK_WORD_ANSWER_SEEN, index: state.chapterData.index })
+      }
+      setIsHoveringWord(checked)
+    },
+    [dispatch, isShowAnswerOnHover, state.chapterData.index],
+  )
+
+  useEffect(() => {
+    if (!wordDictationConfig.isOpen || wordDictationConfig.type !== 'hideAll' || (isShowAnswerOnHover && isHoveringWord)) {
+      dispatch({ type: TypingStateActionType.MARK_WORD_ANSWER_SEEN, index: state.chapterData.index })
+    }
+  }, [
+    dispatch,
+    state.chapterData.index,
+    state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen,
+    wordDictationConfig.isOpen,
+    wordDictationConfig.type,
+    isShowAnswerOnHover,
+    isHoveringWord,
+  ])
 
   useHotkeys(
     'tab',
@@ -114,7 +134,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       handleHoverWord(true)
     },
     { enableOnFormTags: true, preventDefault: true },
-    [],
+    [handleHoverWord],
   )
 
   useHotkeys(
@@ -123,7 +143,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       handleHoverWord(false)
     },
     { enableOnFormTags: true, keyup: true, preventDefault: true },
-    [],
+    [handleHoverWord],
   )
   useHotkeys(
     'ctrl+j',
@@ -200,6 +220,10 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       })
 
       if (inputLength >= wordState.displayWord.length) {
+        dispatch({
+          type: TypingStateActionType.REPORT_WORD_COMPLETED,
+          hidden: wordDictationConfig.isOpen && wordDictationConfig.type === 'hideAll' && !(isShowAnswerOnHover && isHoveringWord),
+        })
         // 完成输入时
         setWordState((state) => {
           state.letterStates[inputLength - 1] = 'correct'

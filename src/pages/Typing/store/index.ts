@@ -12,6 +12,7 @@ export const initialState: TypingState = {
     index: 0,
     wordCount: 0,
     correctCount: 0,
+    correctWordCount: 0,
     wrongCount: 0,
     wordRecordIds: [],
     userInputLogs: [],
@@ -32,6 +33,8 @@ export const initialUserInputLog: UserInputLog = {
   index: 0,
   correctCount: 0,
   wrongCount: 0,
+  answerSeen: false,
+  dictationCorrect: false,
   LetterMistakes: {},
 }
 
@@ -42,6 +45,8 @@ export enum TypingStateActionType {
   TOGGLE_IS_TYPING = 'TOGGLE_IS_TYPING',
   REPORT_WRONG_WORD = 'REPORT_WRONG_WORD',
   REPORT_CORRECT_WORD = 'REPORT_CORRECT_WORD',
+  MARK_WORD_ANSWER_SEEN = 'MARK_WORD_ANSWER_SEEN',
+  REPORT_WORD_COMPLETED = 'REPORT_WORD_COMPLETED',
   NEXT_WORD = 'NEXT_WORD',
   LOOP_CURRENT_WORD = 'LOOP_CURRENT_WORD',
   FINISH_CHAPTER = 'FINISH_CHAPTER',
@@ -66,6 +71,8 @@ export type TypingStateAction =
   | { type: TypingStateActionType.TOGGLE_IS_TYPING }
   | { type: TypingStateActionType.REPORT_WRONG_WORD; payload: { letterMistake: LetterMistakes } }
   | { type: TypingStateActionType.REPORT_CORRECT_WORD }
+  | { type: TypingStateActionType.MARK_WORD_ANSWER_SEEN; index: number }
+  | { type: TypingStateActionType.REPORT_WORD_COMPLETED; hidden: boolean }
   | {
       type: TypingStateActionType.NEXT_WORD
       payload?: {
@@ -116,6 +123,20 @@ export const typingReducer = (state: TypingState, action: TypingStateAction) => 
 
       const wordLog = state.chapterData.userInputLogs[state.chapterData.index]
       wordLog.correctCount += 1
+      break
+    }
+    case TypingStateActionType.MARK_WORD_ANSWER_SEEN: {
+      const wordLog = state.chapterData.userInputLogs[action.index]
+      if (wordLog) wordLog.answerSeen = true
+      break
+    }
+    case TypingStateActionType.REPORT_WORD_COMPLETED: {
+      const wordLog = state.chapterData.userInputLogs[state.chapterData.index]
+      if (action.hidden && !wordLog.answerSeen && !wordLog.dictationCorrect) {
+        wordLog.dictationCorrect = true
+        state.chapterData.correctWordCount += 1
+        state.timerData.accuracy = Math.round((state.chapterData.correctWordCount / state.chapterData.words.length) * 100)
+      }
       break
     }
     case TypingStateActionType.REPORT_WRONG_WORD: {
@@ -183,13 +204,10 @@ export const typingReducer = (state: TypingState, action: TypingStateAction) => 
     case TypingStateActionType.TICK_TIMER: {
       const increment = action.addTime === undefined ? 1 : action.addTime
       const newTime = state.timerData.time + increment
-      const inputSum =
-        state.chapterData.correctCount + state.chapterData.wrongCount === 0
-          ? 1
-          : state.chapterData.correctCount + state.chapterData.wrongCount
-
       state.timerData.time = newTime
-      state.timerData.accuracy = Math.round((state.chapterData.correctCount / inputSum) * 100)
+      state.timerData.accuracy = state.chapterData.words.length
+        ? Math.round((state.chapterData.correctWordCount / state.chapterData.words.length) * 100)
+        : 0
       state.timerData.wpm = Math.round((state.chapterData.wordCount / newTime) * 60)
       break
     }
