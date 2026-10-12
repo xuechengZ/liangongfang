@@ -5,3 +5,17 @@
 *.ico binary
 *.wav binary
 *.mp3 binary
+*.jpg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.wasm binary
+*.ogg binary
+*.mp4 binary
+*.webm binary
+# SVG is XML. Leave it text so LF normalization stays harmless and diffs stay readable.
