@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "regions": ["hkg1"],
+  "trailingSlash": false,
+  "functions": {
+    "api/audio.mjs": {
+      "maxDuration": 10
+    },
+    "api/events.mjs": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/audio", "destination": "/api/audio" },
+    { "source": "/events", "destination": "/api/events" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
