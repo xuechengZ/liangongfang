@@ -53,7 +53,7 @@ export default function DynamicWordBook() {
           </Link>
         </div>
         <p className="mt-4 text-sm text-gray-500">
-          其它英语词书中拼错的词自动收录，同一拼写只保留一次，按累计拼写错误次数从高到低默写。在这里开启默写并全程拼对后自动移除；先错后改对、跳过或关闭默写后拼写不会移除。历史记录不删除。
+          其它英语词书中拼错的词自动收录；默写时若始终没看答案，中途打错再改对不会收录。同一拼写只保留一次，按累计拼写错误次数从高到低默写。在这里默写时，只要没看过答案并最终拼对就会移除（中途打错也算）；看过答案、跳过或未完成则保留。历史记录不删除。
         </p>
         <div className="my-6 flex items-center justify-between">
           <span role="status">{entries ? `待复习 ${entries.length} 词` : '加载中…'}</span>
@@ -67,7 +67,9 @@ export default function DynamicWordBook() {
             <li key={entry.name} className="py-4">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-lg font-medium">{entry.word.name}</span>
-                <span className="text-xs text-gray-500">错 {entry.wrongCount} 次 · {idDictionaryMap[entry.dict]?.name ?? entry.dict}</span>
+                <span className="text-xs text-gray-500">
+                  错 {entry.wrongCount} 次 · {idDictionaryMap[entry.dict]?.name ?? entry.dict}
+                </span>
               </div>
               <p className="mt-1 text-sm text-gray-500">{entry.word.trans.join('；')}</p>
             </li>

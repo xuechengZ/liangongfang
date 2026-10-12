@@ -25,6 +25,7 @@ import {
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
 import { useSaveWordRecord } from '@/utils/db'
+import { shouldCollectDynamicWordOnMistake } from '@/utils/db/dynamic-ranking'
 import { collectDynamicWord } from '@/utils/db/dynamic-words'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
@@ -240,8 +241,11 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
 
       dispatch({ type: TypingStateActionType.REPORT_CORRECT_WORD })
     } else {
-      // 出错时
-      collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
+      // 出错时。默写且还没看过答案时先不写入错词排行，手滑改对不应收录。
+      const answerSeen = state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true
+      if (shouldCollectDynamicWordOnMistake(wordDictationConfig.isOpen, answerSeen)) {
+        collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
+      }
       playBeepSound()
       setWordState((state) => {
         state.letterStates[inputLength - 1] = 'wrong'
@@ -301,6 +305,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
         letterTimeArray: wordState.letterTimeArray,
         letterMistake: wordState.letterMistake,
         isDictation: isDictationAttempt.current && wordDictationConfig.isOpen,
+        answerSeen: state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true,
         sourceDict: word.sourceDict,
       }).then((saved) => !saved && setHasSaveError(true))
 

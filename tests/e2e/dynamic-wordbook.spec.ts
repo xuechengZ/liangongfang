@@ -99,17 +99,80 @@ test('mastering removes only membership, retains history, and does not skip the 
   expect(history[0].wrongCount).toBeGreaterThan(0)
 })
 
-test('wrong then corrected dictation stays in the book; a new clean attempt removes it', async ({ page }) => {
+test('an unseen dictation correction from the ranking removes the word even after a mid-word typo', async ({ page }) => {
   await mistake(page)
   await practice(page)
   await mistake(page)
   await page.keyboard.type('ability', { delay: 15 })
   await page.getByRole('button', { name: '返回错词排行' }).click()
-  await expect(page.getByRole('listitem')).toHaveCount(1)
-  await page.getByRole('button', { name: '开始默写' }).click()
-  await page.getByRole('button', { name: '开始', exact: true }).click()
+  await expect(page.getByText('暂无待复习单词')).toBeVisible()
+  const history = (await tableRows(page, 'wordRecords')).filter((row) => row.word === 'ability')
+  expect(history.some((row) => row.wrongCount > 0)).toBe(true)
+})
+
+test('seeing the answer during ranking dictation keeps the word', async ({ page }) => {
+  await mistake(page)
+  await practice(page)
+  const current = page.locator('div[lang="en"] .tooltip-info > div').first()
+  await page.keyboard.down('Tab')
+  await expect(current).toHaveText('ability')
+  await page.keyboard.up('Tab')
   await page.keyboard.type('ability', { delay: 15 })
   await page.getByRole('button', { name: '返回错词排行' }).click()
+  await expect(page.getByRole('listitem')).toHaveCount(1)
+  await expect(page.getByRole('listitem')).toContainText('ability')
+})
+
+test('leaving a ranking word unfinished does not remove it', async ({ page }) => {
+  await mistake(page)
+  await page.keyboard.press('Control+Shift+ArrowRight')
+  await expect(page.locator('div[lang="en"]')).toContainText('abstract')
+  await mistake(page)
+  await practice(page)
+  await mistake(page)
+  await page.keyboard.press('Control+Shift+ArrowRight')
+  await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('________')
+  await page.getByRole('link', { name: '错词排行', exact: true }).click()
+  await expect(page.getByRole('listitem')).toHaveCount(2)
+})
+
+async function enableHiddenDictation(page: Page) {
+  await page.evaluate(() => {
+    localStorage.setItem('wordDictationConfig', JSON.stringify({ isOpen: true, type: 'hideAll', openBy: 'user' }))
+  })
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: '开始', exact: true }).click()
+  await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('_______')
+}
+
+test('an unseen dictation typo that is later corrected does not enter the ranking', async ({ page }) => {
+  await enableHiddenDictation(page)
+  await mistake(page)
+  await page.keyboard.type('ability', { delay: 15 })
+  await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('________')
+  await openBook(page)
+  await expect(page.getByText('暂无待复习单词')).toBeVisible()
+  const history = (await tableRows(page, 'wordRecords')).filter((row) => row.word === 'ability')
+  expect(history.some((row) => row.wrongCount > 0)).toBe(true)
+})
+
+test('a revealed dictation answer still enters the ranking on the next mistype', async ({ page }) => {
+  await enableHiddenDictation(page)
+  const current = page.locator('div[lang="en"] .tooltip-info > div').first()
+  await page.keyboard.down('Tab')
+  await expect(current).toHaveText('ability')
+  await page.keyboard.up('Tab')
+  await mistake(page)
+  await openBook(page)
+  await expect(page.getByRole('listitem')).toContainText('ability')
+})
+
+test('leaving an unseen dictation word mid-attempt does not enter the ranking', async ({ page }) => {
+  await enableHiddenDictation(page)
+  await mistake(page)
+  await page.keyboard.press('Control+Shift+ArrowRight')
+  await expect(page.locator('div[lang="en"] .tooltip-info > div').first()).toHaveText('________')
+  await openBook(page)
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
 })
 
@@ -269,10 +332,6 @@ test('dynamic practice mistakes remain readable in the original historical error
   await mistake(page)
   await practice(page)
   await mistake(page)
-  await page.keyboard.type('ability', { delay: 15 })
-  await page.getByRole('button', { name: '返回错词排行' }).click()
-  await page.getByRole('button', { name: '开始默写' }).click()
-  await page.getByRole('button', { name: '开始', exact: true }).click()
   await page.keyboard.type('ability', { delay: 15 })
   await page.getByRole('button', { name: '返回错词排行' }).click()
   await expect(page.getByText('暂无待复习单词')).toBeVisible()
