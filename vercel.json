@@ -8,10 +8,12 @@
   "trailingSlash": false,
   "functions": {
     "api/audio.mjs": {
-      "maxDuration": 10
+      "maxDuration": 10,
+      "excludeFiles": "{public,build,dist}/**"
     },
     "api/events.mjs": {
-      "maxDuration": 10
+      "maxDuration": 10,
+      "excludeFiles": "{public,build,dist}/**"
     }
   },
   "rewrites": [

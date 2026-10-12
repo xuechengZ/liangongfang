@@ -4,9 +4,16 @@ import worker from './worker.mjs'
 
 const localRoot = path.resolve('public/local-pronunciation')
 
-function assetOrigin(request) {
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
-  return new URL(request.url).origin
+function candidateOrigins(request, assetUrl) {
+  const origins = []
+  const add = (origin) => {
+    if (origin && origin !== 'null' && !origins.includes(origin)) origins.push(origin)
+  }
+  add(assetUrl.origin)
+  add(new URL(request.url).origin)
+  if (process.env.VERCEL_URL) add(`https://${process.env.VERCEL_URL}`)
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) add(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  return origins
 }
 
 async function readLocalAudio(pathname) {
@@ -29,20 +36,35 @@ async function readLocalAudio(pathname) {
   }
 }
 
+async function fetchStaticAudio(fetchImpl, target) {
+  const headers = new Headers()
+  headers.set('user-agent', 'Qwerty-Learner-Local/1.0')
+  headers.set('accept', 'audio/mpeg,*/*')
+  const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
+  if (bypass) headers.set('x-vercel-protection-bypass', bypass)
+  const response = await fetchImpl(target, { method: 'GET', headers, redirect: 'follow' })
+  const type = response.headers.get('content-type') || ''
+  if (!response.ok || type.startsWith('audio/') || !target.pathname.endsWith('.mp3')) return response
+  const body = new Uint8Array(await response.arrayBuffer())
+  const isMp3 = body.length > 500 && (body[0] === 0xff || (body[0] === 0x49 && body[1] === 0x44 && body[2] === 0x33))
+  if (!isMp3) return new Response(body, { status: response.status, headers: response.headers })
+  const audioHeaders = new Headers(response.headers)
+  audioHeaders.set('content-type', 'audio/mpeg')
+  return new Response(body, { status: response.status, headers: audioHeaders })
+}
+
 export function createAssets(request, fetchImpl = fetch) {
-  const origin = assetOrigin(request)
   return {
     async fetch(assetRequest) {
       const url = new URL(assetRequest.url)
       const local = await readLocalAudio(url.pathname)
       if (local) return local
-      const headers = new Headers()
-      const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
-      if (bypass) headers.set('x-vercel-protection-bypass', bypass)
-      return fetchImpl(new URL(url.pathname + url.search, origin), {
-        method: assetRequest.method || 'GET',
-        headers,
-      })
+      let last = new Response(null, { status: 404 })
+      for (const origin of candidateOrigins(request, url)) {
+        last = await fetchStaticAudio(fetchImpl, new URL(url.pathname + url.search, origin))
+        if (last.ok && (last.headers.get('content-type') || '').startsWith('audio/')) return last
+      }
+      return last
     },
   }
 }
