@@ -31,6 +31,7 @@ stats.html
 .data/
 
 .idea
+.vercel
 /test-results/
 /blob-report/
 /playwright/.cache/
