@@ -17,4 +17,21 @@ Groups practice records with `wrongCount > 0` for the `/error-book` screen and t
 
 Import `ErrorBook` from `@/features/error-book`. `src/pages/ErrorBook` re-exports the page. The `/error-book` URL stays the same.
 
-The dictionary error table and the typing-page entry move here in this phase.
+## Read model
+
+`hooks/useErrorWords.ts` exports `useErrorWordData` and the same function as `useErrorWords`. For one dictionary it loads `wordRecords` with `wrongCount > 0`, groups them by word, and returns `TErrorWordData`: summed `errorCount`, mistake letters, and the latest `timeStamp`. Words missing from that dictionary's list are still skipped. `ErrorTable` and `getRowsFromErrorWordData` render that list. Sorting inside the table is display-only.
+
+`generateNewWordReviewRecord` in `src/utils/db/review-record.ts` still takes `TErrorWordData[]`. Its weights stay there.
+
+## Re-exports
+
+During the move these paths re-export this feature:
+
+- `src/pages/ErrorBook`
+- `src/features/dictionary/gallery/hooks/useErrorWords.ts`
+- `src/features/dictionary/gallery/ErrorTable`
+- `src/pages/Gallery-N/hooks/useErrorWords.ts`
+
+Gallery dictionary detail imports `ErrorTable`, `getRowsFromErrorWordData`, and `useErrorWordData` from `@/features/error-book`. Delete still uses `useDeleteWordRecord`.
+
+The typing-page entry moves here in this phase.
