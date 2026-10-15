@@ -5,19 +5,12 @@ import Progress from '../Progress'
 import Phonetic from './components/Phonetic'
 import Translation from './components/Translation'
 import WordComponent from './components/Word'
+import { markReviewRecordFinished, setReviewCursor, useCurrentSelection } from '@/features/dictionary'
 import { usePrefetchPronunciationSound } from '@/features/pronunciation'
-import {
-  currentDictInfoAtom,
-  isReviewModeAtom,
-  isShowPrevAndNextWordAtom,
-  isTransVisibleAtom,
-  loopWordConfigAtom,
-  phoneticConfigAtom,
-  reviewModeInfoAtom,
-} from '@/store'
+import { currentDictInfoAtom, isShowPrevAndNextWordAtom, isTransVisibleAtom, loopWordConfigAtom, phoneticConfigAtom } from '@/store'
 import type { Word } from '@/typings'
 import { getWordPartOfSpeech } from '@/utils/wordPartOfSpeech'
-import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 
@@ -37,8 +30,7 @@ export default function WordPanel() {
   const nextWord = state.chapterData.words[state.chapterData.index + 1] as Word | undefined
   const followingWord = state.chapterData.words[state.chapterData.index + 2] as Word | undefined
 
-  const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
-  const isReviewMode = useAtomValue(isReviewModeAtom)
+  const isReviewMode = useCurrentSelection().reviewWordList !== undefined
 
   const prevIndex = useMemo(() => {
     const newIndex = state.chapterData.index - 1
@@ -56,15 +48,9 @@ export default function WordPanel() {
     setWordComponentKey((old) => old + 1)
   }, [])
 
-  const updateReviewRecord = useCallback(
-    (state: TypingState) => {
-      setReviewModeInfo((old) => ({
-        ...old,
-        reviewRecord: old.reviewRecord ? { ...old.reviewRecord, index: state.chapterData.index } : undefined,
-      }))
-    },
-    [setReviewModeInfo],
-  )
+  const updateReviewRecord = useCallback((state: TypingState) => {
+    setReviewCursor(state.chapterData.index)
+  }, [])
 
   const advanceWord = useCallback(() => {
     if (state.chapterData.index < state.chapterData.words.length - 1 || currentWordExerciseCount < loopWordTimes - 1) {
@@ -90,7 +76,7 @@ export default function WordPanel() {
       // 用户完成当前章节
       dispatch({ type: TypingStateActionType.FINISH_CHAPTER })
       if (isReviewMode) {
-        setReviewModeInfo((old) => ({ ...old, reviewRecord: old.reviewRecord ? { ...old.reviewRecord, isFinished: true } : undefined }))
+        markReviewRecordFinished()
       }
     }
   }, [
@@ -102,7 +88,6 @@ export default function WordPanel() {
     reloadCurrentWordComponent,
     isReviewMode,
     updateReviewRecord,
-    setReviewModeInfo,
   ])
 
   const isShowingCompletion = !!completedWord && completedWord === currentWord

@@ -1,6 +1,5 @@
 import Layout from '../../components/Layout'
 import { DictChapterButton } from './components/DictChapterButton'
-import { PronunciationSwitcher } from '@/features/pronunciation'
 import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
@@ -13,12 +12,14 @@ import { TypingContext, TypingStateActionType, initialState, typingReducer } fro
 import Header from '@/components/Header'
 import Tooltip from '@/components/Tooltip'
 import { DYNAMIC_DICT_ID } from '@/constants'
+import { setCurrentSelection, useCurrentSelection } from '@/features/dictionary'
+import { PronunciationSwitcher } from '@/features/pronunciation'
 import { idDictionaryMap } from '@/resources/dictionary'
-import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
+import { isReviewModeAtom, randomConfigAtom, reviewModeInfoAtom } from '@/store'
 import { IsDesktop, isLegal } from '@/utils'
 import { useSaveChapterRecord } from '@/utils/db'
 import { useMixPanelChapterLogUploader } from '@/utils/mixpanel'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import type React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -29,8 +30,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const { words } = useWordList()
 
-  const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
-  const setCurrentChapter = useSetAtom(currentChapterAtom)
+  const { dictId: currentDictId } = useCurrentSelection()
   const randomConfig = useAtomValue(randomConfigAtom)
   const chapterLogUploader = useMixPanelChapterLogUploader(state)
   const saveChapterRecord = useSaveChapterRecord()
@@ -60,11 +60,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const id = currentDictId
     if (!(id in idDictionaryMap)) {
-      setCurrentDictId('cet4')
-      setCurrentChapter(0)
-      return
+      setCurrentSelection({ dictId: 'cet4', chapter: 0 })
     }
-  }, [currentDictId, setCurrentChapter, setCurrentDictId])
+  }, [currentDictId])
 
   const skipWord = useCallback(() => {
     dispatch({ type: TypingStateActionType.SKIP_WORD })

@@ -1,8 +1,9 @@
 import { getRankedDynamicWords } from './dynamic-words'
 import Layout from '@/components/Layout'
 import { DYNAMIC_DICT_ID } from '@/constants'
+import { enterReviewMode, setCurrentSelection } from '@/features/dictionary'
 import { idDictionaryMap } from '@/resources/dictionary'
-import { currentChapterAtom, currentDictIdAtom, reviewModeInfoAtom, wordDictationConfigAtom } from '@/store'
+import { wordDictationConfigAtom } from '@/store'
 import { ReviewRecord } from '@/utils/db/record'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useSetAtom } from 'jotai'
@@ -11,9 +12,6 @@ import IconX from '~icons/tabler/x'
 
 export default function DynamicWordBook() {
   const entries = useLiveQuery(getRankedDynamicWords)
-  const setCurrentDict = useSetAtom(currentDictIdAtom)
-  const setCurrentChapter = useSetAtom(currentChapterAtom)
-  const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
   const setDictation = useSetAtom(wordDictationConfigAtom)
   const navigate = useNavigate()
 
@@ -21,15 +19,12 @@ export default function DynamicWordBook() {
     // Freeze this round's list: deleting mastered words must not shift the active word index.
     const pending = await getRankedDynamicWords()
     if (!pending.length) return
-    setCurrentDict(DYNAMIC_DICT_ID)
-    setCurrentChapter(0)
-    setReviewModeInfo({
-      isReviewMode: true,
-      reviewRecord: new ReviewRecord(
-        DYNAMIC_DICT_ID,
-        pending.map((entry) => ({ ...entry.word, sourceDict: entry.dict })),
-      ),
-    })
+    const reviewRecord = new ReviewRecord(
+      DYNAMIC_DICT_ID,
+      pending.map((entry) => ({ ...entry.word, sourceDict: entry.dict })),
+    )
+    setCurrentSelection({ dictId: DYNAMIC_DICT_ID, chapter: 0 })
+    enterReviewMode(reviewRecord)
     setDictation((old) => ({ ...old, isOpen: true, type: 'hideAll', openBy: 'user' }))
     navigate('/')
   }

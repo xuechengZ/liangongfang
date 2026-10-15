@@ -1,7 +1,8 @@
 import { TypingContext, TypingStateActionType } from '../../store'
 import Tooltip from '@/components/Tooltip'
 import { DYNAMIC_DICT_ID } from '@/constants'
-import { currentDictIdAtom, randomConfigAtom } from '@/store'
+import { useCurrentSelection } from '@/features/dictionary'
+import { randomConfigAtom } from '@/store'
 import { autoUpdate, offset, useFloating, useHover, useInteractions } from '@floating-ui/react'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useState } from 'react'
@@ -11,7 +12,7 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
   const { state, dispatch } = useContext(TypingContext)!
   const randomConfig = useAtomValue(randomConfigAtom)
-  const currentDictId = useAtomValue(currentDictIdAtom)
+  const { dictId: currentDictId } = useCurrentSelection()
 
   const onToggleIsTyping = useCallback(() => {
     !isLoading && dispatch({ type: TypingStateActionType.TOGGLE_IS_TYPING })

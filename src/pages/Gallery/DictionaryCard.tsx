@@ -1,14 +1,12 @@
-import { currentChapterAtom, currentDictIdAtom } from '@/store'
+import { setCurrentSelection, useCurrentSelection } from '@/features/dictionary'
 import type { Dictionary } from '@/typings'
-import { useAtom, useSetAtom } from 'jotai'
 import type React from 'react'
 import { useEffect, useRef } from 'react'
 import IconCheckCircle from '~icons/heroicons/check-circle-solid'
 
 const DictionaryCard: React.FC<DictionaryCardProps> = ({ dictionary }) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
-  const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
-  const setCurrentChapter = useSetAtom(currentChapterAtom)
+  const { dictId: currentDictId } = useCurrentSelection()
 
   useEffect(() => {
     if (currentDictId === dictionary.id && buttonRef.current !== null) {
@@ -25,8 +23,7 @@ const DictionaryCard: React.FC<DictionaryCardProps> = ({ dictionary }) => {
       className="relative w-48 overflow-hidden rounded-md border border-gray-300 bg-gray-50 p-4 text-left shadow-lg focus:outline-none dark:border-gray-500 dark:bg-gray-700 dark:bg-opacity-10 "
       type="button"
       onClick={() => {
-        setCurrentDictId(dictionary.id)
-        setCurrentChapter(0)
+        setCurrentSelection({ dictId: dictionary.id, chapter: 0 })
       }}
       title="选择词典"
     >

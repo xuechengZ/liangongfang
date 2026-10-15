@@ -1,17 +1,17 @@
 import Tooltip from '@/components/Tooltip'
-import { currentChapterAtom, currentDictInfoAtom, isReviewModeAtom } from '@/store'
+import { setCurrentChapter, useCurrentDictInfo, useCurrentSelection } from '@/features/dictionary'
 import range from '@/utils/range'
 import { Listbox, Transition } from '@headlessui/react'
-import { useAtom, useAtomValue } from 'jotai'
 import { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 import IconCheck from '~icons/tabler/check'
 
 export const DictChapterButton = () => {
-  const currentDictInfo = useAtomValue(currentDictInfoAtom)
-  const [currentChapter, setCurrentChapter] = useAtom(currentChapterAtom)
+  const currentDictInfo = useCurrentDictInfo()
+  const selection = useCurrentSelection()
+  const currentChapter = selection.chapter
   const chapterCount = currentDictInfo.chapterCount
-  const isReviewMode = useAtomValue(isReviewModeAtom)
+  const isReviewMode = selection.reviewWordList !== undefined
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = (event) => {
     if (event.key === ' ') {
