@@ -15,7 +15,7 @@ import 'react-app-polyfill/stable'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
-const AnalysisPage = lazy(() => import('./pages/Analysis'))
+const AnalysisPage = lazy(() => import('./features/analysis/pages'))
 const GalleryPage = lazy(() => import('./features/dictionary/gallery'))
 
 if (process.env.NODE_ENV === 'production') {
