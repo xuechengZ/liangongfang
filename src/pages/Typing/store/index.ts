@@ -1,7 +1,7 @@
 import type { TypingState, UserInputLog } from './type'
+import '@/features/review/review-record'
 import type { WordWithIndex } from '@/typings'
 import type { LetterMistakes } from '@/utils/db/record'
-import '@/utils/db/review-record'
 import { mergeLetterMistake } from '@/utils/db/utils'
 import shuffle from '@/utils/shuffle'
 import { createContext } from 'react'

@@ -8,7 +8,7 @@ Groups practice records with `wrongCount > 0` for the `/error-book` screen and t
 - Deletes rows only through `useDeleteWordRecord` in `src/utils/db`. The Dexie shell stays there.
 - Does not write `dynamicWords` and does not call `collectDynamicWord`.
 - Does not change ranking include/remove rules. Those stay in `src/features/ranking`.
-- Does not change the review list order. `generateNewWordReviewRecord` stays in `src/utils/db/review-record.ts` and only consumes `TErrorWordData`.
+- Does not change the review list order. `generateNewWordReviewRecord` lives in `@/features/review` and only consumes `TErrorWordData`.
 - `recordErrorBookAction` stays in `src/utils/mixpanel.ts`.
 
 ## Page
@@ -21,7 +21,7 @@ Import `ErrorBook` from `@/features/error-book`. `src/pages/ErrorBook` re-export
 
 `hooks/useErrorWords.ts` exports `useErrorWordData` and the same function as `useErrorWords`. For one dictionary it loads `wordRecords` with `wrongCount > 0`, groups them by word, and returns `TErrorWordData`: summed `errorCount`, mistake letters, and the latest `timeStamp`. Words missing from that dictionary's list are still skipped. `ErrorTable` and `getRowsFromErrorWordData` render that list. Sorting inside the table is display-only.
 
-`generateNewWordReviewRecord` in `src/utils/db/review-record.ts` still takes `TErrorWordData[]`. Its weights stay there.
+`generateNewWordReviewRecord` in `@/features/review` still takes `TErrorWordData[]`. Its weights stay `0.6` / `0.4`.
 
 ## Entry
 
