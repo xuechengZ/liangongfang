@@ -1,6 +1,6 @@
 import styles from './index.module.css'
-import { keySoundResources } from '@/resources/soundResource'
 import { pronunciationConfigAtom } from '@/features/pronunciation'
+import { keySoundResources } from '@/resources/soundResource'
 import { hintSoundsConfigAtom, keySoundsConfigAtom } from '@/store'
 import type { SoundResource } from '@/typings'
 import { toFixedNumber } from '@/utils'
