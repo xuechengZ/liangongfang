@@ -25,7 +25,7 @@ import {
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
 import { useSaveWordRecord } from '@/utils/db'
-import { shouldCollectDynamicWordOnMistake } from '@/utils/db/dynamic-ranking'
+import { shouldCollectDynamicWordOnFinish, shouldCollectDynamicWordOnMistake } from '@/utils/db/dynamic-ranking'
 import { collectDynamicWord } from '@/utils/db/dynamic-words'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
@@ -53,6 +53,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
   const currentChapter = useAtomValue(currentChapterAtom)
   const currentDictId = useAtomValue(currentDictIdAtom)
   const isDictationAttempt = useRef(true)
+  const collectedDynamicWordThisAttempt = useRef(false)
   const [hasSaveError, setHasSaveError] = useState(false)
 
   const [showTipAlert, setShowTipAlert] = useState(false)
@@ -76,6 +77,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
     newWordState.randomLetterVisible = headword.split('').map(() => Math.random() > 0.4)
     setWordState(newWordState)
     isDictationAttempt.current = true
+    collectedDynamicWordThisAttempt.current = false
     setHasSaveError(false)
   }, [word, setWordState])
 
@@ -244,6 +246,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       // 出错时。默写且还没看过答案时先不写入错词排行，手滑改对不应收录。
       const answerSeen = state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true
       if (shouldCollectDynamicWordOnMistake(wordDictationConfig.isOpen, answerSeen)) {
+        collectedDynamicWordThisAttempt.current = true
         collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
       }
       playBeepSound()
@@ -299,13 +302,28 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       //   countCorrect: wordState.correctCount,
       //   countTypo: wordState.wrongCount,
       // })
+      const answerSeen = state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true
+      const isDictation = isDictationAttempt.current && wordDictationConfig.isOpen
+      if (
+        shouldCollectDynamicWordOnFinish({
+          isDictation,
+          answerSeen,
+          hidesEntireWord: wordDictationConfig.type === 'hideAll',
+          alreadyCollectedThisAttempt: collectedDynamicWordThisAttempt.current,
+          wrongCount: wordState.wrongCount,
+        })
+      ) {
+        collectedDynamicWordThisAttempt.current = true
+        collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
+      }
+
       saveWordRecord({
         word: word.name,
         wrongCount: wordState.wrongCount,
         letterTimeArray: wordState.letterTimeArray,
         letterMistake: wordState.letterMistake,
-        isDictation: isDictationAttempt.current && wordDictationConfig.isOpen,
-        answerSeen: state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true,
+        isDictation,
+        answerSeen,
         sourceDict: word.sourceDict,
       }).then((saved) => !saved && setHasSaveError(true))
 
