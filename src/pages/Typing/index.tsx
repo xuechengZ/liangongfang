@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import { DictChapterButton } from './components/DictChapterButton'
-import PronunciationSwitcher from './components/PronunciationSwitcher'
+import { PronunciationSwitcher } from '@/features/pronunciation'
 import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
