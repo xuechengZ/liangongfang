@@ -44,6 +44,8 @@ During the move these paths re-export the feature:
 
 They still read and delete the same `wordRecords` rows.
 
+`ReviewDetail` lives in `@/features/review`. `src/features/dictionary/gallery/ReviewDetail` re-exports it. Dictionary detail imports it from `@/features/review`. Starting or continuing a review still calls `setCurrentSelection` and `enterReviewMode` here.
+
 ## Metadata and audio
 
 `catalog.ts` is the dictionary list (`dictionaries`, `dictionaryResources`, `idDictionaryMap`). Word lists stay in `public/dicts/*.json`. `public/local-pronunciation/` stays put.
