@@ -1,4 +1,3 @@
-import { shouldRemoveDynamicWordAfterDictation } from './dynamic-ranking'
 import type { IChapterRecord, IDynamicWord, IReviewRecord, IRevisionDictRecord, IWordRecord, LetterMistakes } from './record'
 import { ChapterRecord, ReviewRecord, WordRecord } from './record'
 import { DYNAMIC_DICT_ID } from '@/constants'
@@ -94,16 +93,14 @@ export function useSaveWordRecord() {
       wrongCount,
       letterTimeArray,
       letterMistake,
-      isDictation = false,
-      answerSeen,
+      removeDynamicWord,
       sourceDict,
     }: {
       word: string
       wrongCount: number
       letterTimeArray: number[]
       letterMistake: LetterMistakes
-      isDictation?: boolean
-      answerSeen: boolean
+      removeDynamicWord: boolean
       sourceDict?: string
     }) => {
       const timing = []
@@ -119,13 +116,7 @@ export function useSaveWordRecord() {
       try {
         dbID = await db.transaction('rw', db.wordRecords, db.dynamicWords, async () => {
           const id = await db.wordRecords.add(wordRecord)
-          if (
-            shouldRemoveDynamicWordAfterDictation({
-              isDynamicPractice: dictID === DYNAMIC_DICT_ID,
-              isDictation,
-              answerSeen,
-            })
-          ) {
+          if (removeDynamicWord) {
             await db.dynamicWords.delete(word.trim().toLowerCase())
           }
           return id

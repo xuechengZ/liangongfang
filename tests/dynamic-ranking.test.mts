@@ -2,7 +2,7 @@ import {
   shouldCollectDynamicWordOnFinish,
   shouldCollectDynamicWordOnMistake,
   shouldRemoveDynamicWordAfterDictation,
-} from '../src/utils/db/dynamic-ranking.ts'
+} from '@/features/ranking'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
