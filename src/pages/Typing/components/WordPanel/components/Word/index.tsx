@@ -7,8 +7,8 @@ import style from './index.module.css'
 import { initialWordState } from './type'
 import type { WordState } from './type'
 import Tooltip from '@/components/Tooltip'
-import type { WordPronunciationIconRef } from '@/components/WordPronunciationIcon'
-import { WordPronunciationIcon } from '@/components/WordPronunciationIcon'
+import type { WordPronunciationIconRef } from '@/features/pronunciation'
+import { WordPronunciationIcon, pronunciationIsOpenAtom } from '@/features/pronunciation'
 import { EXPLICIT_SPACE } from '@/constants'
 import { assembleDictationAttemptFacts } from '@/features/practice/dictation-facts'
 import {
@@ -26,7 +26,6 @@ import {
   isIgnoreCaseAtom,
   isShowAnswerOnHoverAtom,
   isTextSelectableAtom,
-  pronunciationIsOpenAtom,
   wordDictationConfigAtom,
 } from '@/store'
 import type { Word } from '@/typings'

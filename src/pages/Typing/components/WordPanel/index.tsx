@@ -5,7 +5,7 @@ import Progress from '../Progress'
 import Phonetic from './components/Phonetic'
 import Translation from './components/Translation'
 import WordComponent from './components/Word'
-import { usePrefetchPronunciationSound } from '@/hooks/usePronunciation'
+import { usePrefetchPronunciationSound } from '@/features/pronunciation'
 import {
   currentDictInfoAtom,
   isReviewModeAtom,

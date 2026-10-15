@@ -1,6 +1,6 @@
 import { TypingContext, TypingStateActionType } from '../../store'
-import type { WordPronunciationIconRef } from '@/components/WordPronunciationIcon'
-import { WordPronunciationIcon } from '@/components/WordPronunciationIcon'
+import type { WordPronunciationIconRef } from '@/features/pronunciation'
+import { WordPronunciationIcon } from '@/features/pronunciation'
 import { currentDictInfoAtom } from '@/store'
 import type { Word } from '@/typings'
 import { useAtomValue } from 'jotai'

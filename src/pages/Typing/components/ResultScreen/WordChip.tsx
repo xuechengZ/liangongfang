@@ -1,4 +1,4 @@
-import usePronunciationSound from '@/hooks/usePronunciation'
+import { usePronunciationSound } from '@/features/pronunciation'
 import type { WordWithIndex } from '@/typings'
 import { flip, offset, shift, useFloating, useHover, useInteractions, useRole } from '@floating-ui/react'
 import { useCallback, useState } from 'react'
