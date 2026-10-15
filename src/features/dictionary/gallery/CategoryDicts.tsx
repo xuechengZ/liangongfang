@@ -1,15 +1,14 @@
+import { useCurrentDictInfo } from '../selection'
 import DictTagSwitcher from './DictTagSwitcher'
 import DictionaryComponent from './DictionaryWithoutCover'
-import { currentDictInfoAtom } from '@/store'
 import type { Dictionary } from '@/typings'
 import { findCommonValues } from '@/utils'
-import { useAtomValue } from 'jotai'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 export default function DictionaryGroup({ groupedDictsByTag }: { groupedDictsByTag: Record<string, Dictionary[]> }) {
   const tagList = useMemo(() => Object.keys(groupedDictsByTag), [groupedDictsByTag])
   const [currentTag, setCurrentTag] = useState(tagList.length > 0 ? tagList[0] : '')
-  const currentDictInfo = useAtomValue(currentDictInfoAtom)
+  const currentDictInfo = useCurrentDictInfo()
 
   const onChangeCurrentTag = useCallback((tag: string) => {
     setCurrentTag(tag)

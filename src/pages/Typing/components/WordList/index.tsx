@@ -2,30 +2,22 @@ import { TypingContext, TypingStateActionType } from '../../store'
 import WordCard from './WordCard'
 import Drawer from '@/components/Drawer'
 import Tooltip from '@/components/Tooltip'
-import { currentChapterAtom, currentDictInfoAtom, isReviewModeAtom } from '@/store'
+import { useCurrentDictInfo, useCurrentSelection } from '@/features/dictionary'
 import { Dialog } from '@headlessui/react'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { atom, useAtomValue } from 'jotai'
 import { useContext, useState } from 'react'
 import ListIcon from '~icons/tabler/list'
 import IconX from '~icons/tabler/x'
-
-const currentDictTitle = atom((get) => {
-  const isReviewMode = get(isReviewModeAtom)
-
-  if (isReviewMode) {
-    return `${get(currentDictInfoAtom).name} 错题复习`
-  } else {
-    return `${get(currentDictInfoAtom).name} 第 ${get(currentChapterAtom) + 1} 章`
-  }
-})
 
 export default function WordList() {
   // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
   const { state, dispatch } = useContext(TypingContext)!
 
   const [isOpen, setIsOpen] = useState(false)
-  const currentDictTitleValue = useAtomValue(currentDictTitle)
+  const currentDictInfo = useCurrentDictInfo()
+  const selection = useCurrentSelection()
+  const currentDictTitleValue =
+    selection.reviewWordList !== undefined ? `${currentDictInfo.name} 错题复习` : `${currentDictInfo.name} 第 ${selection.chapter + 1} 章`
 
   function closeModal() {
     setIsOpen(false)

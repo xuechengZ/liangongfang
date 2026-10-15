@@ -1,14 +1,13 @@
+import { useCurrentSelection } from '../selection'
 import DictDetail from './DictDetail'
 import { useDictStats } from './hooks/useDictStats'
 import bookCover from '@/assets/book-cover.png'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import useIntersectionObserver from '@/hooks/useIntersectionObserver'
-import { currentDictIdAtom } from '@/store'
 import type { Dictionary } from '@/typings'
 import { calcChapterCount } from '@/utils'
 import * as Progress from '@radix-ui/react-progress'
-import { useAtomValue } from 'jotai'
 import { useMemo, useRef } from 'react'
 
 interface Props {
@@ -16,7 +15,7 @@ interface Props {
 }
 
 export default function DictionaryComponent({ dictionary }: Props) {
-  const currentDictID = useAtomValue(currentDictIdAtom)
+  const { dictId: currentDictID } = useCurrentSelection()
 
   const divRef = useRef<HTMLDivElement>(null)
   const entry = useIntersectionObserver(divRef, {})

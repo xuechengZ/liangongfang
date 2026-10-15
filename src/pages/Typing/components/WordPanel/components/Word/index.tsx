@@ -7,10 +7,11 @@ import style from './index.module.css'
 import { initialWordState } from './type'
 import type { WordState } from './type'
 import Tooltip from '@/components/Tooltip'
+import { EXPLICIT_SPACE } from '@/constants'
+import { useCurrentSelection } from '@/features/dictionary'
+import { assembleDictationAttemptFacts } from '@/features/practice/dictation-facts'
 import type { WordPronunciationIconRef } from '@/features/pronunciation'
 import { WordPronunciationIcon, pronunciationIsOpenAtom } from '@/features/pronunciation'
-import { EXPLICIT_SPACE } from '@/constants'
-import { assembleDictationAttemptFacts } from '@/features/practice/dictation-facts'
 import {
   shouldCollectDynamicWordOnFinish,
   shouldCollectDynamicWordOnMistake,
@@ -19,15 +20,7 @@ import {
 import { collectDynamicWord } from '@/features/ranking/dynamic-words'
 import useKeySounds from '@/hooks/useKeySounds'
 import { TypingContext, TypingStateActionType } from '@/pages/Typing/store'
-import {
-  currentChapterAtom,
-  currentDictIdAtom,
-  currentDictInfoAtom,
-  isIgnoreCaseAtom,
-  isShowAnswerOnHoverAtom,
-  isTextSelectableAtom,
-  wordDictationConfigAtom,
-} from '@/store'
+import { currentDictInfoAtom, isIgnoreCaseAtom, isShowAnswerOnHoverAtom, isTextSelectableAtom, wordDictationConfigAtom } from '@/store'
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
 import { useSaveWordRecord } from '@/utils/db'
@@ -54,8 +47,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
   const [isHoveringWord, setIsHoveringWord] = useState(false)
   const currentLanguage = useAtomValue(currentDictInfoAtom).language
   const currentLanguageCategory = useAtomValue(currentDictInfoAtom).languageCategory
-  const currentChapter = useAtomValue(currentChapterAtom)
-  const currentDictId = useAtomValue(currentDictIdAtom)
+  const { chapter: currentChapter, dictId: currentDictId } = useCurrentSelection()
   const isDictationAttempt = useRef(true)
   const collectedDynamicWordThisAttempt = useRef(false)
   const [hasSaveError, setHasSaveError] = useState(false)

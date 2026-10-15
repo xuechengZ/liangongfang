@@ -5,16 +5,10 @@ import RemarkRing from './RemarkRing'
 import WordChip from './WordChip'
 import Tooltip from '@/components/Tooltip'
 import { DYNAMIC_DICT_ID } from '@/constants'
-import {
-  currentChapterAtom,
-  currentDictInfoAtom,
-  isReviewModeAtom,
-  randomConfigAtom,
-  reviewModeInfoAtom,
-  wordDictationConfigAtom,
-} from '@/store'
+import { getCurrentSelection, setCurrentChapter, setCurrentSelection, useCurrentDictInfo, useCurrentSelection } from '@/features/dictionary'
+import { randomConfigAtom, wordDictationConfigAtom } from '@/store'
 import { Transition } from '@headlessui/react'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { useNavigate } from 'react-router-dom'
@@ -26,13 +20,13 @@ const ResultScreen = () => {
   const { state, dispatch } = useContext(TypingContext)!
 
   const setWordDictationConfig = useSetAtom(wordDictationConfigAtom)
-  const currentDictInfo = useAtomValue(currentDictInfoAtom)
-  const [currentChapter, setCurrentChapter] = useAtom(currentChapterAtom)
+  const currentDictInfo = useCurrentDictInfo()
+  const selection = useCurrentSelection()
+  const currentChapter = selection.chapter
   const randomConfig = useAtomValue(randomConfigAtom)
   const navigate = useNavigate()
 
-  const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
-  const isReviewMode = useAtomValue(isReviewModeAtom)
+  const isReviewMode = selection.reviewWordList !== undefined
   const isDynamicBook = currentDictInfo.id === DYNAMIC_DICT_ID
 
   useEffect(() => {
@@ -146,7 +140,7 @@ const ResultScreen = () => {
       setCurrentChapter((old) => old + 1)
       dispatch({ type: TypingStateActionType.NEXT_CHAPTER })
     }
-  }, [dispatch, isLastChapter, isReviewMode, setCurrentChapter, setWordDictationConfig])
+  }, [dispatch, isLastChapter, isReviewMode, setWordDictationConfig])
 
   const exitButtonHandler = useCallback(() => {
     if (isDynamicBook) {
@@ -154,18 +148,18 @@ const ResultScreen = () => {
       return
     }
     if (isReviewMode) {
-      setCurrentChapter(0)
-      setReviewModeInfo((old) => ({ ...old, isReviewMode: false }))
+      const current = getCurrentSelection()
+      setCurrentSelection({ dictId: current.dictId, chapter: 0, reviewWordList: null })
     } else {
       dispatch({ type: TypingStateActionType.REPEAT_CHAPTER, shouldShuffle: false })
     }
-  }, [dispatch, isDynamicBook, isReviewMode, navigate, setCurrentChapter, setReviewModeInfo])
+  }, [dispatch, isDynamicBook, isReviewMode, navigate])
 
   const onNavigateToGallery = useCallback(() => {
-    setCurrentChapter(0)
-    setReviewModeInfo((old) => ({ ...old, isReviewMode: false }))
+    const current = getCurrentSelection()
+    setCurrentSelection({ dictId: current.dictId, chapter: 0, reviewWordList: null })
     navigate(isDynamicBook ? '/dynamic-wordbook' : '/gallery')
-  }, [isDynamicBook, navigate, setCurrentChapter, setReviewModeInfo])
+  }, [isDynamicBook, navigate])
 
   useHotkeys(
     'enter',

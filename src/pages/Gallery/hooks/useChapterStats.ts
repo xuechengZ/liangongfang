@@ -1,11 +1,10 @@
-import { currentDictIdAtom } from '@/store'
+import { useCurrentSelection } from '@/features/dictionary'
 import { db } from '@/utils/db'
 import type { IChapterRecord } from '@/utils/db/record'
-import { useAtomValue } from 'jotai'
 import { useEffect, useState } from 'react'
 
 export function useChapterStats(chapter: number, isStartLoad: boolean) {
-  const dictID = useAtomValue(currentDictIdAtom)
+  const { dictId: dictID } = useCurrentSelection()
   const [chapterStats, setChapterStats] = useState<IChapterStats | null>(null)
 
   useEffect(() => {

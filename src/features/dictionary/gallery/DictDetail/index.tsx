@@ -1,4 +1,4 @@
-import { useDeleteWordRecord } from '../../../utils/db'
+import { setCurrentSelection, useCurrentSelection } from '../../selection'
 import Chapter from '../Chapter'
 import { ErrorTable } from '../ErrorTable'
 import { getRowsFromErrorWordData } from '../ErrorTable/columns'
@@ -7,10 +7,9 @@ import useErrorWordData from '../hooks/useErrorWords'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent } from '@/components/ui/tabs'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import { currentChapterAtom, currentDictIdAtom, reviewModeInfoAtom } from '@/store'
 import type { Dictionary } from '@/typings'
+import { useDeleteWordRecord } from '@/utils/db'
 import range from '@/utils/range'
-import { useAtom, useSetAtom } from 'jotai'
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import IcOutlineCollectionsBookmark from '~icons/ic/outline-collections-bookmark'
@@ -24,10 +23,8 @@ enum Tab {
 }
 
 export default function DictDetail({ dictionary: dict }: { dictionary: Dictionary }) {
-  const [currentChapter, setCurrentChapter] = useAtom(currentChapterAtom)
-  const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
+  const { dictId: currentDictId, chapter: currentChapter } = useCurrentSelection()
   const [curTab, setCurTab] = useState<Tab>(Tab.Chapters)
-  const setReviewModeInfo = useSetAtom(reviewModeInfoAtom)
   const navigate = useNavigate()
   const { deleteWordRecord } = useDeleteWordRecord()
   const [reload, setReload] = useState(false)
@@ -49,12 +46,10 @@ export default function DictDetail({ dictionary: dict }: { dictionary: Dictionar
 
   const onChangeChapter = useCallback(
     (index: number) => {
-      setCurrentDictId(dict.id)
-      setCurrentChapter(index)
-      setReviewModeInfo((old) => ({ ...old, isReviewMode: false }))
+      setCurrentSelection({ dictId: dict.id, chapter: index, reviewWordList: null })
       navigate('/')
     },
-    [dict.id, navigate, setCurrentChapter, setCurrentDictId, setReviewModeInfo],
+    [dict.id, navigate],
   )
 
   const handleTabChange = useCallback(

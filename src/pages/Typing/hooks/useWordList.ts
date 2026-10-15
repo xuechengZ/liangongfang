@@ -1,8 +1,7 @@
 import { CHAPTER_LENGTH, DYNAMIC_DICT_ID } from '@/constants'
-import { currentChapterAtom, currentDictInfoAtom, reviewModeInfoAtom } from '@/store'
+import { setCurrentChapter, useCurrentDictInfo, useCurrentSelection } from '@/features/dictionary'
 import type { Word, WordWithIndex } from '@/typings/index'
 import { wordListFetcher } from '@/utils/wordListFetcher'
-import { useAtom, useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 
@@ -16,9 +15,10 @@ export type UseWordListResult = {
  * Use word lists from the current selected dictionary.
  */
 export function useWordList(): UseWordListResult {
-  const currentDictInfo = useAtomValue(currentDictInfoAtom)
-  const [currentChapter, setCurrentChapter] = useAtom(currentChapterAtom)
-  const { isReviewMode, reviewRecord } = useAtomValue(reviewModeInfoAtom)
+  const currentDictInfo = useCurrentDictInfo()
+  const selection = useCurrentSelection()
+  const currentChapter = selection.chapter
+  const isReviewMode = selection.reviewWordList !== undefined
 
   // Reset current chapter to 0, when currentChapter is greater than chapterCount.
   if (currentChapter >= currentDictInfo.chapterCount) {
@@ -33,7 +33,7 @@ export function useWordList(): UseWordListResult {
     if (isFirstChapter) {
       newWords = firstChapter
     } else if (isReviewMode) {
-      newWords = reviewRecord?.words ?? []
+      newWords = selection.reviewWordList ?? []
     } else if (wordList) {
       newWords = wordList.slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
     } else {
@@ -56,7 +56,7 @@ export function useWordList(): UseWordListResult {
         trans,
       }
     })
-  }, [isFirstChapter, isReviewMode, wordList, reviewRecord?.words, currentChapter])
+  }, [isFirstChapter, isReviewMode, wordList, selection.reviewWordList, currentChapter])
 
   return { words, isLoading, error }
 }
