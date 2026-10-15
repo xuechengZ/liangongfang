@@ -32,12 +32,17 @@ The `/gallery` page lives in `gallery/` (formerly `src/pages/Gallery-N`). The ro
 During the move these paths re-export the feature:
 
 - `src/pages/Gallery-N`
-- `src/pages/Gallery-N/hooks/useErrorWords.ts`
 - `src/resources/dictionary.ts` re-exports `catalog.ts`
 
 `src/pages/Gallery` is the unused previous page. It also writes through the selection API. It is not the `/gallery` route.
 
-ErrorTable moved with the page. It still reads and deletes the same `wordRecords` rows. This phase does not change error-book meaning.
+`useErrorWords` and ErrorTable live in `@/features/error-book`. These paths re-export that feature:
+
+- `src/features/dictionary/gallery/hooks/useErrorWords.ts`
+- `src/features/dictionary/gallery/ErrorTable`
+- `src/pages/Gallery-N/hooks/useErrorWords.ts`
+
+They still read and delete the same `wordRecords` rows.
 
 ## Metadata and audio
 

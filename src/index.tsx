@@ -1,7 +1,7 @@
 import Loading from './components/Loading'
+import { ErrorBook } from './features/error-book'
 import './index.css'
 import DynamicWordBook from './pages/DynamicWordBook'
-import { ErrorBook } from './pages/ErrorBook'
 import MobilePage from './pages/Mobile'
 import TypingPage from './pages/Typing'
 import { isOpenDarkModeAtom } from '@/store'

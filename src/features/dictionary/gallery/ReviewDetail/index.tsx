@@ -1,6 +1,6 @@
 import { enterReviewMode, setCurrentSelection } from '../../selection'
-import type { TErrorWordData } from '../hooks/useErrorWords'
 import { Button } from '@/components/ui/button'
+import type { TErrorWordData } from '@/features/error-book'
 import type { Dictionary } from '@/typings'
 import { timeStamp2String } from '@/utils'
 import { generateNewWordReviewRecord, useGetLatestReviewRecord } from '@/utils/db/review-record'
