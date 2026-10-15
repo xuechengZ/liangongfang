@@ -10,6 +10,13 @@ import Tooltip from '@/components/Tooltip'
 import type { WordPronunciationIconRef } from '@/components/WordPronunciationIcon'
 import { WordPronunciationIcon } from '@/components/WordPronunciationIcon'
 import { EXPLICIT_SPACE } from '@/constants'
+import { assembleDictationAttemptFacts } from '@/features/practice/dictation-facts'
+import {
+  shouldCollectDynamicWordOnFinish,
+  shouldCollectDynamicWordOnMistake,
+  shouldRemoveDynamicWordAfterDictation,
+} from '@/features/ranking'
+import { collectDynamicWord } from '@/features/ranking/dynamic-words'
 import useKeySounds from '@/hooks/useKeySounds'
 import { TypingContext, TypingStateActionType } from '@/pages/Typing/store'
 import {
@@ -25,8 +32,6 @@ import {
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
 import { useSaveWordRecord } from '@/utils/db'
-import { shouldCollectDynamicWordOnFinish, shouldCollectDynamicWordOnMistake } from '@/utils/db/dynamic-ranking'
-import { collectDynamicWord } from '@/utils/db/dynamic-words'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -55,6 +60,17 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
   const isDictationAttempt = useRef(true)
   const collectedDynamicWordThisAttempt = useRef(false)
   const [hasSaveError, setHasSaveError] = useState(false)
+
+  const readDictationFacts = () =>
+    assembleDictationAttemptFacts({
+      dictationOpen: wordDictationConfig.isOpen,
+      dictationType: wordDictationConfig.type,
+      answerSeen: state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen,
+      isDictationAttempt: isDictationAttempt.current,
+      alreadyCollectedThisAttempt: collectedDynamicWordThisAttempt.current,
+      wrongCount: wordState.wrongCount,
+      dictId: currentDictId,
+    })
 
   const [showTipAlert, setShowTipAlert] = useState(false)
   const wordPronunciationIconRef = useRef<WordPronunciationIconRef>(null)
@@ -244,8 +260,8 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       dispatch({ type: TypingStateActionType.REPORT_CORRECT_WORD })
     } else {
       // 出错时。默写且还没看过答案时先不写入错词排行，手滑改对不应收录。
-      const answerSeen = state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true
-      if (shouldCollectDynamicWordOnMistake(wordDictationConfig.isOpen, answerSeen)) {
+      const facts = readDictationFacts()
+      if (shouldCollectDynamicWordOnMistake(facts.dictationOpen, facts.answerSeen)) {
         collectedDynamicWordThisAttempt.current = true
         collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
       }
@@ -302,17 +318,8 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       //   countCorrect: wordState.correctCount,
       //   countTypo: wordState.wrongCount,
       // })
-      const answerSeen = state.chapterData.userInputLogs[state.chapterData.index]?.answerSeen === true
-      const isDictation = isDictationAttempt.current && wordDictationConfig.isOpen
-      if (
-        shouldCollectDynamicWordOnFinish({
-          isDictation,
-          answerSeen,
-          hidesEntireWord: wordDictationConfig.type === 'hideAll',
-          alreadyCollectedThisAttempt: collectedDynamicWordThisAttempt.current,
-          wrongCount: wordState.wrongCount,
-        })
-      ) {
+      const facts = readDictationFacts()
+      if (shouldCollectDynamicWordOnFinish(facts)) {
         collectedDynamicWordThisAttempt.current = true
         collectDynamicWord(word, currentDictId).catch(() => setHasSaveError(true))
       }
@@ -322,8 +329,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
         wrongCount: wordState.wrongCount,
         letterTimeArray: wordState.letterTimeArray,
         letterMistake: wordState.letterMistake,
-        isDictation,
-        answerSeen,
+        removeDynamicWord: shouldRemoveDynamicWordAfterDictation(facts),
         sourceDict: word.sourceDict,
       }).then((saved) => !saved && setHasSaveError(true))
 
