@@ -1,4 +1,4 @@
-# Ranking (F1)
+# Ranking (F2)
 
 Home for the mistake ranking feature (错词排行). Phase A moves the rules, storage accessors, and the ranking screen here. Behavior matches the slip-exempt and answer-seen collect rules already on main.
 
