@@ -23,15 +23,18 @@ Import `ErrorBook` from `@/features/error-book`. `src/pages/ErrorBook` re-export
 
 `generateNewWordReviewRecord` in `src/utils/db/review-record.ts` still takes `TErrorWordData[]`. Its weights stay there.
 
+## Entry
+
+`ErrorBookButton/` is the book button on the typing page. It still navigates to `/error-book` and calls `recordErrorBookAction('open')`. The Switcher imports it from this feature.
+
 ## Re-exports
 
 During the move these paths re-export this feature:
 
 - `src/pages/ErrorBook`
+- `src/pages/Typing/components/ErrorBookButton.tsx`
 - `src/features/dictionary/gallery/hooks/useErrorWords.ts`
 - `src/features/dictionary/gallery/ErrorTable`
 - `src/pages/Gallery-N/hooks/useErrorWords.ts`
 
 Gallery dictionary detail imports `ErrorTable`, `getRowsFromErrorWordData`, and `useErrorWordData` from `@/features/error-book`. Delete still uses `useDeleteWordRecord`.
-
-The typing-page entry moves here in this phase.
