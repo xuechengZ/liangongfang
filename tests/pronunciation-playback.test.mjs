@@ -31,14 +31,11 @@ test('only the word that has localAudio adds its own clip', () => {
 test('the play request adds localAudio only through the shared query', async () => {
   const source = stripComments(await readFile(new URL('../src/features/pronunciation/sound-src.ts', import.meta.url), 'utf8'))
   const player = stripComments(await readFile(new URL('../src/features/pronunciation/usePronunciation.ts', import.meta.url), 'utf8'))
-  assert.equal(
-    source.includes('${localAudioQuery(localAudio)}'),
-    true,
-  )
+  assert.equal(source.includes('${localAudioQuery(localAudio)}'), true)
   assert.equal(source.includes('generateWordSoundSrc(entry.name, accent, entry.localAudio)'), true)
   assert.equal(source.includes('entry.usphone'), false)
   assert.equal(source.includes('entry.ukphone'), false)
-  assert.equal(player.includes('playWordPronunciation({ name: word, localAudio }, pronunciationConfig.type)'), true)
+  assert.equal(player.includes('playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type)'), true)
 })
 
 test('playback code does not read practice correct/wrong state', async () => {

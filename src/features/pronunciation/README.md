@@ -23,6 +23,10 @@ Open state and accent are the existing atoms, re-exported from here:
 
 The atom storage key stays `pronunciation` in `src/store`. This feature does not copy that state.
 
+雅思 wang C3 / C4 / C5 / C11 (`ieltsWang3`, `ieltsWang4`, `ieltsWang5`, `ieltsWang11`) can prefer the Wang corpus or Youdao. `PronunciationSwitcher` shows that choice only for those four books. `wangPronunciationSourceAtom` stores `wang` or `youdao` under localStorage key `wangPronunciationSource`, default `wang`. The atom stays in this feature and is not part of `pronunciationConfigAtom`, so the US/UK accent switch is unchanged.
+
+`resolvePlaybackLocalAudio` drops `localAudio` only when the current book is one of those four and the preference is `youdao`. Play and prefetch both use that result. A missing `localAudio` still falls through to the online request. Other books always keep `localAudio`.
+
 ## Resource boundary
 
 `localAudio` is an F4 dictionary field on dict JSON. It names a file under `public/local-pronunciation/`. Playback only reads it. Removing it from one word makes that word fall back to online audio, then system speech. Neighbor words keep their own `localAudio`. This feature does not edit dict JSON and does not move the mp3 package.

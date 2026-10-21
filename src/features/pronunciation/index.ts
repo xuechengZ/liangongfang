@@ -1,6 +1,8 @@
 export { default as PronunciationSwitcher } from './PronunciationSwitcher'
 export { reportPronunciationEvent } from './pronunciationTelemetry'
 export { localAudioQuery, playWordPronunciation } from './sound-src'
+export { wangPronunciationSourceAtom } from './wang-source-atom'
+export type { WangPronunciationSource } from './wang-source-atom'
 export type { PronunciationPlayInput } from './sound-src'
 export { default as usePronunciationSound, generateWordSoundSrc, usePrefetchPronunciationSound } from './usePronunciation'
 export type { PronunciationStatus } from './usePronunciation'

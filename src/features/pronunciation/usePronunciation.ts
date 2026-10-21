@@ -1,6 +1,8 @@
-import { playWordPronunciation } from './sound-src'
 import { reportPronunciationEvent } from './pronunciationTelemetry'
-import { pronunciationConfigAtom } from '@/store'
+import { playWordPronunciation } from './sound-src'
+import { wangPronunciationSourceAtom } from './wang-source-atom'
+import { resolvePlaybackLocalAudio } from './wang-source.mjs'
+import { currentDictInfoAtom, pronunciationConfigAtom } from '@/store'
 import type { PronunciationType } from '@/typings'
 import { useAtomValue } from 'jotai'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -30,8 +32,15 @@ function getSpeechLanguage(pronunciation: Exclude<PronunciationType, false>) {
   }
 }
 
+function usePlaybackLocalAudio(localAudio?: string) {
+  const dictId = useAtomValue(currentDictInfoAtom).id
+  const source = useAtomValue(wangPronunciationSourceAtom)
+  return resolvePlaybackLocalAudio(localAudio, dictId, source)
+}
+
 export default function usePronunciationSound(word: string, isLoop?: boolean, localAudio?: string) {
   const pronunciationConfig = useAtomValue(pronunciationConfigAtom)
+  const playbackLocalAudio = usePlaybackLocalAudio(localAudio)
   const loop = useMemo(() => (typeof isLoop === 'boolean' ? isLoop : pronunciationConfig.isLoop), [isLoop, pronunciationConfig.isLoop])
   const [isPlaying, setIsPlaying] = useState(false)
   const [status, setStatus] = useState<PronunciationStatus>('idle')
@@ -45,8 +54,8 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
   const utteranceRef = useRef<SpeechSynthesisUtterance>()
 
   const soundUrl = useMemo(
-    () => playWordPronunciation({ name: word, localAudio }, pronunciationConfig.type),
-    [localAudio, pronunciationConfig.type, word],
+    () => playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type),
+    [playbackLocalAudio, pronunciationConfig.type, word],
   )
   const audioRef = useRef<HTMLAudioElement>()
 
@@ -261,11 +270,12 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
 
 export function usePrefetchPronunciationSound(word: string | undefined, localAudio?: string) {
   const pronunciationConfig = useAtomValue(pronunciationConfigAtom)
+  const playbackLocalAudio = usePlaybackLocalAudio(localAudio)
 
   useEffect(() => {
     if (!word) return
 
-    const soundUrl = `${playWordPronunciation({ name: word, localAudio }, pronunciationConfig.type)}&prefetch=1`
+    const soundUrl = `${playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type)}&prefetch=1`
     if (soundUrl === '') return
 
     const head = document.head
@@ -286,5 +296,5 @@ export function usePrefetchPronunciationSound(word: string | undefined, localAud
         head.removeChild(audio)
       }
     }
-  }, [localAudio, pronunciationConfig.type, word])
+  }, [playbackLocalAudio, pronunciationConfig.type, word])
 }
