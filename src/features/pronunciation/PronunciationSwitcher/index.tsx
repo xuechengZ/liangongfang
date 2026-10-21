@@ -1,10 +1,13 @@
+import { wangPronunciationSourceAtom } from '../wang-source-atom'
+import type { WangPronunciationSource } from '../wang-source-atom'
+import { WANG_PRONUNCIATION_SOURCE_OPTIONS, isWangPronunciationDict } from '../wang-source.mjs'
 import Tooltip from '@/components/Tooltip'
 import { LANG_PRON_MAP } from '@/resources/soundResource'
 import { currentDictInfoAtom, phoneticConfigAtom, pronunciationConfigAtom } from '@/store'
 import type { PronunciationType } from '@/typings'
 import { PRONUNCIATION_PHONETIC_MAP } from '@/typings'
 import { CTRL } from '@/utils'
-import { Listbox, Popover, Switch, Transition } from '@headlessui/react'
+import { Listbox, Popover, RadioGroup, Switch, Transition } from '@headlessui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import { Fragment, useCallback, useEffect, useMemo } from 'react'
 import IconCheck from '~icons/tabler/check'
@@ -14,6 +17,8 @@ const PronunciationSwitcher = () => {
   const currentDictInfo = useAtomValue(currentDictInfoAtom)
   const [pronunciationConfig, setPronunciationConfig] = useAtom(pronunciationConfigAtom)
   const [phoneticConfig, setPhoneticConfig] = useAtom(phoneticConfigAtom)
+  const [wangSource, setWangSource] = useAtom(wangPronunciationSourceAtom)
+  const showWangSource = isWangPronunciationDict(currentDictInfo.id)
   const pronunciationList = useMemo(() => LANG_PRON_MAP[currentDictInfo.language].pronunciation, [currentDictInfo.language])
 
   useEffect(() => {
@@ -80,6 +85,13 @@ const PronunciationSwitcher = () => {
       }))
     },
     [setPhoneticConfig],
+  )
+
+  const onChangeWangSource = useCallback(
+    (value: WangPronunciationSource) => {
+      setWangSource(value)
+    },
+    [setWangSource],
   )
 
   const onChangePronunciationType = useCallback(
@@ -152,6 +164,30 @@ const PronunciationSwitcher = () => {
                     }`}</span>
                   </div>
                 </div>
+                {showWangSource && (
+                  <div className="flex w-full flex-col items-start gap-2 py-0" data-testid="wang-pronunciation-source">
+                    <RadioGroup value={wangSource} onChange={onChangeWangSource} className="flex w-full flex-col gap-2">
+                      <RadioGroup.Label className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">
+                        发音来源
+                      </RadioGroup.Label>
+                      {WANG_PRONUNCIATION_SOURCE_OPTIONS.map((option) => (
+                        <RadioGroup.Option
+                          key={option.value}
+                          value={option.value}
+                          className={({ checked }) =>
+                            `cursor-pointer rounded-md px-2 py-1.5 text-left text-sm leading-tight ${
+                              checked
+                                ? 'bg-indigo-400 text-white'
+                                : 'text-gray-600 hover:bg-indigo-50 dark:text-white dark:text-opacity-60 dark:hover:bg-gray-700'
+                            }`
+                          }
+                        >
+                          {option.label}
+                        </RadioGroup.Option>
+                      ))}
+                    </RadioGroup>
+                  </div>
+                )}
                 {window.speechSynthesis && (
                   <div className="flex w-full  flex-col  items-start gap-2 py-0">
                     <span className="text-sm font-normal leading-5 text-gray-900 dark:text-white dark:text-opacity-60">开关释义发音</span>
