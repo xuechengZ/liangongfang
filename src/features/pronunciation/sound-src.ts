@@ -1,5 +1,6 @@
+import { clipForAccent, directStaticPronunciationSrc } from './accent-local-audio.mjs'
 import { localAudioQuery } from './local-audio-query.mjs'
-import type { PronunciationType } from '@/typings'
+import type { LocalAudioSource, PronunciationType } from '@/typings'
 import { romajiToHiragana } from '@/utils/kana'
 
 const pronunciationService = import.meta.env.VITE_PRONUNCIATION_ENDPOINT || 'http://127.0.0.1:8787/audio'
@@ -16,7 +17,7 @@ export type PronunciationPlayInput = {
   name: string
   usphone?: string
   ukphone?: string
-  localAudio?: string
+  localAudio?: LocalAudioSource
 }
 
 export function generateWordSoundSrc(word: string, pronunciation: Exclude<PronunciationType, false>, localAudio?: string): string {
@@ -25,5 +26,8 @@ export function generateWordSoundSrc(word: string, pronunciation: Exclude<Pronun
 }
 
 export function playWordPronunciation(entry: PronunciationPlayInput, accent: Exclude<PronunciationType, false>): string {
-  return generateWordSoundSrc(entry.name, accent, entry.localAudio)
+  const staticSrc = directStaticPronunciationSrc(entry.localAudio, accent)
+  if (staticSrc) return staticSrc
+  if (typeof entry.localAudio === 'string') return generateWordSoundSrc(entry.name, accent, entry.localAudio)
+  return generateWordSoundSrc(entry.name, accent, clipForAccent(entry.localAudio, accent))
 }

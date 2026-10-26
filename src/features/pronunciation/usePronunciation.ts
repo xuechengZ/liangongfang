@@ -1,9 +1,10 @@
+import { staticClipFallbackSrc } from './accent-local-audio.mjs'
 import { reportPronunciationEvent } from './pronunciationTelemetry'
 import { playWordPronunciation } from './sound-src'
 import { wangPronunciationSourceAtom } from './wang-source-atom'
 import { resolvePlaybackLocalAudio } from './wang-source.mjs'
 import { currentDictInfoAtom, pronunciationConfigAtom } from '@/store'
-import type { PronunciationType } from '@/typings'
+import type { LocalAudioSource, PronunciationType } from '@/typings'
 import { useAtomValue } from 'jotai'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
@@ -32,13 +33,13 @@ function getSpeechLanguage(pronunciation: Exclude<PronunciationType, false>) {
   }
 }
 
-function usePlaybackLocalAudio(localAudio?: string) {
+function usePlaybackLocalAudio(localAudio?: LocalAudioSource) {
   const dictId = useAtomValue(currentDictInfoAtom).id
   const source = useAtomValue(wangPronunciationSourceAtom)
   return resolvePlaybackLocalAudio(localAudio, dictId, source)
 }
 
-export default function usePronunciationSound(word: string, isLoop?: boolean, localAudio?: string) {
+export default function usePronunciationSound(word: string, isLoop?: boolean, localAudio?: LocalAudioSource) {
   const pronunciationConfig = useAtomValue(pronunciationConfigAtom)
   const playbackLocalAudio = usePlaybackLocalAudio(localAudio)
   const loop = useMemo(() => (typeof isLoop === 'boolean' ? isLoop : pronunciationConfig.isLoop), [isLoop, pronunciationConfig.isLoop])
@@ -51,15 +52,21 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
   const playIdRef = useRef(0)
   const reportedPlayRef = useRef(false)
   const fallbackStartedRef = useRef(false)
+  const staticFallbackTriedRef = useRef(false)
   const utteranceRef = useRef<SpeechSynthesisUtterance>()
 
   const soundUrl = useMemo(
     () => playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type),
     [playbackLocalAudio, pronunciationConfig.type, word],
   )
+  const fallbackSoundUrl = useMemo(
+    () => staticClipFallbackSrc(soundUrl, playWordPronunciation({ name: word }, pronunciationConfig.type)),
+    [pronunciationConfig.type, soundUrl, word],
+  )
   const audioRef = useRef<HTMLAudioElement>()
 
   useEffect(() => {
+    staticFallbackTriedRef.current = false
     const audio = new Audio(soundUrl)
     audio.preload = 'auto'
     audio.volume = pronunciationConfig.volume
@@ -103,8 +110,7 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
       clearTimeout(progressTimerRef.current)
       clearInterval(progressCheckTimerRef.current)
     }
-    audio.onerror = () => {
-      if (audioRef.current !== audio || startedAtRef.current === 0) return
+    const reportAudioError = () => {
       clearTimeout(progressTimerRef.current)
       clearInterval(progressCheckTimerRef.current)
       setStatus('error')
@@ -118,6 +124,29 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
         error: 'audio-error',
       })
     }
+    const onAudioError = () => {
+      if (audioRef.current !== audio) return
+      if (
+        fallbackSoundUrl &&
+        !staticFallbackTriedRef.current &&
+        startedAtRef.current !== 0 &&
+        soundUrl.startsWith('/local-pronunciation/')
+      ) {
+        staticFallbackTriedRef.current = true
+        audio.onerror = null
+        audio.src = fallbackSoundUrl
+        audio.load()
+        audio.onerror = onAudioError
+        void audio.play()?.catch(() => {
+          if (audioRef.current !== audio) return
+          reportAudioError()
+        })
+        return
+      }
+      if (startedAtRef.current === 0) return
+      reportAudioError()
+    }
+    audio.onerror = onAudioError
     audioRef.current = audio
 
     return () => {
@@ -133,7 +162,7 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
       setIsPlaying(false)
       setStatus('idle')
     }
-  }, [loop, pronunciationConfig.rate, pronunciationConfig.type, pronunciationConfig.volume, soundUrl, word])
+  }, [fallbackSoundUrl, loop, pronunciationConfig.rate, pronunciationConfig.type, pronunciationConfig.volume, soundUrl, word])
 
   const stop = useCallback(() => {
     playIdRef.current += 1
@@ -157,11 +186,27 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
     const playId = playIdRef.current
     reportedPlayRef.current = false
     fallbackStartedRef.current = false
+    staticFallbackTriedRef.current = false
     startedAtRef.current = Date.now()
     setStatus('loading')
+    if (soundUrl.startsWith('/local-pronunciation/')) {
+      const preferred = new URL(soundUrl, window.location.href).href
+      if (audio.currentSrc !== preferred) {
+        audio.src = soundUrl
+        audio.load()
+      }
+    }
     if (audio.error) {
-      audio.src = soundUrl
+      let nextSrc = soundUrl
+      if (fallbackSoundUrl && soundUrl.startsWith('/local-pronunciation/')) {
+        nextSrc = fallbackSoundUrl
+        staticFallbackTriedRef.current = true
+      }
+      const handler = audio.onerror
+      audio.onerror = null
+      audio.src = nextSrc
       audio.load()
+      audio.onerror = handler
     }
     clearTimeout(loadingTimerRef.current)
     clearTimeout(progressTimerRef.current)
@@ -263,19 +308,20 @@ export default function usePronunciationSound(word: string, isLoop?: boolean, lo
       })
       playFallback()
     })
-  }, [pronunciationConfig.rate, pronunciationConfig.type, pronunciationConfig.volume, soundUrl, stop, word])
+  }, [fallbackSoundUrl, pronunciationConfig.rate, pronunciationConfig.type, pronunciationConfig.volume, soundUrl, stop, word])
 
   return { play, stop, isPlaying, status }
 }
 
-export function usePrefetchPronunciationSound(word: string | undefined, localAudio?: string) {
+export function usePrefetchPronunciationSound(word: string | undefined, localAudio?: LocalAudioSource) {
   const pronunciationConfig = useAtomValue(pronunciationConfigAtom)
   const playbackLocalAudio = usePlaybackLocalAudio(localAudio)
 
   useEffect(() => {
     if (!word) return
 
-    const soundUrl = `${playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type)}&prefetch=1`
+    const played = playWordPronunciation({ name: word, localAudio: playbackLocalAudio }, pronunciationConfig.type)
+    const soundUrl = played.startsWith('/local-pronunciation/') ? played : `${played}&prefetch=1`
     if (soundUrl === '') return
 
     const head = document.head

@@ -44,3 +44,19 @@ test('allows the existing online chain to continue when a local clip is missing'
 
   assert.equal(await loadLocalPronunciation('ieltsWang3/9999.mp3', root), undefined)
 })
+
+test('loads a JobHunt_Must accent clip and still rejects paths outside that shape', async () => {
+  assert.equal(typeof loadLocalPronunciation, 'function', 'local pronunciation loader is not implemented')
+  const root = await mkdtemp(join(tmpdir(), 'qwerty-local-audio-'))
+  await mkdir(join(root, 'JobHunt_Must'))
+  await writeFile(join(root, 'JobHunt_Must', '0000-us.mp3'), Buffer.from('us-audio'))
+  await writeFile(join(root, 'JobHunt_Must', '0000-uk.mp3'), Buffer.from('uk-audio'))
+
+  const us = await loadLocalPronunciation('JobHunt_Must/0000-us.mp3', root)
+  const uk = await loadLocalPronunciation('JobHunt_Must/0000-uk.mp3', root)
+  assert.equal(us.provider, 'local')
+  assert.equal(us.body.toString(), 'us-audio')
+  assert.equal(uk.body.toString(), 'uk-audio')
+  await assert.rejects(() => loadLocalPronunciation('JobHunt_Must/0000.mp3', root), /invalid-local-audio/)
+  await assert.rejects(() => loadLocalPronunciation('JobHunt_Must/../0000-us.mp3', root), /invalid-local-audio/)
+})

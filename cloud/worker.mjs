@@ -1,6 +1,6 @@
 import { hashWord, loadPronunciation } from './online-pronunciation.mjs'
 
-const localAudioPattern = /^ieltsWang(?:3|4|5|11)\/\d{4}(?:-original)?\.mp3$/
+const localAudioPattern = /^(?:ieltsWang(?:3|4|5|11)\/\d{4}(?:-original)?|JobHunt_Must\/\d{4}-(?:us|uk))\.mp3$/
 const appRoutes = new Set(['/', '/gallery', '/mobile', '/error-book', '/analysis', '/friend-links', '/dynamic-wordbook'])
 
 export default {
