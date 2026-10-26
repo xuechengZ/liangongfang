@@ -6,7 +6,8 @@ import Phonetic from './components/Phonetic'
 import Translation from './components/Translation'
 import WordComponent from './components/Word'
 import { markReviewRecordFinished, setReviewCursor, useCurrentSelection } from '@/features/dictionary'
-import { usePrefetchPronunciationSound } from '@/features/pronunciation'
+import { usePrefetchPronunciationSound, wangPronunciationSourceAtom } from '@/features/pronunciation'
+import { showLocalAudioUncertainWarning } from '@/features/pronunciation/wang-source.mjs'
 import { currentDictInfoAtom, isShowPrevAndNextWordAtom, isTransVisibleAtom, loopWordConfigAtom, phoneticConfigAtom } from '@/store'
 import type { Word } from '@/typings'
 import { getWordPartOfSpeech } from '@/utils/wordPartOfSpeech'
@@ -20,7 +21,9 @@ export default function WordPanel() {
   const phoneticConfig = useAtomValue(phoneticConfigAtom)
   const isShowPrevAndNextWord = useAtomValue(isShowPrevAndNextWordAtom)
   const isTransVisible = useAtomValue(isTransVisibleAtom)
-  const currentLanguage = useAtomValue(currentDictInfoAtom).language
+  const currentDictInfo = useAtomValue(currentDictInfoAtom)
+  const currentLanguage = currentDictInfo.language
+  const wangSource = useAtomValue(wangPronunciationSourceAtom)
   const [wordComponentKey, setWordComponentKey] = useState(0)
   const [currentWordExerciseCount, setCurrentWordExerciseCount] = useState(0)
   const [completedWord, setCompletedWord] = useState<Word>()
@@ -209,7 +212,7 @@ export default function WordPanel() {
             )}
             <div className="relative">
               <WordComponent word={currentWord} onFinish={onFinish} key={`${state.chapterData.index}-${wordComponentKey}`} />
-              {currentWord.localAudioUncertain && (
+              {showLocalAudioUncertainWarning(currentWord.localAudioUncertain, currentDictInfo.id, wangSource) && (
                 <div className="mt-1 text-center">
                   <span className="rounded bg-amber-50 px-2 py-0.5 text-xs text-amber-700 dark:bg-amber-950 dark:text-amber-300">
                     发音可能有误

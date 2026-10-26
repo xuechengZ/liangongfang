@@ -6,6 +6,7 @@ import {
   WANG_PRONUNCIATION_SOURCE_STORAGE_KEY,
   isWangPronunciationDict,
   resolvePlaybackLocalAudio,
+  showLocalAudioUncertainWarning,
 } from '../src/features/pronunciation/wang-source.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -48,6 +49,20 @@ test('Wang preference keeps localAudio and Youdao preference drops it only on th
   assert.equal(resolvePlaybackLocalAudio('', 'ieltsWang3', 'wang'), '')
 })
 
+test('the uncertain pronunciation tip follows Wang playback, not the raw dictionary flag', () => {
+  for (const id of WANG_PRONUNCIATION_DICT_IDS) {
+    assert.equal(showLocalAudioUncertainWarning(true, id, 'wang'), true)
+    assert.equal(showLocalAudioUncertainWarning(true, id, 'youdao'), false)
+    assert.equal(showLocalAudioUncertainWarning(true, id), true)
+    assert.equal(showLocalAudioUncertainWarning(false, id, 'wang'), false)
+    assert.equal(showLocalAudioUncertainWarning(false, id, 'youdao'), false)
+    assert.equal(showLocalAudioUncertainWarning(undefined, id, 'youdao'), false)
+  }
+  assert.equal(showLocalAudioUncertainWarning(true, 'cet4', 'youdao'), true)
+  assert.equal(showLocalAudioUncertainWarning(true, 'dynamic-errors', 'youdao'), true)
+  assert.equal(showLocalAudioUncertainWarning(true, 'ielts', 'wang'), true)
+})
+
 test('Youdao preference omits localAudio from the request on Wang books', () => {
   assert.equal(localAudioQuery(resolvePlaybackLocalAudio(clip, 'ieltsWang3', 'youdao')), '')
   assert.equal(localAudioQuery(resolvePlaybackLocalAudio(clip, 'ieltsWang3', 'wang')), '&localAudio=ieltsWang3%2F0968-original.mp3')
@@ -67,6 +82,13 @@ test('the request builder itself does not know about the Wang preference', async
   assert.equal(source.includes('wang-source'), false)
   assert.equal(source.includes('youdao'), false)
   assert.equal(source.includes('${localAudioQuery(localAudio)}'), true)
+})
+
+test('the uncertain badge uses the playback warning, not the raw dictionary flag', async () => {
+  const panel = stripComments(await readFile(new URL('../src/pages/Typing/components/WordPanel/index.tsx', import.meta.url), 'utf8'))
+  assert.equal(panel.includes('showLocalAudioUncertainWarning(currentWord.localAudioUncertain, currentDictInfo.id, wangSource)'), true)
+  assert.equal(panel.includes('wangPronunciationSourceAtom'), true)
+  assert.equal(panel.includes('currentWord.localAudioUncertain &&'), false)
 })
 
 test('the switch is gated to Wang books and stores the preference beside pronunciation', async () => {
