@@ -1,48 +1,80 @@
 [
   {
     "name": "product",
+    "localAudio": {
+      "us": "JobHunt_Must/0000-us.mp3",
+      "uk": "JobHunt_Must/0000-uk.mp3"
+    },
     "trans": [
       "产品"
     ]
   },
   {
     "name": "manager",
+    "localAudio": {
+      "us": "JobHunt_Must/0001-us.mp3",
+      "uk": "JobHunt_Must/0001-uk.mp3"
+    },
     "trans": [
       "经理"
     ]
   },
   {
     "name": "growth",
+    "localAudio": {
+      "us": "JobHunt_Must/0002-us.mp3",
+      "uk": "JobHunt_Must/0002-uk.mp3"
+    },
     "trans": [
       "增长"
     ]
   },
   {
     "name": "experience",
+    "localAudio": {
+      "us": "JobHunt_Must/0003-us.mp3",
+      "uk": "JobHunt_Must/0003-uk.mp3"
+    },
     "trans": [
       "经验"
     ]
   },
   {
     "name": "consumer",
+    "localAudio": {
+      "us": "JobHunt_Must/0004-us.mp3",
+      "uk": "JobHunt_Must/0004-uk.mp3"
+    },
     "trans": [
       "消费者"
     ]
   },
   {
     "name": "digital",
+    "localAudio": {
+      "us": "JobHunt_Must/0005-us.mp3",
+      "uk": "JobHunt_Must/0005-uk.mp3"
+    },
     "trans": [
       "数字化的"
     ]
   },
   {
     "name": "management",
+    "localAudio": {
+      "us": "JobHunt_Must/0006-us.mp3",
+      "uk": "JobHunt_Must/0006-uk.mp3"
+    },
     "trans": [
       "管理"
     ]
   },
   {
     "name": "specialise",
+    "localAudio": {
+      "us": "JobHunt_Must/0007-us.mp3",
+      "uk": "JobHunt_Must/0007-uk.mp3"
+    },
     "trans": [
       "专攻"
     ]
@@ -55,66 +87,109 @@
   },
   {
     "name": "user",
+    "localAudio": {
+      "us": "JobHunt_Must/0009-us.mp3",
+      "uk": "JobHunt_Must/0009-uk.mp3"
+    },
     "trans": [
       "用户"
     ]
   },
   {
     "name": "acquisition",
+    "localAudio": {
+      "us": "JobHunt_Must/0010-us.mp3",
+      "uk": "JobHunt_Must/0010-uk.mp3"
+    },
     "trans": [
       "获客"
     ]
   },
   {
     "name": "user acquisition",
+    "localAudio": {
+      "us": "JobHunt_Must/0011-us.mp3",
+      "uk": "JobHunt_Must/0011-uk.mp3"
+    },
     "trans": [
       "用户获取"
     ]
   },
   {
     "name": "paid",
+    "localAudio": {
+      "us": "JobHunt_Must/0012-us.mp3",
+      "uk": "JobHunt_Must/0012-uk.mp3"
+    },
     "trans": [
       "付费的"
     ]
   },
   {
     "name": "membership",
+    "localAudio": {
+      "us": "JobHunt_Must/0013-us.mp3",
+      "uk": "JobHunt_Must/0013-uk.mp3"
+    },
     "trans": [
       "会员"
     ]
   },
   {
     "name": "paid membership",
+    "localAudio": {
+      "us": "JobHunt_Must/0014-us.mp3"
+    },
     "trans": [
       "付费会员"
     ]
   },
   {
     "name": "customer",
+    "localAudio": {
+      "us": "JobHunt_Must/0015-us.mp3",
+      "uk": "JobHunt_Must/0015-uk.mp3"
+    },
     "trans": [
       "客户"
     ]
   },
   {
     "name": "retention",
+    "localAudio": {
+      "us": "JobHunt_Must/0016-us.mp3",
+      "uk": "JobHunt_Must/0016-uk.mp3"
+    },
     "trans": [
       "留存"
     ]
   },
   {
     "name": "customer retention",
+    "localAudio": {
+      "us": "JobHunt_Must/0017-us.mp3",
+      "uk": "JobHunt_Must/0017-uk.mp3"
+    },
     "trans": [
       "客户留存"
     ]
   },
   {
     "name": "order",
+    "localAudio": {
+      "us": "JobHunt_Must/0018-us.mp3",
+      "uk": "JobHunt_Must/0018-uk.mp3"
+    },
     "trans": [
       "订单"
     ]
   },
   {
     "name": "frequency",
+    "localAudio": {
+      "us": "JobHunt_Must/0019-us.mp3",
+      "uk": "JobHunt_Must/0019-uk.mp3"
+    },
     "trans": [
       "频次"
     ]
@@ -127,36 +202,60 @@
   },
   {
     "name": "community",
+    "localAudio": {
+      "us": "JobHunt_Must/0021-us.mp3",
+      "uk": "JobHunt_Must/0021-uk.mp3"
+    },
     "trans": [
       "社区"
     ]
   },
   {
     "name": "content",
+    "localAudio": {
+      "us": "JobHunt_Must/0022-us.mp3",
+      "uk": "JobHunt_Must/0022-uk.mp3"
+    },
     "trans": [
       "内容"
     ]
   },
   {
     "name": "incentive",
+    "localAudio": {
+      "us": "JobHunt_Must/0023-us.mp3",
+      "uk": "JobHunt_Must/0023-uk.mp3"
+    },
     "trans": [
       "激励"
     ]
   },
   {
     "name": "complex",
+    "localAudio": {
+      "us": "JobHunt_Must/0024-us.mp3",
+      "uk": "JobHunt_Must/0024-uk.mp3"
+    },
     "trans": [
       "复杂的"
     ]
   },
   {
     "name": "cross-functional",
+    "localAudio": {
+      "us": "JobHunt_Must/0025-us.mp3",
+      "uk": "JobHunt_Must/0025-uk.mp3"
+    },
     "trans": [
       "跨职能的"
     ]
   },
   {
     "name": "delivery",
+    "localAudio": {
+      "us": "JobHunt_Must/0026-us.mp3",
+      "uk": "JobHunt_Must/0026-uk.mp3"
+    },
     "trans": [
       "交付"
     ]
@@ -169,108 +268,180 @@
   },
   {
     "name": "on-demand",
+    "localAudio": {
+      "us": "JobHunt_Must/0028-us.mp3",
+      "uk": "JobHunt_Must/0028-uk.mp3"
+    },
     "trans": [
       "即时的"
     ]
   },
   {
     "name": "retail",
+    "localAudio": {
+      "us": "JobHunt_Must/0029-us.mp3",
+      "uk": "JobHunt_Must/0029-uk.mp3"
+    },
     "trans": [
       "零售"
     ]
   },
   {
     "name": "local",
+    "localAudio": {
+      "us": "JobHunt_Must/0030-us.mp3",
+      "uk": "JobHunt_Must/0030-uk.mp3"
+    },
     "trans": [
       "本地的"
     ]
   },
   {
     "name": "service",
+    "localAudio": {
+      "us": "JobHunt_Must/0031-us.mp3",
+      "uk": "JobHunt_Must/0031-uk.mp3"
+    },
     "trans": [
       "服务"
     ]
   },
   {
     "name": "entertainment",
+    "localAudio": {
+      "us": "JobHunt_Must/0032-us.mp3",
+      "uk": "JobHunt_Must/0032-uk.mp3"
+    },
     "trans": [
       "文娱"
     ]
   },
   {
     "name": "online",
+    "localAudio": {
+      "us": "JobHunt_Must/0033-us.mp3",
+      "uk": "JobHunt_Must/0033-uk.mp3"
+    },
     "trans": [
       "在线的"
     ]
   },
   {
     "name": "business",
+    "localAudio": {
+      "us": "JobHunt_Must/0034-us.mp3",
+      "uk": "JobHunt_Must/0034-uk.mp3"
+    },
     "trans": [
       "业务"
     ]
   },
   {
     "name": "goal",
+    "localAudio": {
+      "us": "JobHunt_Must/0035-us.mp3",
+      "uk": "JobHunt_Must/0035-uk.mp3"
+    },
     "trans": [
       "业务目标"
     ]
   },
   {
     "name": "research",
+    "localAudio": {
+      "us": "JobHunt_Must/0036-us.mp3",
+      "uk": "JobHunt_Must/0036-uk.mp3"
+    },
     "trans": [
       "调研"
     ]
   },
   {
     "name": "user research",
+    "localAudio": {
+      "us": "JobHunt_Must/0037-us.mp3",
+      "uk": "JobHunt_Must/0037-uk.mp3"
+    },
     "trans": [
       "用户调研"
     ]
   },
   {
     "name": "segment",
+    "localAudio": {
+      "us": "JobHunt_Must/0038-us.mp3",
+      "uk": "JobHunt_Must/0038-uk.mp3"
+    },
     "trans": [
       "人群"
     ]
   },
   {
     "name": "insight",
+    "localAudio": {
+      "us": "JobHunt_Must/0039-us.mp3",
+      "uk": "JobHunt_Must/0039-uk.mp3"
+    },
     "trans": [
       "洞察"
     ]
   },
   {
     "name": "roadmap",
+    "localAudio": {
+      "us": "JobHunt_Must/0040-us.mp3",
+      "uk": "JobHunt_Must/0040-uk.mp3"
+    },
     "trans": [
       "路线图"
     ]
   },
   {
     "name": "product roadmap",
+    "localAudio": {
+      "us": "JobHunt_Must/0041-us.mp3",
+      "uk": "JobHunt_Must/0041-uk.mp3"
+    },
     "trans": [
       "产品路线图"
     ]
   },
   {
     "name": "solution",
+    "localAudio": {
+      "us": "JobHunt_Must/0042-us.mp3",
+      "uk": "JobHunt_Must/0042-uk.mp3"
+    },
     "trans": [
       "方案"
     ]
   },
   {
     "name": "validation",
+    "localAudio": {
+      "us": "JobHunt_Must/0043-us.mp3",
+      "uk": "JobHunt_Must/0043-uk.mp3"
+    },
     "trans": [
       "验证"
     ]
   },
   {
     "name": "metric",
+    "localAudio": {
+      "us": "JobHunt_Must/0044-us.mp3",
+      "uk": "JobHunt_Must/0044-uk.mp3"
+    },
     "trans": [
       "指标"
     ]
   },
   {
     "name": "decomposition",
+    "localAudio": {
+      "us": "JobHunt_Must/0045-us.mp3",
+      "uk": "JobHunt_Must/0045-uk.mp3"
+    },
     "trans": [
       "拆解"
     ]
@@ -283,18 +454,30 @@
   },
   {
     "name": "data",
+    "localAudio": {
+      "us": "JobHunt_Must/0047-us.mp3",
+      "uk": "JobHunt_Must/0047-uk.mp3"
+    },
     "trans": [
       "数据"
     ]
   },
   {
     "name": "analysis",
+    "localAudio": {
+      "us": "JobHunt_Must/0048-us.mp3",
+      "uk": "JobHunt_Must/0048-uk.mp3"
+    },
     "trans": [
       "分析"
     ]
   },
   {
     "name": "data analysis",
+    "localAudio": {
+      "us": "JobHunt_Must/0049-us.mp3",
+      "uk": "JobHunt_Must/0049-uk.mp3"
+    },
     "trans": [
       "数据分析"
     ]
@@ -307,12 +490,20 @@
   },
   {
     "name": "bestseller",
+    "localAudio": {
+      "us": "JobHunt_Must/0051-us.mp3",
+      "uk": "JobHunt_Must/0051-uk.mp3"
+    },
     "trans": [
       "爆款"
     ]
   },
   {
     "name": "group",
+    "localAudio": {
+      "us": "JobHunt_Must/0052-us.mp3",
+      "uk": "JobHunt_Must/0052-uk.mp3"
+    },
     "trans": [
       "拼团"
     ]
@@ -331,12 +522,20 @@
   },
   {
     "name": "target",
+    "localAudio": {
+      "us": "JobHunt_Must/0055-us.mp3",
+      "uk": "JobHunt_Must/0055-uk.mp3"
+    },
     "trans": [
       "考核目标"
     ]
   },
   {
     "name": "external",
+    "localAudio": {
+      "us": "JobHunt_Must/0056-us.mp3",
+      "uk": "JobHunt_Must/0056-uk.mp3"
+    },
     "trans": [
       "外部的"
     ]
@@ -349,12 +548,20 @@
   },
   {
     "name": "meal",
+    "localAudio": {
+      "us": "JobHunt_Must/0058-us.mp3",
+      "uk": "JobHunt_Must/0058-uk.mp3"
+    },
     "trans": [
       "餐"
     ]
   },
   {
     "name": "pass",
+    "localAudio": {
+      "us": "JobHunt_Must/0059-us.mp3",
+      "uk": "JobHunt_Must/0059-uk.mp3"
+    },
     "trans": [
       "餐卡"
     ]
@@ -373,30 +580,50 @@
   },
   {
     "name": "scale",
+    "localAudio": {
+      "us": "JobHunt_Must/0062-us.mp3",
+      "uk": "JobHunt_Must/0062-uk.mp3"
+    },
     "trans": [
       "规模化"
     ]
   },
   {
     "name": "nationwide",
+    "localAudio": {
+      "us": "JobHunt_Must/0063-us.mp3",
+      "uk": "JobHunt_Must/0063-uk.mp3"
+    },
     "trans": [
       "全国范围的"
     ]
   },
   {
     "name": "uplift",
+    "localAudio": {
+      "us": "JobHunt_Must/0064-us.mp3",
+      "uk": "JobHunt_Must/0064-uk.mp3"
+    },
     "trans": [
       "提升"
     ]
   },
   {
     "name": "subsidy",
+    "localAudio": {
+      "us": "JobHunt_Must/0065-us.mp3",
+      "uk": "JobHunt_Must/0065-uk.mp3"
+    },
     "trans": [
       "补贴"
     ]
   },
   {
     "name": "efficiency",
+    "localAudio": {
+      "us": "JobHunt_Must/0066-us.mp3",
+      "uk": "JobHunt_Must/0066-uk.mp3"
+    },
     "trans": [
       "效率"
     ]
@@ -409,18 +636,30 @@
   },
   {
     "name": "long-term",
+    "localAudio": {
+      "us": "JobHunt_Must/0068-us.mp3",
+      "uk": "JobHunt_Must/0068-uk.mp3"
+    },
     "trans": [
       "长期的"
     ]
   },
   {
     "name": "direction",
+    "localAudio": {
+      "us": "JobHunt_Must/0069-us.mp3",
+      "uk": "JobHunt_Must/0069-uk.mp3"
+    },
     "trans": [
       "方向"
     ]
   },
   {
     "name": "stream",
+    "localAudio": {
+      "us": "JobHunt_Must/0070-us.mp3",
+      "uk": "JobHunt_Must/0070-uk.mp3"
+    },
     "trans": [
       "产品线"
     ]
@@ -433,6 +672,10 @@
   },
   {
     "name": "leadership",
+    "localAudio": {
+      "us": "JobHunt_Must/0072-us.mp3",
+      "uk": "JobHunt_Must/0072-uk.mp3"
+    },
     "trans": [
       "领导力"
     ]
@@ -445,90 +688,150 @@
   },
   {
     "name": "monthly",
+    "localAudio": {
+      "us": "JobHunt_Must/0074-us.mp3",
+      "uk": "JobHunt_Must/0074-uk.mp3"
+    },
     "trans": [
       "月度的"
     ]
   },
   {
     "name": "quarterly",
+    "localAudio": {
+      "us": "JobHunt_Must/0075-us.mp3",
+      "uk": "JobHunt_Must/0075-uk.mp3"
+    },
     "trans": [
       "季度的"
     ]
   },
   {
     "name": "priority",
+    "localAudio": {
+      "us": "JobHunt_Must/0076-us.mp3",
+      "uk": "JobHunt_Must/0076-uk.mp3"
+    },
     "trans": [
       "优先级"
     ]
   },
   {
     "name": "plan",
+    "localAudio": {
+      "us": "JobHunt_Must/0077-us.mp3",
+      "uk": "JobHunt_Must/0077-uk.mp3"
+    },
     "trans": [
       "规划"
     ]
   },
   {
     "name": "allocate",
+    "localAudio": {
+      "us": "JobHunt_Must/0078-us.mp3",
+      "uk": "JobHunt_Must/0078-uk.mp3"
+    },
     "trans": [
       "分配"
     ]
   },
   {
     "name": "design",
+    "localAudio": {
+      "us": "JobHunt_Must/0079-us.mp3",
+      "uk": "JobHunt_Must/0079-uk.mp3"
+    },
     "trans": [
       "设计"
     ]
   },
   {
     "name": "coach",
+    "localAudio": {
+      "us": "JobHunt_Must/0080-us.mp3",
+      "uk": "JobHunt_Must/0080-uk.mp3"
+    },
     "trans": [
       "辅导"
     ]
   },
   {
     "name": "performance",
+    "localAudio": {
+      "us": "JobHunt_Must/0081-us.mp3",
+      "uk": "JobHunt_Must/0081-uk.mp3"
+    },
     "trans": [
       "绩效"
     ]
   },
   {
     "name": "review",
+    "localAudio": {
+      "us": "JobHunt_Must/0082-us.mp3",
+      "uk": "JobHunt_Must/0082-uk.mp3"
+    },
     "trans": [
       "评审；复盘"
     ]
   },
   {
     "name": "performance review",
+    "localAudio": {
+      "us": "JobHunt_Must/0083-us.mp3",
+      "uk": "JobHunt_Must/0083-uk.mp3"
+    },
     "trans": [
       "绩效评估"
     ]
   },
   {
     "name": "departmental",
+    "localAudio": {
+      "us": "JobHunt_Must/0084-us.mp3",
+      "uk": "JobHunt_Must/0084-uk.mp3"
+    },
     "trans": [
       "部门级的"
     ]
   },
   {
     "name": "initiative",
+    "localAudio": {
+      "us": "JobHunt_Must/0085-us.mp3",
+      "uk": "JobHunt_Must/0085-uk.mp3"
+    },
     "trans": [
       "专项"
     ]
   },
   {
     "name": "agent",
+    "localAudio": {
+      "us": "JobHunt_Must/0086-us.mp3",
+      "uk": "JobHunt_Must/0086-uk.mp3"
+    },
     "trans": [
       "智能体"
     ]
   },
   {
     "name": "automate",
+    "localAudio": {
+      "us": "JobHunt_Must/0087-us.mp3",
+      "uk": "JobHunt_Must/0087-uk.mp3"
+    },
     "trans": [
       "自动化"
     ]
   },
   {
     "name": "workflow",
+    "localAudio": {
+      "us": "JobHunt_Must/0088-us.mp3",
+      "uk": "JobHunt_Must/0088-uk.mp3"
+    },
     "trans": [
       "工作流"
     ]
@@ -541,12 +844,20 @@
   },
   {
     "name": "launch",
+    "localAudio": {
+      "us": "JobHunt_Must/0090-us.mp3",
+      "uk": "JobHunt_Must/0090-uk.mp3"
+    },
     "trans": [
       "上线"
     ]
   },
   {
     "name": "food",
+    "localAudio": {
+      "us": "JobHunt_Must/0091-us.mp3",
+      "uk": "JobHunt_Must/0091-uk.mp3"
+    },
     "trans": [
       "餐饮"
     ]
@@ -559,18 +870,30 @@
   },
   {
     "name": "responsibility",
+    "localAudio": {
+      "us": "JobHunt_Must/0093-us.mp3",
+      "uk": "JobHunt_Must/0093-uk.mp3"
+    },
     "trans": [
       "职责"
     ]
   },
   {
     "name": "referral",
+    "localAudio": {
+      "us": "JobHunt_Must/0094-us.mp3",
+      "uk": "JobHunt_Must/0094-uk.mp3"
+    },
     "trans": [
       "转介绍"
     ]
   },
   {
     "name": "mechanic",
+    "localAudio": {
+      "us": "JobHunt_Must/0095-us.mp3",
+      "uk": "JobHunt_Must/0095-uk.mp3"
+    },
     "trans": [
       "机制"
     ]
@@ -583,72 +906,120 @@
   },
   {
     "name": "independent",
+    "localAudio": {
+      "us": "JobHunt_Must/0097-us.mp3",
+      "uk": "JobHunt_Must/0097-uk.mp3"
+    },
     "trans": [
       "独立的"
     ]
   },
   {
     "name": "own",
+    "localAudio": {
+      "us": "JobHunt_Must/0098-us.mp3",
+      "uk": "JobHunt_Must/0098-uk.mp3"
+    },
     "trans": [
       "负责"
     ]
   },
   {
     "name": "requirement",
+    "localAudio": {
+      "us": "JobHunt_Must/0099-us.mp3",
+      "uk": "JobHunt_Must/0099-uk.mp3"
+    },
     "trans": [
       "需求"
     ]
   },
   {
     "name": "experiment",
+    "localAudio": {
+      "us": "JobHunt_Must/0100-us.mp3",
+      "uk": "JobHunt_Must/0100-uk.mp3"
+    },
     "trans": [
       "实验"
     ]
   },
   {
     "name": "project",
+    "localAudio": {
+      "us": "JobHunt_Must/0101-us.mp3",
+      "uk": "JobHunt_Must/0101-uk.mp3"
+    },
     "trans": [
       "项目"
     ]
   },
   {
     "name": "establish",
+    "localAudio": {
+      "us": "JobHunt_Must/0102-us.mp3",
+      "uk": "JobHunt_Must/0102-uk.mp3"
+    },
     "trans": [
       "建立"
     ]
   },
   {
     "name": "explore",
+    "localAudio": {
+      "us": "JobHunt_Must/0103-us.mp3",
+      "uk": "JobHunt_Must/0103-uk.mp3"
+    },
     "trans": [
       "探索"
     ]
   },
   {
     "name": "saturation",
+    "localAudio": {
+      "us": "JobHunt_Must/0104-us.mp3",
+      "uk": "JobHunt_Must/0104-uk.mp3"
+    },
     "trans": [
       "饱和"
     ]
   },
   {
     "name": "shift",
+    "localAudio": {
+      "us": "JobHunt_Must/0105-us.mp3",
+      "uk": "JobHunt_Must/0105-uk.mp3"
+    },
     "trans": [
       "转向"
     ]
   },
   {
     "name": "focus",
+    "localAudio": {
+      "us": "JobHunt_Must/0106-us.mp3",
+      "uk": "JobHunt_Must/0106-uk.mp3"
+    },
     "trans": [
       "聚焦"
     ]
   },
   {
     "name": "quality",
+    "localAudio": {
+      "us": "JobHunt_Must/0107-us.mp3",
+      "uk": "JobHunt_Must/0107-uk.mp3"
+    },
     "trans": [
       "品质"
     ]
   },
   {
     "name": "perception",
+    "localAudio": {
+      "us": "JobHunt_Must/0108-us.mp3",
+      "uk": "JobHunt_Must/0108-uk.mp3"
+    },
     "trans": [
       "感知"
     ]
@@ -661,18 +1032,30 @@
   },
   {
     "name": "integrate",
+    "localAudio": {
+      "us": "JobHunt_Must/0110-us.mp3",
+      "uk": "JobHunt_Must/0110-uk.mp3"
+    },
     "trans": [
       "整合"
     ]
   },
   {
     "name": "marketing",
+    "localAudio": {
+      "us": "JobHunt_Must/0111-us.mp3",
+      "uk": "JobHunt_Must/0111-uk.mp3"
+    },
     "trans": [
       "营销"
     ]
   },
   {
     "name": "integrated marketing",
+    "localAudio": {
+      "us": "JobHunt_Must/0112-us.mp3",
+      "uk": "JobHunt_Must/0112-uk.mp3"
+    },
     "trans": [
       "整合营销"
     ]
@@ -685,6 +1068,10 @@
   },
   {
     "name": "reliability",
+    "localAudio": {
+      "us": "JobHunt_Must/0114-us.mp3",
+      "uk": "JobHunt_Must/0114-uk.mp3"
+    },
     "trans": [
       "可靠性"
     ]
@@ -697,138 +1084,230 @@
   },
   {
     "name": "development",
+    "localAudio": {
+      "us": "JobHunt_Must/0116-us.mp3",
+      "uk": "JobHunt_Must/0116-uk.mp3"
+    },
     "trans": [
       "从零到一的建设"
     ]
   },
   {
     "name": "opportunity",
+    "localAudio": {
+      "us": "JobHunt_Must/0117-us.mp3",
+      "uk": "JobHunt_Must/0117-uk.mp3"
+    },
     "trans": [
       "机会"
     ]
   },
   {
     "name": "short-term",
+    "localAudio": {
+      "us": "JobHunt_Must/0118-us.mp3",
+      "uk": "JobHunt_Must/0118-uk.mp3"
+    },
     "trans": [
       "短期的"
     ]
   },
   {
     "name": "medium-term",
+    "localAudio": {
+      "us": "JobHunt_Must/0119-us.mp3",
+      "uk": "JobHunt_Must/0119-uk.mp3"
+    },
     "trans": [
       "中期的"
     ]
   },
   {
     "name": "operation",
+    "localAudio": {
+      "us": "JobHunt_Must/0120-us.mp3",
+      "uk": "JobHunt_Must/0120-uk.mp3"
+    },
     "trans": [
       "运营"
     ]
   },
   {
     "name": "identify",
+    "localAudio": {
+      "us": "JobHunt_Must/0121-us.mp3",
+      "uk": "JobHunt_Must/0121-uk.mp3"
+    },
     "trans": [
       "识别"
     ]
   },
   {
     "name": "journey",
+    "localAudio": {
+      "us": "JobHunt_Must/0122-us.mp3",
+      "uk": "JobHunt_Must/0122-uk.mp3"
+    },
     "trans": [
       "旅程"
     ]
   },
   {
     "name": "eligible",
+    "localAudio": {
+      "us": "JobHunt_Must/0123-us.mp3",
+      "uk": "JobHunt_Must/0123-uk.mp3"
+    },
     "trans": [
       "符合条件的"
     ]
   },
   {
     "name": "pool",
+    "localAudio": {
+      "us": "JobHunt_Must/0124-us.mp3",
+      "uk": "JobHunt_Must/0124-uk.mp3"
+    },
     "trans": [
       "用户池"
     ]
   },
   {
     "name": "expand",
+    "localAudio": {
+      "us": "JobHunt_Must/0125-us.mp3",
+      "uk": "JobHunt_Must/0125-uk.mp3"
+    },
     "trans": [
       "扩大"
     ]
   },
   {
     "name": "campaign",
+    "localAudio": {
+      "us": "JobHunt_Must/0126-us.mp3",
+      "uk": "JobHunt_Must/0126-uk.mp3"
+    },
     "trans": [
       "活动"
     ]
   },
   {
     "name": "exposure",
+    "localAudio": {
+      "us": "JobHunt_Must/0127-us.mp3",
+      "uk": "JobHunt_Must/0127-uk.mp3"
+    },
     "trans": [
       "曝光"
     ]
   },
   {
     "name": "comprehension",
+    "localAudio": {
+      "us": "JobHunt_Must/0128-us.mp3",
+      "uk": "JobHunt_Must/0128-uk.mp3"
+    },
     "trans": [
       "理解"
     ]
   },
   {
     "name": "optimise",
+    "localAudio": {
+      "us": "JobHunt_Must/0129-us.mp3",
+      "uk": "JobHunt_Must/0129-uk.mp3"
+    },
     "trans": [
       "优化"
     ]
   },
   {
     "name": "initiation",
+    "localAudio": {
+      "us": "JobHunt_Must/0130-us.mp3",
+      "uk": "JobHunt_Must/0130-uk.mp3"
+    },
     "trans": [
       "发起"
     ]
   },
   {
     "name": "invitee",
+    "localAudio": {
+      "us": "JobHunt_Must/0131-us.mp3",
+      "uk": "JobHunt_Must/0131-uk.mp3"
+    },
     "trans": [
       "被邀请人"
     ]
   },
   {
     "name": "conversion",
+    "localAudio": {
+      "us": "JobHunt_Must/0132-us.mp3",
+      "uk": "JobHunt_Must/0132-uk.mp3"
+    },
     "trans": [
       "转化"
     ]
   },
   {
     "name": "merchant",
+    "localAudio": {
+      "us": "JobHunt_Must/0133-us.mp3",
+      "uk": "JobHunt_Must/0133-uk.mp3"
+    },
     "trans": [
       "商家"
     ]
   },
   {
     "name": "item",
+    "localAudio": {
+      "us": "JobHunt_Must/0134-us.mp3",
+      "uk": "JobHunt_Must/0134-uk.mp3"
+    },
     "trans": [
       "商品"
     ]
   },
   {
     "name": "coverage",
+    "localAudio": {
+      "us": "JobHunt_Must/0135-us.mp3",
+      "uk": "JobHunt_Must/0135-uk.mp3"
+    },
     "trans": [
       "覆盖"
     ]
   },
   {
     "name": "personalise",
+    "localAudio": {
+      "us": "JobHunt_Must/0136-us.mp3",
+      "uk": "JobHunt_Must/0136-uk.mp3"
+    },
     "trans": [
       "个性化"
     ]
   },
   {
     "name": "in-app",
+    "localAudio": {
+      "us": "JobHunt_Must/0137-us.mp3",
+      "uk": "JobHunt_Must/0137-uk.mp3"
+    },
     "trans": [
       "端内的"
     ]
   },
   {
     "name": "placement",
+    "localAudio": {
+      "us": "JobHunt_Must/0138-us.mp3",
+      "uk": "JobHunt_Must/0138-uk.mp3"
+    },
     "trans": [
       "资源位"
     ]
@@ -841,66 +1320,109 @@
   },
   {
     "name": "year on year",
+    "localAudio": {
+      "us": "JobHunt_Must/0140-us.mp3",
+      "uk": "JobHunt_Must/0140-uk.mp3"
+    },
     "trans": [
       "同比"
     ]
   },
   {
     "name": "cost",
+    "localAudio": {
+      "us": "JobHunt_Must/0141-us.mp3",
+      "uk": "JobHunt_Must/0141-uk.mp3"
+    },
     "trans": [
       "成本"
     ]
   },
   {
     "name": "reusable",
+    "localAudio": {
+      "us": "JobHunt_Must/0142-us.mp3",
+      "uk": "JobHunt_Must/0142-uk.mp3"
+    },
     "trans": [
       "可复用的"
     ]
   },
   {
     "name": "user-facing",
+    "localAudio": {
+      "uk": "JobHunt_Must/0143-uk.mp3"
+    },
     "trans": [
       "面向用户的"
     ]
   },
   {
     "name": "back-office",
+    "localAudio": {
+      "us": "JobHunt_Must/0144-us.mp3",
+      "uk": "JobHunt_Must/0144-uk.mp3"
+    },
     "trans": [
       "后台的"
     ]
   },
   {
     "name": "component",
+    "localAudio": {
+      "us": "JobHunt_Must/0145-us.mp3",
+      "uk": "JobHunt_Must/0145-uk.mp3"
+    },
     "trans": [
       "组件"
     ]
   },
   {
     "name": "configuration",
+    "localAudio": {
+      "us": "JobHunt_Must/0146-us.mp3",
+      "uk": "JobHunt_Must/0146-uk.mp3"
+    },
     "trans": [
       "配置"
     ]
   },
   {
     "name": "capability",
+    "localAudio": {
+      "us": "JobHunt_Must/0147-us.mp3",
+      "uk": "JobHunt_Must/0147-uk.mp3"
+    },
     "trans": [
       "能力"
     ]
   },
   {
     "name": "core",
+    "localAudio": {
+      "us": "JobHunt_Must/0148-us.mp3",
+      "uk": "JobHunt_Must/0148-uk.mp3"
+    },
     "trans": [
       "核心"
     ]
   },
   {
     "name": "iteration",
+    "localAudio": {
+      "us": "JobHunt_Must/0149-us.mp3",
+      "uk": "JobHunt_Must/0149-uk.mp3"
+    },
     "trans": [
       "迭代"
     ]
   },
   {
     "name": "post-launch",
+    "localAudio": {
+      "us": "JobHunt_Must/0150-us.mp3",
+      "uk": "JobHunt_Must/0150-uk.mp3"
+    },
     "trans": [
       "上线后的"
     ]
@@ -925,78 +1447,130 @@
   },
   {
     "name": "non-participation",
+    "localAudio": {
+      "us": "JobHunt_Must/0154-us.mp3",
+      "uk": "JobHunt_Must/0154-uk.mp3"
+    },
     "trans": [
       "未参与"
     ]
   },
   {
     "name": "driver",
+    "localAudio": {
+      "us": "JobHunt_Must/0155-us.mp3",
+      "uk": "JobHunt_Must/0155-uk.mp3"
+    },
     "trans": [
       "驱动因素"
     ]
   },
   {
     "name": "outlier",
+    "localAudio": {
+      "us": "JobHunt_Must/0156-us.mp3",
+      "uk": "JobHunt_Must/0156-uk.mp3"
+    },
     "trans": [
       "异常值"
     ]
   },
   {
     "name": "value",
+    "localAudio": {
+      "us": "JobHunt_Must/0157-us.mp3",
+      "uk": "JobHunt_Must/0157-uk.mp3"
+    },
     "trans": [
       "价值"
     ]
   },
   {
     "name": "initiator",
+    "localAudio": {
+      "us": "JobHunt_Must/0158-us.mp3",
+      "uk": "JobHunt_Must/0158-uk.mp3"
+    },
     "trans": [
       "发起人"
     ]
   },
   {
     "name": "participant",
+    "localAudio": {
+      "us": "JobHunt_Must/0159-us.mp3",
+      "uk": "JobHunt_Must/0159-uk.mp3"
+    },
     "trans": [
       "参与者"
     ]
   },
   {
     "name": "model",
+    "localAudio": {
+      "us": "JobHunt_Must/0160-us.mp3",
+      "uk": "JobHunt_Must/0160-uk.mp3"
+    },
     "trans": [
       "模式"
     ]
   },
   {
     "name": "framework",
+    "localAudio": {
+      "us": "JobHunt_Must/0161-us.mp3",
+      "uk": "JobHunt_Must/0161-uk.mp3"
+    },
     "trans": [
       "框架"
     ]
   },
   {
     "name": "lbs",
+    "localAudio": {
+      "us": "JobHunt_Must/0162-us.mp3",
+      "uk": "JobHunt_Must/0162-uk.mp3"
+    },
     "trans": [
       "基于位置的服务"
     ]
   },
   {
     "name": "preference",
+    "localAudio": {
+      "us": "JobHunt_Must/0163-us.mp3",
+      "uk": "JobHunt_Must/0163-uk.mp3"
+    },
     "trans": [
       "偏好"
     ]
   },
   {
     "name": "propose",
+    "localAudio": {
+      "us": "JobHunt_Must/0164-us.mp3",
+      "uk": "JobHunt_Must/0164-uk.mp3"
+    },
     "trans": [
       "提出"
     ]
   },
   {
     "name": "mechanism",
+    "localAudio": {
+      "us": "JobHunt_Must/0165-us.mp3",
+      "uk": "JobHunt_Must/0165-uk.mp3"
+    },
     "trans": [
       "产品机制"
     ]
   },
   {
     "name": "end-to-end",
+    "localAudio": {
+      "us": "JobHunt_Must/0166-us.mp3",
+      "uk": "JobHunt_Must/0166-uk.mp3"
+    },
     "trans": [
       "端到端的"
     ]
@@ -1009,36 +1583,60 @@
   },
   {
     "name": "creation",
+    "localAudio": {
+      "us": "JobHunt_Must/0168-us.mp3",
+      "uk": "JobHunt_Must/0168-uk.mp3"
+    },
     "trans": [
       "创建"
     ]
   },
   {
     "name": "invitation",
+    "localAudio": {
+      "us": "JobHunt_Must/0169-us.mp3",
+      "uk": "JobHunt_Must/0169-uk.mp3"
+    },
     "trans": [
       "邀请"
     ]
   },
   {
     "name": "selection",
+    "localAudio": {
+      "us": "JobHunt_Must/0170-us.mp3",
+      "uk": "JobHunt_Must/0170-uk.mp3"
+    },
     "trans": [
       "选择"
     ]
   },
   {
     "name": "checkout",
+    "localAudio": {
+      "us": "JobHunt_Must/0171-us.mp3",
+      "uk": "JobHunt_Must/0171-uk.mp3"
+    },
     "trans": [
       "结算"
     ]
   },
   {
     "name": "formation",
+    "localAudio": {
+      "us": "JobHunt_Must/0172-us.mp3",
+      "uk": "JobHunt_Must/0172-uk.mp3"
+    },
     "trans": [
       "成团"
     ]
   },
   {
     "name": "assortment",
+    "localAudio": {
+      "us": "JobHunt_Must/0173-us.mp3",
+      "uk": "JobHunt_Must/0173-uk.mp3"
+    },
     "trans": [
       "货盘"
     ]
@@ -1051,36 +1649,60 @@
   },
   {
     "name": "repeat",
+    "localAudio": {
+      "us": "JobHunt_Must/0175-us.mp3",
+      "uk": "JobHunt_Must/0175-uk.mp3"
+    },
     "trans": [
       "复购"
     ]
   },
   {
     "name": "channel",
+    "localAudio": {
+      "us": "JobHunt_Must/0176-us.mp3",
+      "uk": "JobHunt_Must/0176-uk.mp3"
+    },
     "trans": [
       "渠道"
     ]
   },
   {
     "name": "cost-efficient",
+    "localAudio": {
+      "us": "JobHunt_Must/0177-us.mp3",
+      "uk": "JobHunt_Must/0177-uk.mp3"
+    },
     "trans": [
       "成本效率高的"
     ]
   },
   {
     "name": "schedule",
+    "localAudio": {
+      "us": "JobHunt_Must/0178-us.mp3",
+      "uk": "JobHunt_Must/0178-uk.mp3"
+    },
     "trans": [
       "排期"
     ]
   },
   {
     "name": "system",
+    "localAudio": {
+      "us": "JobHunt_Must/0179-us.mp3",
+      "uk": "JobHunt_Must/0179-uk.mp3"
+    },
     "trans": [
       "系统"
     ]
   },
   {
     "name": "engineering",
+    "localAudio": {
+      "us": "JobHunt_Must/0180-us.mp3",
+      "uk": "JobHunt_Must/0180-uk.mp3"
+    },
     "trans": [
       "工程"
     ]
@@ -1093,12 +1715,20 @@
   },
   {
     "name": "alignment",
+    "localAudio": {
+      "us": "JobHunt_Must/0182-us.mp3",
+      "uk": "JobHunt_Must/0182-uk.mp3"
+    },
     "trans": [
       "对齐"
     ]
   },
   {
     "name": "scope",
+    "localAudio": {
+      "us": "JobHunt_Must/0183-us.mp3",
+      "uk": "JobHunt_Must/0183-uk.mp3"
+    },
     "trans": [
       "范围"
     ]
@@ -1111,12 +1741,20 @@
   },
   {
     "name": "risk",
+    "localAudio": {
+      "us": "JobHunt_Must/0185-us.mp3",
+      "uk": "JobHunt_Must/0185-uk.mp3"
+    },
     "trans": [
       "风险"
     ]
   },
   {
     "name": "coordination",
+    "localAudio": {
+      "us": "JobHunt_Must/0186-us.mp3",
+      "uk": "JobHunt_Must/0186-uk.mp3"
+    },
     "trans": [
       "协同"
     ]
@@ -1129,54 +1767,90 @@
   },
   {
     "name": "penetration",
+    "localAudio": {
+      "us": "JobHunt_Must/0188-us.mp3",
+      "uk": "JobHunt_Must/0188-uk.mp3"
+    },
     "trans": [
       "渗透"
     ]
   },
   {
     "name": "share",
+    "localAudio": {
+      "us": "JobHunt_Must/0189-us.mp3",
+      "uk": "JobHunt_Must/0189-uk.mp3"
+    },
     "trans": [
       "占比"
     ]
   },
   {
     "name": "decline",
+    "localAudio": {
+      "us": "JobHunt_Must/0190-us.mp3",
+      "uk": "JobHunt_Must/0190-uk.mp3"
+    },
     "trans": [
       "下滑"
     ]
   },
   {
     "name": "strategy",
+    "localAudio": {
+      "us": "JobHunt_Must/0191-us.mp3",
+      "uk": "JobHunt_Must/0191-uk.mp3"
+    },
     "trans": [
       "策略"
     ]
   },
   {
     "name": "lifecycle",
+    "localAudio": {
+      "us": "JobHunt_Must/0192-us.mp3",
+      "uk": "JobHunt_Must/0192-uk.mp3"
+    },
     "trans": [
       "生命周期"
     ]
   },
   {
     "name": "market",
+    "localAudio": {
+      "us": "JobHunt_Must/0193-us.mp3",
+      "uk": "JobHunt_Must/0193-uk.mp3"
+    },
     "trans": [
       "市场"
     ]
   },
   {
     "name": "positioning",
+    "localAudio": {
+      "us": "JobHunt_Must/0194-us.mp3",
+      "uk": "JobHunt_Must/0194-uk.mp3"
+    },
     "trans": [
       "定位"
     ]
   },
   {
     "name": "brand",
+    "localAudio": {
+      "us": "JobHunt_Must/0195-us.mp3",
+      "uk": "JobHunt_Must/0195-uk.mp3"
+    },
     "trans": [
       "品牌"
     ]
   },
   {
     "name": "brand positioning",
+    "localAudio": {
+      "us": "JobHunt_Must/0196-us.mp3",
+      "uk": "JobHunt_Must/0196-uk.mp3"
+    },
     "trans": [
       "品牌定位"
     ]
@@ -1189,90 +1863,150 @@
   },
   {
     "name": "audience",
+    "localAudio": {
+      "us": "JobHunt_Must/0198-us.mp3",
+      "uk": "JobHunt_Must/0198-uk.mp3"
+    },
     "trans": [
       "受众"
     ]
   },
   {
     "name": "analytics",
+    "localAudio": {
+      "us": "JobHunt_Must/0199-us.mp3",
+      "uk": "JobHunt_Must/0199-uk.mp3"
+    },
     "trans": [
       "商业分析"
     ]
   },
   {
     "name": "recruit",
+    "localAudio": {
+      "us": "JobHunt_Must/0200-us.mp3",
+      "uk": "JobHunt_Must/0200-uk.mp3"
+    },
     "trans": [
       "招募"
     ]
   },
   {
     "name": "interview",
+    "localAudio": {
+      "us": "JobHunt_Must/0201-us.mp3",
+      "uk": "JobHunt_Must/0201-uk.mp3"
+    },
     "trans": [
       "访谈"
     ]
   },
   {
     "name": "survey",
+    "localAudio": {
+      "us": "JobHunt_Must/0202-us.mp3",
+      "uk": "JobHunt_Must/0202-uk.mp3"
+    },
     "trans": [
       "问卷"
     ]
   },
   {
     "name": "safety",
+    "localAudio": {
+      "us": "JobHunt_Must/0203-us.mp3",
+      "uk": "JobHunt_Must/0203-uk.mp3"
+    },
     "trans": [
       "食品安全"
     ]
   },
   {
     "name": "ingredient",
+    "localAudio": {
+      "us": "JobHunt_Must/0204-us.mp3",
+      "uk": "JobHunt_Must/0204-uk.mp3"
+    },
     "trans": [
       "食材"
     ]
   },
   {
     "name": "category",
+    "localAudio": {
+      "us": "JobHunt_Must/0205-us.mp3",
+      "uk": "JobHunt_Must/0205-uk.mp3"
+    },
     "trans": [
       "品类"
     ]
   },
   {
     "name": "reputation",
+    "localAudio": {
+      "us": "JobHunt_Must/0206-us.mp3",
+      "uk": "JobHunt_Must/0206-uk.mp3"
+    },
     "trans": [
       "口碑"
     ]
   },
   {
     "name": "messaging",
+    "localAudio": {
+      "us": "JobHunt_Must/0207-us.mp3",
+      "uk": "JobHunt_Must/0207-uk.mp3"
+    },
     "trans": [
       "传达信息"
     ]
   },
   {
     "name": "proposition",
+    "localAudio": {
+      "us": "JobHunt_Must/0208-us.mp3",
+      "uk": "JobHunt_Must/0208-uk.mp3"
+    },
     "trans": [
       "主张"
     ]
   },
   {
     "name": "benefit",
+    "localAudio": {
+      "us": "JobHunt_Must/0209-us.mp3",
+      "uk": "JobHunt_Must/0209-uk.mp3"
+    },
     "trans": [
       "权益"
     ]
   },
   {
     "name": "affordability",
+    "localAudio": {
+      "us": "JobHunt_Must/0210-us.mp3",
+      "uk": "JobHunt_Must/0210-uk.mp3"
+    },
     "trans": [
       "实惠"
     ]
   },
   {
     "name": "objective",
+    "localAudio": {
+      "us": "JobHunt_Must/0211-us.mp3",
+      "uk": "JobHunt_Must/0211-uk.mp3"
+    },
     "trans": [
       "目标"
     ]
   },
   {
     "name": "incremental",
+    "localAudio": {
+      "us": "JobHunt_Must/0212-us.mp3",
+      "uk": "JobHunt_Must/0212-uk.mp3"
+    },
     "trans": [
       "增量的"
     ]
@@ -1291,6 +2025,10 @@
   },
   {
     "name": "rate",
+    "localAudio": {
+      "us": "JobHunt_Must/0215-us.mp3",
+      "uk": "JobHunt_Must/0215-uk.mp3"
+    },
     "trans": [
       "比率"
     ]
@@ -1309,36 +2047,60 @@
   },
   {
     "name": "measurement",
+    "localAudio": {
+      "us": "JobHunt_Must/0218-us.mp3",
+      "uk": "JobHunt_Must/0218-uk.mp3"
+    },
     "trans": [
       "衡量标准"
     ]
   },
   {
     "name": "sustainable",
+    "localAudio": {
+      "us": "JobHunt_Must/0219-us.mp3",
+      "uk": "JobHunt_Must/0219-uk.mp3"
+    },
     "trans": [
       "可持续的"
     ]
   },
   {
     "name": "evaluation",
+    "localAudio": {
+      "us": "JobHunt_Must/0220-us.mp3",
+      "uk": "JobHunt_Must/0220-uk.mp3"
+    },
     "trans": [
       "评估"
     ]
   },
   {
     "name": "discount",
+    "localAudio": {
+      "us": "JobHunt_Must/0221-us.mp3",
+      "uk": "JobHunt_Must/0221-uk.mp3"
+    },
     "trans": [
       "折扣"
     ]
   },
   {
     "name": "coupon",
+    "localAudio": {
+      "us": "JobHunt_Must/0222-us.mp3",
+      "uk": "JobHunt_Must/0222-uk.mp3"
+    },
     "trans": [
       "优惠券"
     ]
   },
   {
     "name": "point",
+    "localAudio": {
+      "us": "JobHunt_Must/0223-us.mp3",
+      "uk": "JobHunt_Must/0223-uk.mp3"
+    },
     "trans": [
       "积分"
     ]
@@ -1351,72 +2113,120 @@
   },
   {
     "name": "perceived value",
+    "localAudio": {
+      "us": "JobHunt_Must/0225-us.mp3",
+      "uk": "JobHunt_Must/0225-uk.mp3"
+    },
     "trans": [
       "感知价值"
     ]
   },
   {
     "name": "platform",
+    "localAudio": {
+      "us": "JobHunt_Must/0226-us.mp3",
+      "uk": "JobHunt_Must/0226-uk.mp3"
+    },
     "trans": [
       "平台"
     ]
   },
   {
     "name": "margin",
+    "localAudio": {
+      "us": "JobHunt_Must/0227-us.mp3",
+      "uk": "JobHunt_Must/0227-uk.mp3"
+    },
     "trans": [
       "毛利"
     ]
   },
   {
     "name": "low-margin",
+    "localAudio": {
+      "us": "JobHunt_Must/0228-us.mp3",
+      "uk": "JobHunt_Must/0228-uk.mp3"
+    },
     "trans": [
       "低毛利的"
     ]
   },
   {
     "name": "economics",
+    "localAudio": {
+      "us": "JobHunt_Must/0229-us.mp3",
+      "uk": "JobHunt_Must/0229-uk.mp3"
+    },
     "trans": [
       "单位经济"
     ]
   },
   {
     "name": "controllability",
+    "localAudio": {
+      "us": "JobHunt_Must/0230-us.mp3",
+      "uk": "JobHunt_Must/0230-uk.mp3"
+    },
     "trans": [
       "可控性"
     ]
   },
   {
     "name": "extensibility",
+    "localAudio": {
+      "us": "JobHunt_Must/0231-us.mp3",
+      "uk": "JobHunt_Must/0231-uk.mp3"
+    },
     "trans": [
       "可扩展性"
     ]
   },
   {
     "name": "purchase",
+    "localAudio": {
+      "us": "JobHunt_Must/0232-us.mp3",
+      "uk": "JobHunt_Must/0232-uk.mp3"
+    },
     "trans": [
       "购买"
     ]
   },
   {
     "name": "usage",
+    "localAudio": {
+      "us": "JobHunt_Must/0233-us.mp3",
+      "uk": "JobHunt_Must/0233-uk.mp3"
+    },
     "trans": [
       "使用"
     ]
   },
   {
     "name": "renewal",
+    "localAudio": {
+      "us": "JobHunt_Must/0234-us.mp3",
+      "uk": "JobHunt_Must/0234-uk.mp3"
+    },
     "trans": [
       "续费"
     ]
   },
   {
     "name": "mvp",
+    "localAudio": {
+      "us": "JobHunt_Must/0235-us.mp3",
+      "uk": "JobHunt_Must/0235-uk.mp3"
+    },
     "trans": [
       "最小可行产品"
     ]
   },
   {
     "name": "rollout",
+    "localAudio": {
+      "us": "JobHunt_Must/0236-us.mp3",
+      "uk": "JobHunt_Must/0236-uk.mp3"
+    },
     "trans": [
       "铺开"
     ]
@@ -1429,54 +2239,90 @@
   },
   {
     "name": "campus",
+    "localAudio": {
+      "us": "JobHunt_Must/0238-us.mp3",
+      "uk": "JobHunt_Must/0238-uk.mp3"
+    },
     "trans": [
       "校园"
     ]
   },
   {
     "name": "differentiated",
+    "localAudio": {
+      "us": "JobHunt_Must/0239-us.mp3",
+      "uk": "JobHunt_Must/0239-uk.mp3"
+    },
     "trans": [
       "差异化的"
     ]
   },
   {
     "name": "pricing",
+    "localAudio": {
+      "us": "JobHunt_Must/0240-us.mp3",
+      "uk": "JobHunt_Must/0240-uk.mp3"
+    },
     "trans": [
       "定价"
     ]
   },
   {
     "name": "standardise",
+    "localAudio": {
+      "us": "JobHunt_Must/0241-us.mp3",
+      "uk": "JobHunt_Must/0241-uk.mp3"
+    },
     "trans": [
       "标准化"
     ]
   },
   {
     "name": "configurable",
+    "localAudio": {
+      "us": "JobHunt_Must/0242-us.mp3",
+      "uk": "JobHunt_Must/0242-uk.mp3"
+    },
     "trans": [
       "可配置的"
     ]
   },
   {
     "name": "governance",
+    "localAudio": {
+      "us": "JobHunt_Must/0243-us.mp3",
+      "uk": "JobHunt_Must/0243-uk.mp3"
+    },
     "trans": [
       "治理"
     ]
   },
   {
     "name": "scalability",
+    "localAudio": {
+      "us": "JobHunt_Must/0244-us.mp3",
+      "uk": "JobHunt_Must/0244-uk.mp3"
+    },
     "trans": [
       "可规模化"
     ]
   },
   {
     "name": "extraction",
+    "localAudio": {
+      "us": "JobHunt_Must/0245-us.mp3",
+      "uk": "JobHunt_Must/0245-uk.mp3"
+    },
     "trans": [
       "取数"
     ]
   },
   {
     "name": "funnel",
+    "localAudio": {
+      "us": "JobHunt_Must/0246-us.mp3",
+      "uk": "JobHunt_Must/0246-uk.mp3"
+    },
     "trans": [
       "漏斗"
     ]
@@ -1489,96 +2335,158 @@
   },
   {
     "name": "user segmentation",
+    "localAudio": {
+      "us": "JobHunt_Must/0248-us.mp3"
+    },
     "trans": [
       "用户分层"
     ]
   },
   {
     "name": "retention analysis",
+    "localAudio": {
+      "uk": "JobHunt_Must/0249-uk.mp3"
+    },
     "trans": [
       "留存分析"
     ]
   },
   {
     "name": "dashboard",
+    "localAudio": {
+      "us": "JobHunt_Must/0250-us.mp3",
+      "uk": "JobHunt_Must/0250-uk.mp3"
+    },
     "trans": [
       "数据看板"
     ]
   },
   {
     "name": "bi",
+    "localAudio": {
+      "us": "JobHunt_Must/0251-us.mp3",
+      "uk": "JobHunt_Must/0251-uk.mp3"
+    },
     "trans": [
       "商业智能"
     ]
   },
   {
     "name": "sql",
+    "localAudio": {
+      "us": "JobHunt_Must/0252-us.mp3",
+      "uk": "JobHunt_Must/0252-uk.mp3"
+    },
     "trans": [
       "SQL"
     ]
   },
   {
     "name": "monitor",
+    "localAudio": {
+      "us": "JobHunt_Must/0253-us.mp3",
+      "uk": "JobHunt_Must/0253-uk.mp3"
+    },
     "trans": [
       "监控"
     ]
   },
   {
     "name": "adoption",
+    "localAudio": {
+      "us": "JobHunt_Must/0254-us.mp3",
+      "uk": "JobHunt_Must/0254-uk.mp3"
+    },
     "trans": [
       "采用"
     ]
   },
   {
     "name": "criterion",
+    "localAudio": {
+      "us": "JobHunt_Must/0255-us.mp3",
+      "uk": "JobHunt_Must/0255-uk.mp3"
+    },
     "trans": [
       "判定标准"
     ]
   },
   {
     "name": "execution",
+    "localAudio": {
+      "us": "JobHunt_Must/0256-us.mp3",
+      "uk": "JobHunt_Must/0256-uk.mp3"
+    },
     "trans": [
       "执行"
     ]
   },
   {
     "name": "well-defined",
+    "localAudio": {
+      "us": "JobHunt_Must/0257-us.mp3",
+      "uk": "JobHunt_Must/0257-uk.mp3"
+    },
     "trans": [
       "界定清晰的"
     ]
   },
   {
     "name": "dependency",
+    "localAudio": {
+      "us": "JobHunt_Must/0258-us.mp3",
+      "uk": "JobHunt_Must/0258-uk.mp3"
+    },
     "trans": [
       "依赖"
     ]
   },
   {
     "name": "knowledge",
+    "localAudio": {
+      "us": "JobHunt_Must/0259-us.mp3",
+      "uk": "JobHunt_Must/0259-uk.mp3"
+    },
     "trans": [
       "知识"
     ]
   },
   {
     "name": "prompt",
+    "localAudio": {
+      "us": "JobHunt_Must/0260-us.mp3",
+      "uk": "JobHunt_Must/0260-uk.mp3"
+    },
     "trans": [
       "提示词"
     ]
   },
   {
     "name": "knowledge base",
+    "localAudio": {
+      "us": "JobHunt_Must/0261-us.mp3",
+      "uk": "JobHunt_Must/0261-uk.mp3"
+    },
     "trans": [
       "知识库"
     ]
   },
   {
     "name": "cadence",
+    "localAudio": {
+      "us": "JobHunt_Must/0262-us.mp3",
+      "uk": "JobHunt_Must/0262-uk.mp3"
+    },
     "trans": [
       "节奏"
     ]
   },
   {
     "name": "implementation",
+    "localAudio": {
+      "us": "JobHunt_Must/0263-us.mp3",
+      "uk": "JobHunt_Must/0263-uk.mp3"
+    },
     "trans": [
       "落地实施"
     ]
@@ -1591,42 +2499,70 @@
   },
   {
     "name": "variance",
+    "localAudio": {
+      "us": "JobHunt_Must/0265-us.mp3",
+      "uk": "JobHunt_Must/0265-uk.mp3"
+    },
     "trans": [
       "差异"
     ]
   },
   {
     "name": "variance analysis",
+    "localAudio": {
+      "us": "JobHunt_Must/0266-us.mp3",
+      "uk": "JobHunt_Must/0266-uk.mp3"
+    },
     "trans": [
       "差异分析"
     ]
   },
   {
     "name": "sentiment",
+    "localAudio": {
+      "us": "JobHunt_Must/0267-us.mp3",
+      "uk": "JobHunt_Must/0267-uk.mp3"
+    },
     "trans": [
       "舆情"
     ]
   },
   {
     "name": "regression",
+    "localAudio": {
+      "us": "JobHunt_Must/0268-us.mp3",
+      "uk": "JobHunt_Must/0268-uk.mp3"
+    },
     "trans": [
       "回归"
     ]
   },
   {
     "name": "regression testing",
+    "localAudio": {
+      "us": "JobHunt_Must/0269-us.mp3",
+      "uk": "JobHunt_Must/0269-uk.mp3"
+    },
     "trans": [
       "回归测试"
     ]
   },
   {
     "name": "outsource",
+    "localAudio": {
+      "us": "JobHunt_Must/0270-us.mp3",
+      "uk": "JobHunt_Must/0270-uk.mp3"
+    },
     "trans": [
       "外包"
     ]
   },
   {
     "name": "workload",
+    "localAudio": {
+      "us": "JobHunt_Must/0271-us.mp3",
+      "uk": "JobHunt_Must/0271-uk.mp3"
+    },
     "trans": [
       "工作量"
     ]
@@ -1639,6 +2575,10 @@
   },
   {
     "name": "partnership",
+    "localAudio": {
+      "us": "JobHunt_Must/0273-us.mp3",
+      "uk": "JobHunt_Must/0273-uk.mp3"
+    },
     "trans": [
       "对外合作"
     ]
@@ -1651,30 +2591,49 @@
   },
   {
     "name": "portfolio",
+    "localAudio": {
+      "us": "JobHunt_Must/0275-us.mp3",
+      "uk": "JobHunt_Must/0275-uk.mp3"
+    },
     "trans": [
       "产品组合"
     ]
   },
   {
     "name": "participation",
+    "localAudio": {
+      "us": "JobHunt_Must/0276-us.mp3",
+      "uk": "JobHunt_Must/0276-uk.mp3"
+    },
     "trans": [
       "参与"
     ]
   },
   {
     "name": "reward",
+    "localAudio": {
+      "us": "JobHunt_Must/0277-us.mp3",
+      "uk": "JobHunt_Must/0277-uk.mp3"
+    },
     "trans": [
       "奖励"
     ]
   },
   {
     "name": "draw",
+    "localAudio": {
+      "us": "JobHunt_Must/0278-us.mp3",
+      "uk": "JobHunt_Must/0278-uk.mp3"
+    },
     "trans": [
       "抽奖"
     ]
   },
   {
     "name": "post-purchase",
+    "localAudio": {
+      "us": "JobHunt_Must/0279-us.mp3"
+    },
     "trans": [
       "购后的"
     ]
@@ -1687,48 +2646,79 @@
   },
   {
     "name": "probability",
+    "localAudio": {
+      "us": "JobHunt_Must/0281-us.mp3",
+      "uk": "JobHunt_Must/0281-uk.mp3"
+    },
     "trans": [
       "概率"
     ]
   },
   {
     "name": "threshold",
+    "localAudio": {
+      "us": "JobHunt_Must/0282-us.mp3",
+      "uk": "JobHunt_Must/0282-uk.mp3"
+    },
     "trans": [
       "门槛"
     ]
   },
   {
     "name": "barrier",
+    "localAudio": {
+      "us": "JobHunt_Must/0283-us.mp3",
+      "uk": "JobHunt_Must/0283-uk.mp3"
+    },
     "trans": [
       "障碍"
     ]
   },
   {
     "name": "traffic",
+    "localAudio": {
+      "us": "JobHunt_Must/0284-us.mp3",
+      "uk": "JobHunt_Must/0284-uk.mp3"
+    },
     "trans": [
       "流量"
     ]
   },
   {
     "name": "touchpoint",
+    "localAudio": {
+      "uk": "JobHunt_Must/0285-uk.mp3"
+    },
     "trans": [
       "触点"
     ]
   },
   {
     "name": "progressive",
+    "localAudio": {
+      "us": "JobHunt_Must/0286-us.mp3",
+      "uk": "JobHunt_Must/0286-uk.mp3"
+    },
     "trans": [
       "递进式的"
     ]
   },
   {
     "name": "cross-promotion",
+    "localAudio": {
+      "us": "JobHunt_Must/0287-us.mp3",
+      "uk": "JobHunt_Must/0287-uk.mp3"
+    },
     "trans": [
       "交叉推广"
     ]
   },
   {
     "name": "centralise",
+    "localAudio": {
+      "us": "JobHunt_Must/0288-us.mp3",
+      "uk": "JobHunt_Must/0288-uk.mp3"
+    },
     "trans": [
       "集中管理"
     ]
@@ -1741,12 +2731,20 @@
   },
   {
     "name": "feasibility",
+    "localAudio": {
+      "us": "JobHunt_Must/0290-us.mp3",
+      "uk": "JobHunt_Must/0290-uk.mp3"
+    },
     "trans": [
       "可行性"
     ]
   },
   {
     "name": "partner",
+    "localAudio": {
+      "us": "JobHunt_Must/0291-us.mp3",
+      "uk": "JobHunt_Must/0291-uk.mp3"
+    },
     "trans": [
       "合作方"
     ]
@@ -1759,102 +2757,169 @@
   },
   {
     "name": "integration",
+    "localAudio": {
+      "us": "JobHunt_Must/0293-us.mp3",
+      "uk": "JobHunt_Must/0293-uk.mp3"
+    },
     "trans": [
       "对接"
     ]
   },
   {
     "name": "livestream",
+    "localAudio": {
+      "us": "JobHunt_Must/0294-us.mp3",
+      "uk": "JobHunt_Must/0294-uk.mp3"
+    },
     "trans": [
       "直播"
     ]
   },
   {
     "name": "receipt",
+    "localAudio": {
+      "us": "JobHunt_Must/0295-us.mp3",
+      "uk": "JobHunt_Must/0295-uk.mp3"
+    },
     "trans": [
       "实收"
     ]
   },
   {
     "name": "gross",
+    "localAudio": {
+      "us": "JobHunt_Must/0296-us.mp3",
+      "uk": "JobHunt_Must/0296-uk.mp3"
+    },
     "trans": [
       "毛利的"
     ]
   },
   {
     "name": "gross margin",
+    "localAudio": {
+      "us": "JobHunt_Must/0297-us.mp3",
+      "uk": "JobHunt_Must/0297-uk.mp3"
+    },
     "trans": [
       "毛利率"
     ]
   },
   {
     "name": "interest-based",
+    "localAudio": {
+      "us": "JobHunt_Must/0298-us.mp3"
+    },
     "trans": [
       "基于兴趣的"
     ]
   },
   {
     "name": "offline",
+    "localAudio": {
+      "us": "JobHunt_Must/0299-us.mp3",
+      "uk": "JobHunt_Must/0299-uk.mp3"
+    },
     "trans": [
       "线下的"
     ]
   },
   {
     "name": "event",
+    "localAudio": {
+      "us": "JobHunt_Must/0300-us.mp3",
+      "uk": "JobHunt_Must/0300-uk.mp3"
+    },
     "trans": [
       "活动"
     ]
   },
   {
     "name": "ugc",
+    "localAudio": {
+      "us": "JobHunt_Must/0301-us.mp3",
+      "uk": "JobHunt_Must/0301-uk.mp3"
+    },
     "trans": [
       "用户生成内容"
     ]
   },
   {
     "name": "user-generated",
+    "localAudio": {
+      "us": "JobHunt_Must/0302-us.mp3",
+      "uk": "JobHunt_Must/0302-uk.mp3"
+    },
     "trans": [
       "用户生成的"
     ]
   },
   {
     "name": "user-generated content",
+    "localAudio": {
+      "us": "JobHunt_Must/0303-us.mp3",
+      "uk": "JobHunt_Must/0303-uk.mp3"
+    },
     "trans": [
       "用户生成内容"
     ]
   },
   {
     "name": "feature",
+    "localAudio": {
+      "us": "JobHunt_Must/0304-us.mp3",
+      "uk": "JobHunt_Must/0304-uk.mp3"
+    },
     "trans": [
       "功能"
     ]
   },
   {
     "name": "admin",
+    "localAudio": {
+      "us": "JobHunt_Must/0305-us.mp3",
+      "uk": "JobHunt_Must/0305-uk.mp3"
+    },
     "trans": [
       "管理后台"
     ]
   },
   {
     "name": "console",
+    "localAudio": {
+      "us": "JobHunt_Must/0306-us.mp3",
+      "uk": "JobHunt_Must/0306-uk.mp3"
+    },
     "trans": [
       "控制台"
     ]
   },
   {
     "name": "instrumentation",
+    "localAudio": {
+      "us": "JobHunt_Must/0307-us.mp3",
+      "uk": "JobHunt_Must/0307-uk.mp3"
+    },
     "trans": [
       "埋点"
     ]
   },
   {
     "name": "release",
+    "localAudio": {
+      "us": "JobHunt_Must/0308-us.mp3",
+      "uk": "JobHunt_Must/0308-uk.mp3"
+    },
     "trans": [
       "发布"
     ]
   },
   {
     "name": "accuracy",
+    "localAudio": {
+      "us": "JobHunt_Must/0309-us.mp3",
+      "uk": "JobHunt_Must/0309-uk.mp3"
+    },
     "trans": [
       "准确性"
     ]
@@ -1873,78 +2938,130 @@
   },
   {
     "name": "moderation",
+    "localAudio": {
+      "us": "JobHunt_Must/0312-us.mp3",
+      "uk": "JobHunt_Must/0312-uk.mp3"
+    },
     "trans": [
       "审核"
     ]
   },
   {
     "name": "curation",
+    "localAudio": {
+      "us": "JobHunt_Must/0313-us.mp3",
+      "uk": "JobHunt_Must/0313-uk.mp3"
+    },
     "trans": [
       "策展"
     ]
   },
   {
     "name": "distribution",
+    "localAudio": {
+      "us": "JobHunt_Must/0314-us.mp3",
+      "uk": "JobHunt_Must/0314-uk.mp3"
+    },
     "trans": [
       "分发"
     ]
   },
   {
     "name": "refine",
+    "localAudio": {
+      "us": "JobHunt_Must/0315-us.mp3",
+      "uk": "JobHunt_Must/0315-uk.mp3"
+    },
     "trans": [
       "打磨"
     ]
   },
   {
     "name": "feedback",
+    "localAudio": {
+      "us": "JobHunt_Must/0316-us.mp3",
+      "uk": "JobHunt_Must/0316-uk.mp3"
+    },
     "trans": [
       "反馈"
     ]
   },
   {
     "name": "listing",
+    "localAudio": {
+      "us": "JobHunt_Must/0317-us.mp3",
+      "uk": "JobHunt_Must/0317-uk.mp3"
+    },
     "trans": [
       "信息条目"
     ]
   },
   {
     "name": "topic",
+    "localAudio": {
+      "us": "JobHunt_Must/0318-us.mp3",
+      "uk": "JobHunt_Must/0318-uk.mp3"
+    },
     "trans": [
       "话题"
     ]
   },
   {
     "name": "communication",
+    "localAudio": {
+      "us": "JobHunt_Must/0319-us.mp3",
+      "uk": "JobHunt_Must/0319-uk.mp3"
+    },
     "trans": [
       "沟通"
     ]
   },
   {
     "name": "phased",
+    "localAudio": {
+      "us": "JobHunt_Must/0320-us.mp3",
+      "uk": "JobHunt_Must/0320-uk.mp3"
+    },
     "trans": [
       "分阶段的"
     ]
   },
   {
     "name": "administration",
+    "localAudio": {
+      "us": "JobHunt_Must/0321-us.mp3",
+      "uk": "JobHunt_Must/0321-uk.mp3"
+    },
     "trans": [
       "后台管理"
     ]
   },
   {
     "name": "reduction",
+    "localAudio": {
+      "us": "JobHunt_Must/0322-us.mp3",
+      "uk": "JobHunt_Must/0322-uk.mp3"
+    },
     "trans": [
       "降幅"
     ]
   },
   {
     "name": "creator",
+    "localAudio": {
+      "us": "JobHunt_Must/0323-us.mp3",
+      "uk": "JobHunt_Must/0323-uk.mp3"
+    },
     "trans": [
       "创作者"
     ]
   },
   {
     "name": "tier",
+    "localAudio": {
+      "us": "JobHunt_Must/0324-us.mp3",
+      "uk": "JobHunt_Must/0324-uk.mp3"
+    },
     "trans": [
       "等级"
     ]
@@ -1969,36 +3086,60 @@
   },
   {
     "name": "high-value",
+    "localAudio": {
+      "us": "JobHunt_Must/0328-us.mp3",
+      "uk": "JobHunt_Must/0328-uk.mp3"
+    },
     "trans": [
       "高价值的"
     ]
   },
   {
     "name": "mission",
+    "localAudio": {
+      "us": "JobHunt_Must/0329-us.mp3",
+      "uk": "JobHunt_Must/0329-uk.mp3"
+    },
     "trans": [
       "任务"
     ]
   },
   {
     "name": "closed loop",
+    "localAudio": {
+      "us": "JobHunt_Must/0330-us.mp3",
+      "uk": "JobHunt_Must/0330-uk.mp3"
+    },
     "trans": [
       "闭环"
     ]
   },
   {
     "name": "interaction",
+    "localAudio": {
+      "us": "JobHunt_Must/0331-us.mp3",
+      "uk": "JobHunt_Must/0331-uk.mp3"
+    },
     "trans": [
       "互动"
     ]
   },
   {
     "name": "organiser",
+    "localAudio": {
+      "us": "JobHunt_Must/0332-us.mp3",
+      "uk": "JobHunt_Must/0332-uk.mp3"
+    },
     "trans": [
       "组织者"
     ]
   },
   {
     "name": "instant",
+    "localAudio": {
+      "us": "JobHunt_Must/0333-us.mp3",
+      "uk": "JobHunt_Must/0333-uk.mp3"
+    },
     "trans": [
       "即时的"
     ]
@@ -2011,12 +3152,20 @@
   },
   {
     "name": "designer",
+    "localAudio": {
+      "us": "JobHunt_Must/0335-us.mp3",
+      "uk": "JobHunt_Must/0335-uk.mp3"
+    },
     "trans": [
       "设计师"
     ]
   },
   {
     "name": "game",
+    "localAudio": {
+      "us": "JobHunt_Must/0336-us.mp3",
+      "uk": "JobHunt_Must/0336-uk.mp3"
+    },
     "trans": [
       "游戏"
     ]
@@ -2029,6 +3178,10 @@
   },
   {
     "name": "budget",
+    "localAudio": {
+      "us": "JobHunt_Must/0338-us.mp3",
+      "uk": "JobHunt_Must/0338-uk.mp3"
+    },
     "trans": [
       "预算"
     ]
@@ -2041,54 +3194,89 @@
   },
   {
     "name": "revenue",
+    "localAudio": {
+      "us": "JobHunt_Must/0340-us.mp3",
+      "uk": "JobHunt_Must/0340-uk.mp3"
+    },
     "trans": [
       "收入"
     ]
   },
   {
     "name": "non-linear",
+    "localAudio": {
+      "us": "JobHunt_Must/0341-us.mp3",
+      "uk": "JobHunt_Must/0341-uk.mp3"
+    },
     "trans": [
       "非线性的"
     ]
   },
   {
     "name": "economy",
+    "localAudio": {
+      "us": "JobHunt_Must/0342-us.mp3",
+      "uk": "JobHunt_Must/0342-uk.mp3"
+    },
     "trans": [
       "经济系统"
     ]
   },
   {
     "name": "behaviour",
+    "localAudio": {
+      "us": "JobHunt_Must/0343-us.mp3",
+      "uk": "JobHunt_Must/0343-uk.mp3"
+    },
     "trans": [
       "行为"
     ]
   },
   {
     "name": "player",
+    "localAudio": {
+      "us": "JobHunt_Must/0344-us.mp3",
+      "uk": "JobHunt_Must/0344-uk.mp3"
+    },
     "trans": [
       "玩家"
     ]
   },
   {
     "name": "physical",
+    "localAudio": {
+      "us": "JobHunt_Must/0345-us.mp3",
+      "uk": "JobHunt_Must/0345-uk.mp3"
+    },
     "trans": [
       "实物的"
     ]
   },
   {
     "name": "advertising",
+    "localAudio": {
+      "us": "JobHunt_Must/0346-us.mp3",
+      "uk": "JobHunt_Must/0346-uk.mp3"
+    },
     "trans": [
       "广告"
     ]
   },
   {
     "name": "permission",
+    "localAudio": {
+      "us": "JobHunt_Must/0347-us.mp3",
+      "uk": "JobHunt_Must/0347-uk.mp3"
+    },
     "trans": [
       "权限"
     ]
   },
   {
     "name": "next-day",
+    "localAudio": {
+      "uk": "JobHunt_Must/0348-uk.mp3"
+    },
     "trans": [
       "次日的"
     ]
@@ -2101,60 +3289,100 @@
   },
   {
     "name": "register",
+    "localAudio": {
+      "us": "JobHunt_Must/0350-us.mp3",
+      "uk": "JobHunt_Must/0350-uk.mp3"
+    },
     "trans": [
       "注册"
     ]
   },
   {
     "name": "matchmaking",
+    "localAudio": {
+      "us": "JobHunt_Must/0351-us.mp3",
+      "uk": "JobHunt_Must/0351-uk.mp3"
+    },
     "trans": [
       "匹配"
     ]
   },
   {
     "name": "tag",
+    "localAudio": {
+      "us": "JobHunt_Must/0352-us.mp3",
+      "uk": "JobHunt_Must/0352-uk.mp3"
+    },
     "trans": [
       "标签"
     ]
   },
   {
     "name": "algorithm",
+    "localAudio": {
+      "us": "JobHunt_Must/0353-us.mp3",
+      "uk": "JobHunt_Must/0353-uk.mp3"
+    },
     "trans": [
       "算法"
     ]
   },
   {
     "name": "time-based",
+    "localAudio": {
+      "us": "JobHunt_Must/0354-us.mp3",
+      "uk": "JobHunt_Must/0354-uk.mp3"
+    },
     "trans": [
       "限时的"
     ]
   },
   {
     "name": "tournament",
+    "localAudio": {
+      "us": "JobHunt_Must/0355-us.mp3",
+      "uk": "JobHunt_Must/0355-uk.mp3"
+    },
     "trans": [
       "赛事"
     ]
   },
   {
     "name": "monetise",
+    "localAudio": {
+      "us": "JobHunt_Must/0356-us.mp3",
+      "uk": "JobHunt_Must/0356-uk.mp3"
+    },
     "trans": [
       "变现"
     ]
   },
   {
     "name": "re-engage",
+    "localAudio": {
+      "us": "JobHunt_Must/0357-us.mp3",
+      "uk": "JobHunt_Must/0357-uk.mp3"
+    },
     "trans": [
       "召回"
     ]
   },
   {
     "name": "balance",
+    "localAudio": {
+      "us": "JobHunt_Must/0358-us.mp3",
+      "uk": "JobHunt_Must/0358-uk.mp3"
+    },
     "trans": [
       "余额"
     ]
   },
   {
     "name": "roi",
+    "localAudio": {
+      "us": "JobHunt_Must/0359-us.mp3",
+      "uk": "JobHunt_Must/0359-uk.mp3"
+    },
     "trans": [
       "投资回报率"
     ]
@@ -2167,12 +3395,19 @@
   },
   {
     "name": "digitalisation",
+    "localAudio": {
+      "us": "JobHunt_Must/0361-us.mp3",
+      "uk": "JobHunt_Must/0361-uk.mp3"
+    },
     "trans": [
       "数字化"
     ]
   },
   {
     "name": "in-game",
+    "localAudio": {
+      "us": "JobHunt_Must/0362-us.mp3"
+    },
     "trans": [
       "游戏内的"
     ]
@@ -2191,30 +3426,50 @@
   },
   {
     "name": "revival",
+    "localAudio": {
+      "us": "JobHunt_Must/0365-us.mp3",
+      "uk": "JobHunt_Must/0365-uk.mp3"
+    },
     "trans": [
       "复活"
     ]
   },
   {
     "name": "card",
+    "localAudio": {
+      "us": "JobHunt_Must/0366-us.mp3",
+      "uk": "JobHunt_Must/0366-uk.mp3"
+    },
     "trans": [
       "卡牌"
     ]
   },
   {
     "name": "3d",
+    "localAudio": {
+      "us": "JobHunt_Must/0367-us.mp3",
+      "uk": "JobHunt_Must/0367-uk.mp3"
+    },
     "trans": [
       "三维"
     ]
   },
   {
     "name": "qa",
+    "localAudio": {
+      "us": "JobHunt_Must/0368-us.mp3",
+      "uk": "JobHunt_Must/0368-uk.mp3"
+    },
     "trans": [
       "质量保障"
     ]
   },
   {
     "name": "onboarding",
+    "localAudio": {
+      "us": "JobHunt_Must/0369-us.mp3",
+      "uk": "JobHunt_Must/0369-uk.mp3"
+    },
     "trans": [
       "入职带教"
     ]
@@ -2227,126 +3482,209 @@
   },
   {
     "name": "format",
+    "localAudio": {
+      "us": "JobHunt_Must/0371-us.mp3",
+      "uk": "JobHunt_Must/0371-uk.mp3"
+    },
     "trans": [
       "赛制"
     ]
   },
   {
     "name": "qualifier",
+    "localAudio": {
+      "us": "JobHunt_Must/0372-us.mp3",
+      "uk": "JobHunt_Must/0372-uk.mp3"
+    },
     "trans": [
       "预选赛"
     ]
   },
   {
     "name": "engineer",
+    "localAudio": {
+      "us": "JobHunt_Must/0373-us.mp3",
+      "uk": "JobHunt_Must/0373-uk.mp3"
+    },
     "trans": [
       "工程师"
     ]
   },
   {
     "name": "software",
+    "localAudio": {
+      "us": "JobHunt_Must/0374-us.mp3",
+      "uk": "JobHunt_Must/0374-uk.mp3"
+    },
     "trans": [
       "软件"
     ]
   },
   {
     "name": "prioritisation",
+    "localAudio": {
+      "us": "JobHunt_Must/0375-us.mp3",
+      "uk": "JobHunt_Must/0375-uk.mp3"
+    },
     "trans": [
       "优先级排序"
     ]
   },
   {
     "name": "architecture",
+    "localAudio": {
+      "us": "JobHunt_Must/0376-us.mp3",
+      "uk": "JobHunt_Must/0376-uk.mp3"
+    },
     "trans": [
       "架构"
     ]
   },
   {
     "name": "product architecture",
+    "localAudio": {
+      "us": "JobHunt_Must/0377-us.mp3",
+      "uk": "JobHunt_Must/0377-uk.mp3"
+    },
     "trans": [
       "产品架构"
     ]
   },
   {
     "name": "customer journey",
+    "localAudio": {
+      "us": "JobHunt_Must/0378-us.mp3",
+      "uk": "JobHunt_Must/0378-uk.mp3"
+    },
     "trans": [
       "客户旅程"
     ]
   },
   {
     "name": "customer lifecycle",
+    "localAudio": {
+      "us": "JobHunt_Must/0379-us.mp3"
+    },
     "trans": [
       "客户生命周期"
     ]
   },
   {
     "name": "process",
+    "localAudio": {
+      "us": "JobHunt_Must/0380-us.mp3",
+      "uk": "JobHunt_Must/0380-uk.mp3"
+    },
     "trans": [
       "流程"
     ]
   },
   {
     "name": "collaboration",
+    "localAudio": {
+      "us": "JobHunt_Must/0381-us.mp3",
+      "uk": "JobHunt_Must/0381-uk.mp3"
+    },
     "trans": [
       "协作"
     ]
   },
   {
     "name": "influence",
+    "localAudio": {
+      "us": "JobHunt_Must/0382-us.mp3",
+      "uk": "JobHunt_Must/0382-uk.mp3"
+    },
     "trans": [
       "影响力"
     ]
   },
   {
     "name": "applied",
+    "localAudio": {
+      "us": "JobHunt_Must/0383-us.mp3",
+      "uk": "JobHunt_Must/0383-uk.mp3"
+    },
     "trans": [
       "应用的"
     ]
   },
   {
     "name": "language",
+    "localAudio": {
+      "us": "JobHunt_Must/0384-us.mp3",
+      "uk": "JobHunt_Must/0384-uk.mp3"
+    },
     "trans": [
       "语言"
     ]
   },
   {
     "name": "mandarin",
+    "localAudio": {
+      "us": "JobHunt_Must/0385-us.mp3",
+      "uk": "JobHunt_Must/0385-uk.mp3"
+    },
     "trans": [
       "普通话"
     ]
   },
   {
     "name": "cantonese",
+    "localAudio": {
+      "us": "JobHunt_Must/0386-us.mp3",
+      "uk": "JobHunt_Must/0386-uk.mp3"
+    },
     "trans": [
       "粤语"
     ]
   },
   {
     "name": "listening",
+    "localAudio": {
+      "us": "JobHunt_Must/0387-us.mp3",
+      "uk": "JobHunt_Must/0387-uk.mp3"
+    },
     "trans": [
       "听力"
     ]
   },
   {
     "name": "english",
+    "localAudio": {
+      "us": "JobHunt_Must/0388-us.mp3",
+      "uk": "JobHunt_Must/0388-uk.mp3"
+    },
     "trans": [
       "英语"
     ]
   },
   {
     "name": "proficiency",
+    "localAudio": {
+      "us": "JobHunt_Must/0389-us.mp3",
+      "uk": "JobHunt_Must/0389-uk.mp3"
+    },
     "trans": [
       "熟练程度"
     ]
   },
   {
     "name": "reading",
+    "localAudio": {
+      "us": "JobHunt_Must/0390-us.mp3",
+      "uk": "JobHunt_Must/0390-uk.mp3"
+    },
     "trans": [
       "阅读"
     ]
   },
   {
     "name": "writing",
+    "localAudio": {
+      "us": "JobHunt_Must/0391-us.mp3",
+      "uk": "JobHunt_Must/0391-uk.mp3"
+    },
     "trans": [
       "写作"
     ]

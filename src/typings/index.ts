@@ -19,13 +19,15 @@ export const PRONUNCIATION_PHONETIC_MAP: Pronunciation2PhoneticMap = {
   id: 'id',
 }
 
+export type LocalAudioSource = string | { us?: string; uk?: string }
+
 export type Word = {
   name: string
   trans: string[]
   usphone: string
   ukphone: string
   notation?: string
-  localAudio?: string
+  localAudio?: LocalAudioSource
   localAudioUncertain?: boolean
   sourceDict?: string
 }

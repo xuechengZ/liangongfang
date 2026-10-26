@@ -22,6 +22,21 @@ test('local pronunciation is served from the repository files', async () => {
 test('invalid local audio paths are rejected', async () => {
   const response = await handleCloudRequest(audioRequest('/api/audio?word=ability&localAudio=..%2Findex.html'), '/audio')
   assert.equal(response.status, 400)
+  assert.equal((await handleCloudRequest(audioRequest('/api/audio?word=product&localAudio=JobHunt_Must%2F0000.mp3'), '/audio')).status, 400)
+})
+
+test('JobHunt_Must accent audio is served from the repository files', async () => {
+  const response = await handleCloudRequest(
+    audioRequest('/api/audio?word=product&pronunciation=uk&localAudio=JobHunt_Must%2F0000-uk.mp3'),
+    '/audio',
+  )
+  assert.equal(response.status, 200)
+  assert.equal(response.headers.get('x-pronunciation-provider'), 'local')
+  assert.equal(response.headers.get('content-type'), 'audio/mpeg')
+  assert.deepEqual(
+    Buffer.from(await response.arrayBuffer()),
+    await readFile(new URL('../public/local-pronunciation/JobHunt_Must/0000-uk.mp3', import.meta.url)),
+  )
 })
 
 test('missing local clips fall through to the online pronunciation race', async () => {

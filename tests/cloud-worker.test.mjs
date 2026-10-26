@@ -30,9 +30,40 @@ test('cloud playback returns exact original MP3 bytes and local provider', async
   assert.deepEqual(Buffer.from(await response.arrayBuffer()), await readFile(new URL('../public/local-pronunciation/ieltsWang3/0000-original.mp3', import.meta.url)))
 })
 
+test('JobHunt_Must US and UK clips are served from static files', async () => {
+  for (const [accent, file] of [['us', '0000-us.mp3'], ['uk', '0000-uk.mp3']]) {
+    const response = await worker.fetch(request(`/audio?word=product&pronunciation=${accent}&localAudio=JobHunt_Must%2F${file}`), env, ctx)
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-pronunciation-provider'), 'local')
+    assert.deepEqual(
+      Buffer.from(await response.arrayBuffer()),
+      await readFile(new URL(`../public/local-pronunciation/JobHunt_Must/${file}`, import.meta.url)),
+    )
+  }
+})
+
 test('invalid local paths are rejected without exposing other assets', async () => {
   assert.equal((await worker.fetch(request('/audio?word=ability&localAudio=..%2F..%2Findex.html'), env, ctx)).status, 400)
   assert.equal((await worker.fetch(request('/audio'), env, ctx)).status, 400)
+  assert.equal((await worker.fetch(request('/audio?word=product&localAudio=JobHunt_Must%2F0000.mp3'), env, ctx)).status, 400)
+  assert.equal((await worker.fetch(request('/audio?word=product&localAudio=JobHunt_Must%2F..%2FieltsWang3%2F0000-original.mp3'), env, ctx)).status, 400)
+})
+
+test('a missing JobHunt_Must accent clip is accepted and falls through to online audio', async () => {
+  const original = globalThis.fetch
+  globalThis.fetch = async () => new Response(new Uint8Array(700).fill(3), { headers: { 'content-type': 'audio/mpeg' } })
+  try {
+    const response = await worker.fetch(
+      request('/audio?word=jobhunt-missing-clip&pronunciation=us&localAudio=JobHunt_Must%2F9999-us.mp3'),
+      env,
+      ctx,
+    )
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-pronunciation-provider'), 'youdao')
+    assert.equal((await response.arrayBuffer()).byteLength, 700)
+  } finally {
+    globalThis.fetch = original
+  }
 })
 
 test('missing original clip uses online source and repeat uses cached audio', async () => {
