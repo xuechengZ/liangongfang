@@ -27,6 +27,8 @@ The atom storage key stays `pronunciation` in `src/store`. This feature does not
 
 `resolvePlaybackLocalAudio` drops `localAudio` only when the current book is one of those four and the preference is `youdao`. Play and prefetch both use that result. A missing `localAudio` still falls through to the online request. Other books always keep `localAudio`.
 
+`showLocalAudioUncertainWarning` uses that same gate for the 「发音可能有误」 badge. Youdao on a Wang book hides the badge even when the entry still has `localAudioUncertain`. Wang playback still shows it when that flag is true. The dictionary JSON is left unchanged.
+
 ## Resource boundary
 
 `localAudio` is an F4 dictionary field on dict JSON. It names a file under `public/local-pronunciation/`. Playback only reads it. Removing it from one word makes that word fall back to online audio, then system speech. Neighbor words keep their own `localAudio`. This feature does not edit dict JSON and does not move the mp3 package.

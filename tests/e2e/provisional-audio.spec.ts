@@ -43,6 +43,65 @@ for (const width of [1280, 768]) {
   })
 }
 
+test('Youdao preference hides the uncertain label and does not play the Wang clip', async ({ page }) => {
+  const words = JSON.parse(readFileSync(path.resolve('public/dicts/IELTS_WANG_3.json'), 'utf8'))
+  words[0].localAudioUncertain = true
+  const audio = readFileSync(path.resolve('public/sounds/correct.wav'))
+  const requests: string[] = []
+  await page.addInitScript(() => {
+    localStorage.setItem('currentDict', JSON.stringify('ieltsWang3'))
+    localStorage.setItem('currentChapter', JSON.stringify(0))
+    localStorage.setItem('wangPronunciationSource', JSON.stringify('youdao'))
+  })
+  await page.route('**/dicts/IELTS_WANG_3.json', (route) => route.fulfill({ json: words }))
+  await page.route('http://127.0.0.1:8787/audio**', (route) => {
+    requests.push(route.request().url())
+    return route.fulfill({ status: 200, contentType: 'audio/wav', body: audio })
+  })
+  await page.route('http://127.0.0.1:8787/events', (route) => route.fulfill({ status: 204 }))
+  await page.goto('http://127.0.0.1:5173/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: '开始' }).click()
+  await expect(page.getByText('发音可能有误', { exact: true })).toHaveCount(0)
+  await expect
+    .poll(() =>
+      requests.some((requestUrl) => {
+        const url = new URL(requestUrl)
+        return url.searchParams.get('word') === words[0].name && url.searchParams.get('prefetch') !== '1'
+      }),
+    )
+    .toBe(true)
+  expect(requests.some((requestUrl) => new URL(requestUrl).searchParams.get('localAudio') === words[0].localAudio)).toBe(false)
+})
+
+test('Wang preference keeps the uncertain label while the local clip plays', async ({ page }) => {
+  const words = JSON.parse(readFileSync(path.resolve('public/dicts/IELTS_WANG_3.json'), 'utf8'))
+  words[0].localAudioUncertain = true
+  const audio = readFileSync(path.resolve('public/sounds/correct.wav'))
+  const requests: string[] = []
+  await page.addInitScript(() => {
+    localStorage.setItem('currentDict', JSON.stringify('ieltsWang3'))
+    localStorage.setItem('currentChapter', JSON.stringify(0))
+    localStorage.setItem('wangPronunciationSource', JSON.stringify('wang'))
+  })
+  await page.route('**/dicts/IELTS_WANG_3.json', (route) => route.fulfill({ json: words }))
+  await page.route('http://127.0.0.1:8787/audio**', (route) => {
+    requests.push(route.request().url())
+    return route.fulfill({ status: 200, contentType: 'audio/wav', body: audio })
+  })
+  await page.route('http://127.0.0.1:8787/events', (route) => route.fulfill({ status: 204 }))
+  await page.goto('http://127.0.0.1:5173/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: '开始' }).click()
+  await expect(page.getByText('发音可能有误', { exact: true })).toBeVisible()
+  await expect
+    .poll(() => requests.some((requestUrl) => new URL(requestUrl).searchParams.get('localAudio') === words[0].localAudio))
+    .toBe(true)
+  await page.getByRole('button', { name: '美音' }).click()
+  await page.getByRole('radio', { name: '优先有道词典发音' }).click()
+  await expect(page.getByText('发音可能有误', { exact: true })).toHaveCount(0)
+  await page.getByRole('radio', { name: '优先王陆语料发音' }).click()
+  await expect(page.getByText('发音可能有误', { exact: true })).toBeVisible()
+})
+
 for (const book of ['C3', 'C4', 'C5', 'C11']) {
   test(`provisional candidate one plays original local audio with a warning in ${book}`, async ({ page }) => {
     const review = JSON.parse(readFileSync(path.resolve('.data/local-pronunciation/review/review-report.json'), 'utf8'))
