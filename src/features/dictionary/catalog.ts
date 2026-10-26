@@ -4141,6 +4141,21 @@ const kazakhHapinDicts: DictionaryResource[] = [
   },
 ]
 
+// 自定义词书
+const customDicts: DictionaryResource[] = [
+  {
+    id: 'job-hunt-must',
+    name: '揾工必背',
+    description: '按简历章节整理的求职英语：增长、会员、留存与跨职能交付',
+    category: '自定义',
+    tags: ['求职'],
+    url: '/dicts/JobHunt_Must.json',
+    length: 392,
+    language: 'en',
+    languageCategory: 'en',
+  },
+]
+
 //印尼语高频词汇
 const indonesianDicts: DictionaryResource[] = [
   {
@@ -4169,6 +4184,7 @@ export const dictionaryResources: DictionaryResource[] = [
   ...germanExam,
   ...kazakhHapinDicts,
   ...indonesianDicts,
+  ...customDicts,
 
   // {
   //   id: 'zhtest',

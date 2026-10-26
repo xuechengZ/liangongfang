@@ -1,0 +1,2354 @@
+[
+  {
+    "name": "product",
+    "trans": [
+      "产品"
+    ]
+  },
+  {
+    "name": "manager",
+    "trans": [
+      "经理"
+    ]
+  },
+  {
+    "name": "growth",
+    "trans": [
+      "增长"
+    ]
+  },
+  {
+    "name": "experience",
+    "trans": [
+      "经验"
+    ]
+  },
+  {
+    "name": "consumer",
+    "trans": [
+      "消费者"
+    ]
+  },
+  {
+    "name": "digital",
+    "trans": [
+      "数字化的"
+    ]
+  },
+  {
+    "name": "management",
+    "trans": [
+      "管理"
+    ]
+  },
+  {
+    "name": "specialise",
+    "trans": [
+      "专攻"
+    ]
+  },
+  {
+    "name": "referral-led",
+    "trans": [
+      "转介绍驱动的"
+    ]
+  },
+  {
+    "name": "user",
+    "trans": [
+      "用户"
+    ]
+  },
+  {
+    "name": "acquisition",
+    "trans": [
+      "获客"
+    ]
+  },
+  {
+    "name": "user acquisition",
+    "trans": [
+      "用户获取"
+    ]
+  },
+  {
+    "name": "paid",
+    "trans": [
+      "付费的"
+    ]
+  },
+  {
+    "name": "membership",
+    "trans": [
+      "会员"
+    ]
+  },
+  {
+    "name": "paid membership",
+    "trans": [
+      "付费会员"
+    ]
+  },
+  {
+    "name": "customer",
+    "trans": [
+      "客户"
+    ]
+  },
+  {
+    "name": "retention",
+    "trans": [
+      "留存"
+    ]
+  },
+  {
+    "name": "customer retention",
+    "trans": [
+      "客户留存"
+    ]
+  },
+  {
+    "name": "order",
+    "trans": [
+      "订单"
+    ]
+  },
+  {
+    "name": "frequency",
+    "trans": [
+      "频次"
+    ]
+  },
+  {
+    "name": "order frequency",
+    "trans": [
+      "下单频次"
+    ]
+  },
+  {
+    "name": "community",
+    "trans": [
+      "社区"
+    ]
+  },
+  {
+    "name": "content",
+    "trans": [
+      "内容"
+    ]
+  },
+  {
+    "name": "incentive",
+    "trans": [
+      "激励"
+    ]
+  },
+  {
+    "name": "complex",
+    "trans": [
+      "复杂的"
+    ]
+  },
+  {
+    "name": "cross-functional",
+    "trans": [
+      "跨职能的"
+    ]
+  },
+  {
+    "name": "delivery",
+    "trans": [
+      "交付"
+    ]
+  },
+  {
+    "name": "cross-functional delivery",
+    "trans": [
+      "跨职能交付"
+    ]
+  },
+  {
+    "name": "on-demand",
+    "trans": [
+      "即时的"
+    ]
+  },
+  {
+    "name": "retail",
+    "trans": [
+      "零售"
+    ]
+  },
+  {
+    "name": "local",
+    "trans": [
+      "本地的"
+    ]
+  },
+  {
+    "name": "service",
+    "trans": [
+      "服务"
+    ]
+  },
+  {
+    "name": "entertainment",
+    "trans": [
+      "文娱"
+    ]
+  },
+  {
+    "name": "online",
+    "trans": [
+      "在线的"
+    ]
+  },
+  {
+    "name": "business",
+    "trans": [
+      "业务"
+    ]
+  },
+  {
+    "name": "goal",
+    "trans": [
+      "业务目标"
+    ]
+  },
+  {
+    "name": "research",
+    "trans": [
+      "调研"
+    ]
+  },
+  {
+    "name": "user research",
+    "trans": [
+      "用户调研"
+    ]
+  },
+  {
+    "name": "segment",
+    "trans": [
+      "人群"
+    ]
+  },
+  {
+    "name": "insight",
+    "trans": [
+      "洞察"
+    ]
+  },
+  {
+    "name": "roadmap",
+    "trans": [
+      "路线图"
+    ]
+  },
+  {
+    "name": "product roadmap",
+    "trans": [
+      "产品路线图"
+    ]
+  },
+  {
+    "name": "solution",
+    "trans": [
+      "方案"
+    ]
+  },
+  {
+    "name": "validation",
+    "trans": [
+      "验证"
+    ]
+  },
+  {
+    "name": "metric",
+    "trans": [
+      "指标"
+    ]
+  },
+  {
+    "name": "decomposition",
+    "trans": [
+      "拆解"
+    ]
+  },
+  {
+    "name": "metric decomposition",
+    "trans": [
+      "指标拆解"
+    ]
+  },
+  {
+    "name": "data",
+    "trans": [
+      "数据"
+    ]
+  },
+  {
+    "name": "analysis",
+    "trans": [
+      "分析"
+    ]
+  },
+  {
+    "name": "data analysis",
+    "trans": [
+      "数据分析"
+    ]
+  },
+  {
+    "name": "a/b testing",
+    "trans": [
+      "A/B 测试"
+    ]
+  },
+  {
+    "name": "bestseller",
+    "trans": [
+      "爆款"
+    ]
+  },
+  {
+    "name": "group",
+    "trans": [
+      "拼团"
+    ]
+  },
+  {
+    "name": "bestseller group buy",
+    "trans": [
+      "爆款拼团"
+    ]
+  },
+  {
+    "name": "new-customer",
+    "trans": [
+      "新客"
+    ]
+  },
+  {
+    "name": "target",
+    "trans": [
+      "考核目标"
+    ]
+  },
+  {
+    "name": "external",
+    "trans": [
+      "外部的"
+    ]
+  },
+  {
+    "name": "flat-price",
+    "trans": [
+      "一口价的"
+    ]
+  },
+  {
+    "name": "meal",
+    "trans": [
+      "餐"
+    ]
+  },
+  {
+    "name": "pass",
+    "trans": [
+      "餐卡"
+    ]
+  },
+  {
+    "name": "flat-price meal pass",
+    "trans": [
+      "一口价餐卡"
+    ]
+  },
+  {
+    "name": "0-to-1",
+    "trans": [
+      "从零到一"
+    ]
+  },
+  {
+    "name": "scale",
+    "trans": [
+      "规模化"
+    ]
+  },
+  {
+    "name": "nationwide",
+    "trans": [
+      "全国范围的"
+    ]
+  },
+  {
+    "name": "uplift",
+    "trans": [
+      "提升"
+    ]
+  },
+  {
+    "name": "subsidy",
+    "trans": [
+      "补贴"
+    ]
+  },
+  {
+    "name": "efficiency",
+    "trans": [
+      "效率"
+    ]
+  },
+  {
+    "name": "subsidy efficiency",
+    "trans": [
+      "补贴效率"
+    ]
+  },
+  {
+    "name": "long-term",
+    "trans": [
+      "长期的"
+    ]
+  },
+  {
+    "name": "direction",
+    "trans": [
+      "方向"
+    ]
+  },
+  {
+    "name": "stream",
+    "trans": [
+      "产品线"
+    ]
+  },
+  {
+    "name": "dotted-line",
+    "trans": [
+      "虚线汇报的"
+    ]
+  },
+  {
+    "name": "leadership",
+    "trans": [
+      "领导力"
+    ]
+  },
+  {
+    "name": "dotted-line leadership",
+    "trans": [
+      "虚线领导"
+    ]
+  },
+  {
+    "name": "monthly",
+    "trans": [
+      "月度的"
+    ]
+  },
+  {
+    "name": "quarterly",
+    "trans": [
+      "季度的"
+    ]
+  },
+  {
+    "name": "priority",
+    "trans": [
+      "优先级"
+    ]
+  },
+  {
+    "name": "plan",
+    "trans": [
+      "规划"
+    ]
+  },
+  {
+    "name": "allocate",
+    "trans": [
+      "分配"
+    ]
+  },
+  {
+    "name": "design",
+    "trans": [
+      "设计"
+    ]
+  },
+  {
+    "name": "coach",
+    "trans": [
+      "辅导"
+    ]
+  },
+  {
+    "name": "performance",
+    "trans": [
+      "绩效"
+    ]
+  },
+  {
+    "name": "review",
+    "trans": [
+      "评审；复盘"
+    ]
+  },
+  {
+    "name": "performance review",
+    "trans": [
+      "绩效评估"
+    ]
+  },
+  {
+    "name": "departmental",
+    "trans": [
+      "部门级的"
+    ]
+  },
+  {
+    "name": "initiative",
+    "trans": [
+      "专项"
+    ]
+  },
+  {
+    "name": "agent",
+    "trans": [
+      "智能体"
+    ]
+  },
+  {
+    "name": "automate",
+    "trans": [
+      "自动化"
+    ]
+  },
+  {
+    "name": "workflow",
+    "trans": [
+      "工作流"
+    ]
+  },
+  {
+    "name": "automated workflow",
+    "trans": [
+      "自动化工作流"
+    ]
+  },
+  {
+    "name": "launch",
+    "trans": [
+      "上线"
+    ]
+  },
+  {
+    "name": "food",
+    "trans": [
+      "餐饮"
+    ]
+  },
+  {
+    "name": "value-focused",
+    "trans": [
+      "性价比导向的"
+    ]
+  },
+  {
+    "name": "responsibility",
+    "trans": [
+      "职责"
+    ]
+  },
+  {
+    "name": "referral",
+    "trans": [
+      "转介绍"
+    ]
+  },
+  {
+    "name": "mechanic",
+    "trans": [
+      "机制"
+    ]
+  },
+  {
+    "name": "referral mechanic",
+    "trans": [
+      "转介绍机制"
+    ]
+  },
+  {
+    "name": "independent",
+    "trans": [
+      "独立的"
+    ]
+  },
+  {
+    "name": "own",
+    "trans": [
+      "负责"
+    ]
+  },
+  {
+    "name": "requirement",
+    "trans": [
+      "需求"
+    ]
+  },
+  {
+    "name": "experiment",
+    "trans": [
+      "实验"
+    ]
+  },
+  {
+    "name": "project",
+    "trans": [
+      "项目"
+    ]
+  },
+  {
+    "name": "establish",
+    "trans": [
+      "建立"
+    ]
+  },
+  {
+    "name": "explore",
+    "trans": [
+      "探索"
+    ]
+  },
+  {
+    "name": "saturation",
+    "trans": [
+      "饱和"
+    ]
+  },
+  {
+    "name": "shift",
+    "trans": [
+      "转向"
+    ]
+  },
+  {
+    "name": "focus",
+    "trans": [
+      "聚焦"
+    ]
+  },
+  {
+    "name": "quality",
+    "trans": [
+      "品质"
+    ]
+  },
+  {
+    "name": "perception",
+    "trans": [
+      "感知"
+    ]
+  },
+  {
+    "name": "quality perception",
+    "trans": [
+      "品质感知"
+    ]
+  },
+  {
+    "name": "integrate",
+    "trans": [
+      "整合"
+    ]
+  },
+  {
+    "name": "marketing",
+    "trans": [
+      "营销"
+    ]
+  },
+  {
+    "name": "integrated marketing",
+    "trans": [
+      "整合营销"
+    ]
+  },
+  {
+    "name": "group-order",
+    "trans": [
+      "拼团订单"
+    ]
+  },
+  {
+    "name": "reliability",
+    "trans": [
+      "可靠性"
+    ]
+  },
+  {
+    "name": "group-order reliability",
+    "trans": [
+      "拼团订单可靠性"
+    ]
+  },
+  {
+    "name": "development",
+    "trans": [
+      "从零到一的建设"
+    ]
+  },
+  {
+    "name": "opportunity",
+    "trans": [
+      "机会"
+    ]
+  },
+  {
+    "name": "short-term",
+    "trans": [
+      "短期的"
+    ]
+  },
+  {
+    "name": "medium-term",
+    "trans": [
+      "中期的"
+    ]
+  },
+  {
+    "name": "operation",
+    "trans": [
+      "运营"
+    ]
+  },
+  {
+    "name": "identify",
+    "trans": [
+      "识别"
+    ]
+  },
+  {
+    "name": "journey",
+    "trans": [
+      "旅程"
+    ]
+  },
+  {
+    "name": "eligible",
+    "trans": [
+      "符合条件的"
+    ]
+  },
+  {
+    "name": "pool",
+    "trans": [
+      "用户池"
+    ]
+  },
+  {
+    "name": "expand",
+    "trans": [
+      "扩大"
+    ]
+  },
+  {
+    "name": "campaign",
+    "trans": [
+      "活动"
+    ]
+  },
+  {
+    "name": "exposure",
+    "trans": [
+      "曝光"
+    ]
+  },
+  {
+    "name": "comprehension",
+    "trans": [
+      "理解"
+    ]
+  },
+  {
+    "name": "optimise",
+    "trans": [
+      "优化"
+    ]
+  },
+  {
+    "name": "initiation",
+    "trans": [
+      "发起"
+    ]
+  },
+  {
+    "name": "invitee",
+    "trans": [
+      "被邀请人"
+    ]
+  },
+  {
+    "name": "conversion",
+    "trans": [
+      "转化"
+    ]
+  },
+  {
+    "name": "merchant",
+    "trans": [
+      "商家"
+    ]
+  },
+  {
+    "name": "item",
+    "trans": [
+      "商品"
+    ]
+  },
+  {
+    "name": "coverage",
+    "trans": [
+      "覆盖"
+    ]
+  },
+  {
+    "name": "personalise",
+    "trans": [
+      "个性化"
+    ]
+  },
+  {
+    "name": "in-app",
+    "trans": [
+      "端内的"
+    ]
+  },
+  {
+    "name": "placement",
+    "trans": [
+      "资源位"
+    ]
+  },
+  {
+    "name": "in-app placement",
+    "trans": [
+      "端内资源位"
+    ]
+  },
+  {
+    "name": "year on year",
+    "trans": [
+      "同比"
+    ]
+  },
+  {
+    "name": "cost",
+    "trans": [
+      "成本"
+    ]
+  },
+  {
+    "name": "reusable",
+    "trans": [
+      "可复用的"
+    ]
+  },
+  {
+    "name": "user-facing",
+    "trans": [
+      "面向用户的"
+    ]
+  },
+  {
+    "name": "back-office",
+    "trans": [
+      "后台的"
+    ]
+  },
+  {
+    "name": "component",
+    "trans": [
+      "组件"
+    ]
+  },
+  {
+    "name": "configuration",
+    "trans": [
+      "配置"
+    ]
+  },
+  {
+    "name": "capability",
+    "trans": [
+      "能力"
+    ]
+  },
+  {
+    "name": "core",
+    "trans": [
+      "核心"
+    ]
+  },
+  {
+    "name": "iteration",
+    "trans": [
+      "迭代"
+    ]
+  },
+  {
+    "name": "post-launch",
+    "trans": [
+      "上线后的"
+    ]
+  },
+  {
+    "name": "post-launch scaling",
+    "trans": [
+      "上线后放量"
+    ]
+  },
+  {
+    "name": "acquisition efficiency",
+    "trans": [
+      "获客效率"
+    ]
+  },
+  {
+    "name": "new-customer acquisition",
+    "trans": [
+      "新客获取"
+    ]
+  },
+  {
+    "name": "non-participation",
+    "trans": [
+      "未参与"
+    ]
+  },
+  {
+    "name": "driver",
+    "trans": [
+      "驱动因素"
+    ]
+  },
+  {
+    "name": "outlier",
+    "trans": [
+      "异常值"
+    ]
+  },
+  {
+    "name": "value",
+    "trans": [
+      "价值"
+    ]
+  },
+  {
+    "name": "initiator",
+    "trans": [
+      "发起人"
+    ]
+  },
+  {
+    "name": "participant",
+    "trans": [
+      "参与者"
+    ]
+  },
+  {
+    "name": "model",
+    "trans": [
+      "模式"
+    ]
+  },
+  {
+    "name": "framework",
+    "trans": [
+      "框架"
+    ]
+  },
+  {
+    "name": "lbs",
+    "trans": [
+      "基于位置的服务"
+    ]
+  },
+  {
+    "name": "preference",
+    "trans": [
+      "偏好"
+    ]
+  },
+  {
+    "name": "propose",
+    "trans": [
+      "提出"
+    ]
+  },
+  {
+    "name": "mechanism",
+    "trans": [
+      "产品机制"
+    ]
+  },
+  {
+    "name": "end-to-end",
+    "trans": [
+      "端到端的"
+    ]
+  },
+  {
+    "name": "end-to-end journey",
+    "trans": [
+      "端到端旅程"
+    ]
+  },
+  {
+    "name": "creation",
+    "trans": [
+      "创建"
+    ]
+  },
+  {
+    "name": "invitation",
+    "trans": [
+      "邀请"
+    ]
+  },
+  {
+    "name": "selection",
+    "trans": [
+      "选择"
+    ]
+  },
+  {
+    "name": "checkout",
+    "trans": [
+      "结算"
+    ]
+  },
+  {
+    "name": "formation",
+    "trans": [
+      "成团"
+    ]
+  },
+  {
+    "name": "assortment",
+    "trans": [
+      "货盘"
+    ]
+  },
+  {
+    "name": "eligible assortment",
+    "trans": [
+      "可参与货盘"
+    ]
+  },
+  {
+    "name": "repeat",
+    "trans": [
+      "复购"
+    ]
+  },
+  {
+    "name": "channel",
+    "trans": [
+      "渠道"
+    ]
+  },
+  {
+    "name": "cost-efficient",
+    "trans": [
+      "成本效率高的"
+    ]
+  },
+  {
+    "name": "schedule",
+    "trans": [
+      "排期"
+    ]
+  },
+  {
+    "name": "system",
+    "trans": [
+      "系统"
+    ]
+  },
+  {
+    "name": "engineering",
+    "trans": [
+      "工程"
+    ]
+  },
+  {
+    "name": "person-day",
+    "trans": [
+      "人日"
+    ]
+  },
+  {
+    "name": "alignment",
+    "trans": [
+      "对齐"
+    ]
+  },
+  {
+    "name": "scope",
+    "trans": [
+      "范围"
+    ]
+  },
+  {
+    "name": "critical-path",
+    "trans": [
+      "关键路径"
+    ]
+  },
+  {
+    "name": "risk",
+    "trans": [
+      "风险"
+    ]
+  },
+  {
+    "name": "coordination",
+    "trans": [
+      "协同"
+    ]
+  },
+  {
+    "name": "cross-team",
+    "trans": [
+      "跨团队的"
+    ]
+  },
+  {
+    "name": "penetration",
+    "trans": [
+      "渗透"
+    ]
+  },
+  {
+    "name": "share",
+    "trans": [
+      "占比"
+    ]
+  },
+  {
+    "name": "decline",
+    "trans": [
+      "下滑"
+    ]
+  },
+  {
+    "name": "strategy",
+    "trans": [
+      "策略"
+    ]
+  },
+  {
+    "name": "lifecycle",
+    "trans": [
+      "生命周期"
+    ]
+  },
+  {
+    "name": "market",
+    "trans": [
+      "市场"
+    ]
+  },
+  {
+    "name": "positioning",
+    "trans": [
+      "定位"
+    ]
+  },
+  {
+    "name": "brand",
+    "trans": [
+      "品牌"
+    ]
+  },
+  {
+    "name": "brand positioning",
+    "trans": [
+      "品牌定位"
+    ]
+  },
+  {
+    "name": "quality-focused",
+    "trans": [
+      "品质导向的"
+    ]
+  },
+  {
+    "name": "audience",
+    "trans": [
+      "受众"
+    ]
+  },
+  {
+    "name": "analytics",
+    "trans": [
+      "商业分析"
+    ]
+  },
+  {
+    "name": "recruit",
+    "trans": [
+      "招募"
+    ]
+  },
+  {
+    "name": "interview",
+    "trans": [
+      "访谈"
+    ]
+  },
+  {
+    "name": "survey",
+    "trans": [
+      "问卷"
+    ]
+  },
+  {
+    "name": "safety",
+    "trans": [
+      "食品安全"
+    ]
+  },
+  {
+    "name": "ingredient",
+    "trans": [
+      "食材"
+    ]
+  },
+  {
+    "name": "category",
+    "trans": [
+      "品类"
+    ]
+  },
+  {
+    "name": "reputation",
+    "trans": [
+      "口碑"
+    ]
+  },
+  {
+    "name": "messaging",
+    "trans": [
+      "传达信息"
+    ]
+  },
+  {
+    "name": "proposition",
+    "trans": [
+      "主张"
+    ]
+  },
+  {
+    "name": "benefit",
+    "trans": [
+      "权益"
+    ]
+  },
+  {
+    "name": "affordability",
+    "trans": [
+      "实惠"
+    ]
+  },
+  {
+    "name": "objective",
+    "trans": [
+      "目标"
+    ]
+  },
+  {
+    "name": "incremental",
+    "trans": [
+      "增量的"
+    ]
+  },
+  {
+    "name": "incremental order",
+    "trans": [
+      "增量订单"
+    ]
+  },
+  {
+    "name": "passholder",
+    "trans": [
+      "持卡用户"
+    ]
+  },
+  {
+    "name": "rate",
+    "trans": [
+      "比率"
+    ]
+  },
+  {
+    "name": "incrementality rate",
+    "trans": [
+      "增量率"
+    ]
+  },
+  {
+    "name": "target-user",
+    "trans": [
+      "目标用户"
+    ]
+  },
+  {
+    "name": "measurement",
+    "trans": [
+      "衡量标准"
+    ]
+  },
+  {
+    "name": "sustainable",
+    "trans": [
+      "可持续的"
+    ]
+  },
+  {
+    "name": "evaluation",
+    "trans": [
+      "评估"
+    ]
+  },
+  {
+    "name": "discount",
+    "trans": [
+      "折扣"
+    ]
+  },
+  {
+    "name": "coupon",
+    "trans": [
+      "优惠券"
+    ]
+  },
+  {
+    "name": "point",
+    "trans": [
+      "积分"
+    ]
+  },
+  {
+    "name": "fixed-price",
+    "trans": [
+      "固定价格的"
+    ]
+  },
+  {
+    "name": "perceived value",
+    "trans": [
+      "感知价值"
+    ]
+  },
+  {
+    "name": "platform",
+    "trans": [
+      "平台"
+    ]
+  },
+  {
+    "name": "margin",
+    "trans": [
+      "毛利"
+    ]
+  },
+  {
+    "name": "low-margin",
+    "trans": [
+      "低毛利的"
+    ]
+  },
+  {
+    "name": "economics",
+    "trans": [
+      "单位经济"
+    ]
+  },
+  {
+    "name": "controllability",
+    "trans": [
+      "可控性"
+    ]
+  },
+  {
+    "name": "extensibility",
+    "trans": [
+      "可扩展性"
+    ]
+  },
+  {
+    "name": "purchase",
+    "trans": [
+      "购买"
+    ]
+  },
+  {
+    "name": "usage",
+    "trans": [
+      "使用"
+    ]
+  },
+  {
+    "name": "renewal",
+    "trans": [
+      "续费"
+    ]
+  },
+  {
+    "name": "mvp",
+    "trans": [
+      "最小可行产品"
+    ]
+  },
+  {
+    "name": "rollout",
+    "trans": [
+      "铺开"
+    ]
+  },
+  {
+    "name": "partner-operated",
+    "trans": [
+      "合作方运营的"
+    ]
+  },
+  {
+    "name": "campus",
+    "trans": [
+      "校园"
+    ]
+  },
+  {
+    "name": "differentiated",
+    "trans": [
+      "差异化的"
+    ]
+  },
+  {
+    "name": "pricing",
+    "trans": [
+      "定价"
+    ]
+  },
+  {
+    "name": "standardise",
+    "trans": [
+      "标准化"
+    ]
+  },
+  {
+    "name": "configurable",
+    "trans": [
+      "可配置的"
+    ]
+  },
+  {
+    "name": "governance",
+    "trans": [
+      "治理"
+    ]
+  },
+  {
+    "name": "scalability",
+    "trans": [
+      "可规模化"
+    ]
+  },
+  {
+    "name": "extraction",
+    "trans": [
+      "取数"
+    ]
+  },
+  {
+    "name": "funnel",
+    "trans": [
+      "漏斗"
+    ]
+  },
+  {
+    "name": "funnel analysis",
+    "trans": [
+      "漏斗分析"
+    ]
+  },
+  {
+    "name": "user segmentation",
+    "trans": [
+      "用户分层"
+    ]
+  },
+  {
+    "name": "retention analysis",
+    "trans": [
+      "留存分析"
+    ]
+  },
+  {
+    "name": "dashboard",
+    "trans": [
+      "数据看板"
+    ]
+  },
+  {
+    "name": "bi",
+    "trans": [
+      "商业智能"
+    ]
+  },
+  {
+    "name": "sql",
+    "trans": [
+      "SQL"
+    ]
+  },
+  {
+    "name": "monitor",
+    "trans": [
+      "监控"
+    ]
+  },
+  {
+    "name": "adoption",
+    "trans": [
+      "采用"
+    ]
+  },
+  {
+    "name": "criterion",
+    "trans": [
+      "判定标准"
+    ]
+  },
+  {
+    "name": "execution",
+    "trans": [
+      "执行"
+    ]
+  },
+  {
+    "name": "well-defined",
+    "trans": [
+      "界定清晰的"
+    ]
+  },
+  {
+    "name": "dependency",
+    "trans": [
+      "依赖"
+    ]
+  },
+  {
+    "name": "knowledge",
+    "trans": [
+      "知识"
+    ]
+  },
+  {
+    "name": "prompt",
+    "trans": [
+      "提示词"
+    ]
+  },
+  {
+    "name": "knowledge base",
+    "trans": [
+      "知识库"
+    ]
+  },
+  {
+    "name": "cadence",
+    "trans": [
+      "节奏"
+    ]
+  },
+  {
+    "name": "implementation",
+    "trans": [
+      "落地实施"
+    ]
+  },
+  {
+    "name": "competitor-research",
+    "trans": [
+      "竞品研究"
+    ]
+  },
+  {
+    "name": "variance",
+    "trans": [
+      "差异"
+    ]
+  },
+  {
+    "name": "variance analysis",
+    "trans": [
+      "差异分析"
+    ]
+  },
+  {
+    "name": "sentiment",
+    "trans": [
+      "舆情"
+    ]
+  },
+  {
+    "name": "regression",
+    "trans": [
+      "回归"
+    ]
+  },
+  {
+    "name": "regression testing",
+    "trans": [
+      "回归测试"
+    ]
+  },
+  {
+    "name": "outsource",
+    "trans": [
+      "外包"
+    ]
+  },
+  {
+    "name": "workload",
+    "trans": [
+      "工作量"
+    ]
+  },
+  {
+    "name": "platform-wide",
+    "trans": [
+      "全平台的"
+    ]
+  },
+  {
+    "name": "partnership",
+    "trans": [
+      "对外合作"
+    ]
+  },
+  {
+    "name": "owned-channel",
+    "trans": [
+      "自有渠道的"
+    ]
+  },
+  {
+    "name": "portfolio",
+    "trans": [
+      "产品组合"
+    ]
+  },
+  {
+    "name": "participation",
+    "trans": [
+      "参与"
+    ]
+  },
+  {
+    "name": "reward",
+    "trans": [
+      "奖励"
+    ]
+  },
+  {
+    "name": "draw",
+    "trans": [
+      "抽奖"
+    ]
+  },
+  {
+    "name": "post-purchase",
+    "trans": [
+      "购后的"
+    ]
+  },
+  {
+    "name": "post-purchase reward",
+    "trans": [
+      "购后奖励"
+    ]
+  },
+  {
+    "name": "probability",
+    "trans": [
+      "概率"
+    ]
+  },
+  {
+    "name": "threshold",
+    "trans": [
+      "门槛"
+    ]
+  },
+  {
+    "name": "barrier",
+    "trans": [
+      "障碍"
+    ]
+  },
+  {
+    "name": "traffic",
+    "trans": [
+      "流量"
+    ]
+  },
+  {
+    "name": "touchpoint",
+    "trans": [
+      "触点"
+    ]
+  },
+  {
+    "name": "progressive",
+    "trans": [
+      "递进式的"
+    ]
+  },
+  {
+    "name": "cross-promotion",
+    "trans": [
+      "交叉推广"
+    ]
+  },
+  {
+    "name": "centralise",
+    "trans": [
+      "集中管理"
+    ]
+  },
+  {
+    "name": "live-commerce",
+    "trans": [
+      "直播电商"
+    ]
+  },
+  {
+    "name": "feasibility",
+    "trans": [
+      "可行性"
+    ]
+  },
+  {
+    "name": "partner",
+    "trans": [
+      "合作方"
+    ]
+  },
+  {
+    "name": "multi-department",
+    "trans": [
+      "多部门的"
+    ]
+  },
+  {
+    "name": "integration",
+    "trans": [
+      "对接"
+    ]
+  },
+  {
+    "name": "livestream",
+    "trans": [
+      "直播"
+    ]
+  },
+  {
+    "name": "receipt",
+    "trans": [
+      "实收"
+    ]
+  },
+  {
+    "name": "gross",
+    "trans": [
+      "毛利的"
+    ]
+  },
+  {
+    "name": "gross margin",
+    "trans": [
+      "毛利率"
+    ]
+  },
+  {
+    "name": "interest-based",
+    "trans": [
+      "基于兴趣的"
+    ]
+  },
+  {
+    "name": "offline",
+    "trans": [
+      "线下的"
+    ]
+  },
+  {
+    "name": "event",
+    "trans": [
+      "活动"
+    ]
+  },
+  {
+    "name": "ugc",
+    "trans": [
+      "用户生成内容"
+    ]
+  },
+  {
+    "name": "user-generated",
+    "trans": [
+      "用户生成的"
+    ]
+  },
+  {
+    "name": "user-generated content",
+    "trans": [
+      "用户生成内容"
+    ]
+  },
+  {
+    "name": "feature",
+    "trans": [
+      "功能"
+    ]
+  },
+  {
+    "name": "admin",
+    "trans": [
+      "管理后台"
+    ]
+  },
+  {
+    "name": "console",
+    "trans": [
+      "控制台"
+    ]
+  },
+  {
+    "name": "instrumentation",
+    "trans": [
+      "埋点"
+    ]
+  },
+  {
+    "name": "release",
+    "trans": [
+      "发布"
+    ]
+  },
+  {
+    "name": "accuracy",
+    "trans": [
+      "准确性"
+    ]
+  },
+  {
+    "name": "user-submitted",
+    "trans": [
+      "用户提交的"
+    ]
+  },
+  {
+    "name": "platform-verified",
+    "trans": [
+      "平台核实的"
+    ]
+  },
+  {
+    "name": "moderation",
+    "trans": [
+      "审核"
+    ]
+  },
+  {
+    "name": "curation",
+    "trans": [
+      "策展"
+    ]
+  },
+  {
+    "name": "distribution",
+    "trans": [
+      "分发"
+    ]
+  },
+  {
+    "name": "refine",
+    "trans": [
+      "打磨"
+    ]
+  },
+  {
+    "name": "feedback",
+    "trans": [
+      "反馈"
+    ]
+  },
+  {
+    "name": "listing",
+    "trans": [
+      "信息条目"
+    ]
+  },
+  {
+    "name": "topic",
+    "trans": [
+      "话题"
+    ]
+  },
+  {
+    "name": "communication",
+    "trans": [
+      "沟通"
+    ]
+  },
+  {
+    "name": "phased",
+    "trans": [
+      "分阶段的"
+    ]
+  },
+  {
+    "name": "administration",
+    "trans": [
+      "后台管理"
+    ]
+  },
+  {
+    "name": "reduction",
+    "trans": [
+      "降幅"
+    ]
+  },
+  {
+    "name": "creator",
+    "trans": [
+      "创作者"
+    ]
+  },
+  {
+    "name": "tier",
+    "trans": [
+      "等级"
+    ]
+  },
+  {
+    "name": "creator tiering",
+    "trans": [
+      "创作者分级"
+    ]
+  },
+  {
+    "name": "points-based",
+    "trans": [
+      "积分制的"
+    ]
+  },
+  {
+    "name": "points-based incentive",
+    "trans": [
+      "积分激励"
+    ]
+  },
+  {
+    "name": "high-value",
+    "trans": [
+      "高价值的"
+    ]
+  },
+  {
+    "name": "mission",
+    "trans": [
+      "任务"
+    ]
+  },
+  {
+    "name": "closed loop",
+    "trans": [
+      "闭环"
+    ]
+  },
+  {
+    "name": "interaction",
+    "trans": [
+      "互动"
+    ]
+  },
+  {
+    "name": "organiser",
+    "trans": [
+      "组织者"
+    ]
+  },
+  {
+    "name": "instant",
+    "trans": [
+      "即时的"
+    ]
+  },
+  {
+    "name": "in-app messaging",
+    "trans": [
+      "应用内消息"
+    ]
+  },
+  {
+    "name": "designer",
+    "trans": [
+      "设计师"
+    ]
+  },
+  {
+    "name": "game",
+    "trans": [
+      "游戏"
+    ]
+  },
+  {
+    "name": "game-centre",
+    "trans": [
+      "游戏中心"
+    ]
+  },
+  {
+    "name": "budget",
+    "trans": [
+      "预算"
+    ]
+  },
+  {
+    "name": "budget allocation",
+    "trans": [
+      "预算分配"
+    ]
+  },
+  {
+    "name": "revenue",
+    "trans": [
+      "收入"
+    ]
+  },
+  {
+    "name": "non-linear",
+    "trans": [
+      "非线性的"
+    ]
+  },
+  {
+    "name": "economy",
+    "trans": [
+      "经济系统"
+    ]
+  },
+  {
+    "name": "behaviour",
+    "trans": [
+      "行为"
+    ]
+  },
+  {
+    "name": "player",
+    "trans": [
+      "玩家"
+    ]
+  },
+  {
+    "name": "physical",
+    "trans": [
+      "实物的"
+    ]
+  },
+  {
+    "name": "advertising",
+    "trans": [
+      "广告"
+    ]
+  },
+  {
+    "name": "permission",
+    "trans": [
+      "权限"
+    ]
+  },
+  {
+    "name": "next-day",
+    "trans": [
+      "次日的"
+    ]
+  },
+  {
+    "name": "next-day retention",
+    "trans": [
+      "次日留存"
+    ]
+  },
+  {
+    "name": "register",
+    "trans": [
+      "注册"
+    ]
+  },
+  {
+    "name": "matchmaking",
+    "trans": [
+      "匹配"
+    ]
+  },
+  {
+    "name": "tag",
+    "trans": [
+      "标签"
+    ]
+  },
+  {
+    "name": "algorithm",
+    "trans": [
+      "算法"
+    ]
+  },
+  {
+    "name": "time-based",
+    "trans": [
+      "限时的"
+    ]
+  },
+  {
+    "name": "tournament",
+    "trans": [
+      "赛事"
+    ]
+  },
+  {
+    "name": "monetise",
+    "trans": [
+      "变现"
+    ]
+  },
+  {
+    "name": "re-engage",
+    "trans": [
+      "召回"
+    ]
+  },
+  {
+    "name": "balance",
+    "trans": [
+      "余额"
+    ]
+  },
+  {
+    "name": "roi",
+    "trans": [
+      "投资回报率"
+    ]
+  },
+  {
+    "name": "balance-depleted",
+    "trans": [
+      "余额耗尽的"
+    ]
+  },
+  {
+    "name": "digitalisation",
+    "trans": [
+      "数字化"
+    ]
+  },
+  {
+    "name": "in-game",
+    "trans": [
+      "游戏内的"
+    ]
+  },
+  {
+    "name": "in-game currency",
+    "trans": [
+      "游戏内货币"
+    ]
+  },
+  {
+    "name": "referral-based",
+    "trans": [
+      "基于转介绍的"
+    ]
+  },
+  {
+    "name": "revival",
+    "trans": [
+      "复活"
+    ]
+  },
+  {
+    "name": "card",
+    "trans": [
+      "卡牌"
+    ]
+  },
+  {
+    "name": "3d",
+    "trans": [
+      "三维"
+    ]
+  },
+  {
+    "name": "qa",
+    "trans": [
+      "质量保障"
+    ]
+  },
+  {
+    "name": "onboarding",
+    "trans": [
+      "入职带教"
+    ]
+  },
+  {
+    "name": "user-incentive",
+    "trans": [
+      "用户激励的"
+    ]
+  },
+  {
+    "name": "format",
+    "trans": [
+      "赛制"
+    ]
+  },
+  {
+    "name": "qualifier",
+    "trans": [
+      "预选赛"
+    ]
+  },
+  {
+    "name": "engineer",
+    "trans": [
+      "工程师"
+    ]
+  },
+  {
+    "name": "software",
+    "trans": [
+      "软件"
+    ]
+  },
+  {
+    "name": "prioritisation",
+    "trans": [
+      "优先级排序"
+    ]
+  },
+  {
+    "name": "architecture",
+    "trans": [
+      "架构"
+    ]
+  },
+  {
+    "name": "product architecture",
+    "trans": [
+      "产品架构"
+    ]
+  },
+  {
+    "name": "customer journey",
+    "trans": [
+      "客户旅程"
+    ]
+  },
+  {
+    "name": "customer lifecycle",
+    "trans": [
+      "客户生命周期"
+    ]
+  },
+  {
+    "name": "process",
+    "trans": [
+      "流程"
+    ]
+  },
+  {
+    "name": "collaboration",
+    "trans": [
+      "协作"
+    ]
+  },
+  {
+    "name": "influence",
+    "trans": [
+      "影响力"
+    ]
+  },
+  {
+    "name": "applied",
+    "trans": [
+      "应用的"
+    ]
+  },
+  {
+    "name": "language",
+    "trans": [
+      "语言"
+    ]
+  },
+  {
+    "name": "mandarin",
+    "trans": [
+      "普通话"
+    ]
+  },
+  {
+    "name": "cantonese",
+    "trans": [
+      "粤语"
+    ]
+  },
+  {
+    "name": "listening",
+    "trans": [
+      "听力"
+    ]
+  },
+  {
+    "name": "english",
+    "trans": [
+      "英语"
+    ]
+  },
+  {
+    "name": "proficiency",
+    "trans": [
+      "熟练程度"
+    ]
+  },
+  {
+    "name": "reading",
+    "trans": [
+      "阅读"
+    ]
+  },
+  {
+    "name": "writing",
+    "trans": [
+      "写作"
+    ]
+  }
+]
