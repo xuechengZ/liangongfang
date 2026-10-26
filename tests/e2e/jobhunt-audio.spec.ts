@@ -24,6 +24,32 @@ test('JobHunt_Must requests the same-origin static clip before online audio', as
   expect(onlineRequests.some((url) => new URL(url).searchParams.get('word') === 'product')).toBe(false)
 })
 
+test('cross-functional delivery plays the concatenated same-origin clip', async ({ page }) => {
+  const staticRequests: string[] = []
+  const onlineRequests: string[] = []
+  await page.addInitScript(() => {
+    localStorage.setItem('currentDict', JSON.stringify('job-hunt-must'))
+    localStorage.setItem('currentChapter', JSON.stringify(1))
+  })
+  page.on('request', (request) => {
+    const url = request.url()
+    if (url.includes('/local-pronunciation/JobHunt_Must/')) staticRequests.push(url)
+    if (url.includes(':8787/audio') || url.includes('/api/audio')) onlineRequests.push(url)
+  })
+
+  await page.goto('http://127.0.0.1:5173/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: '开始' }).click()
+  for (let step = 0; step < 7; step += 1) await page.keyboard.press('Control+Shift+ArrowRight')
+
+  await expect.poll(() => staticRequests.some((url) => url.includes('/local-pronunciation/JobHunt_Must/0027-us.mp3'))).toBe(true)
+  expect(
+    onlineRequests.some((url) => {
+      const word = new URL(url).searchParams.get('word')
+      return word === 'cross-functional delivery'
+    }),
+  ).toBe(false)
+})
+
 test('a missing JobHunt static clip falls back to online pronunciation', async ({ page }) => {
   const audio = await readFile(path.resolve('public/sounds/correct.wav'))
   const onlineRequests: string[] = []
